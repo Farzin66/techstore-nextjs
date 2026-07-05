@@ -62,6 +62,14 @@ export async function GET() {
     }
     return NextResponse.json({ message: "Seeded successfully" });
   } catch (error) {
-    return NextResponse.json({ message: "Error seeding" }, { status: 500 });
-  }
+  console.error(error);
+
+  return NextResponse.json(
+    {
+      message: "Error seeding",
+      error: error instanceof Error ? error.message : error,
+    },
+    { status: 500 }
+  );
+}
 }
