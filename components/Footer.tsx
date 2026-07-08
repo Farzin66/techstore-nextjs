@@ -15,7 +15,7 @@ const Footer = () => {
       <div className="container-custom relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
           <div className="space-y-8">
-            <Logo/>
+            <Logo techColor = "text-white" storeColor="text-primary"/>
             <p className="text-sm leading-relaxed max-w-xs">Empowering your digital lifestyle with high-performance hardware and futuristic innovation. Your trusted partner in tech excellence since 2024.</p>
             <div className="flex items-center gap-4">
               {

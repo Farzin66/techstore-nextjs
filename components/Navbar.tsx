@@ -29,7 +29,7 @@ const Navbar = () => {
     
 
         {/* Brand identity - Logo */}
-        <Logo />
+        <Logo techColor="text-primary" storeColor="text-foreground" />
 
         {/* Primary navigation */}
         <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
