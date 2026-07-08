@@ -1,11 +1,11 @@
 import Link from "next/link"
 import Logo from "./Logo"
 import { socialLinks } from "@/data/socialLinks"
-import CatalogLinks from "./CatalogLinks"
-import SupportLinks from "./SupportLinks"
-import FooterInfo from "./FooterInfo"
-import FooterBottom from "./FooterBottom"
-import NewsletterForm from "./NewsletterForm"
+import CatalogLinks from "./footer/CatalogLinks"
+import SupportLinks from "./footer/SupportLinks"
+import FooterInfo from "./footer/FooterInfo"
+import FooterBottom from "./footer/FooterBottom"
+import NewsletterForm from "./footer/NewsletterForm"
  
 
 const Footer = () => {
