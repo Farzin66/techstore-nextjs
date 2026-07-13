@@ -1,19 +1,29 @@
-import { PrivacySection as PrivacySectionType } from "@/types/PrivacySection";
 import type { ReactNode } from "react";
 import { Eye, Lock, Shield } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import type {
+  PrivacySection as PrivacySectionType,
+  PrivacyIcon,
+  PrivacyTheme,
+} from "@/types/PrivacySection";
 
 interface PrivacySectionProps {
   section: PrivacySectionType;
   children: ReactNode;
 };
 
-const iconMap = {
+const iconMap: Record<PrivacyIcon, LucideIcon> = {
   Eye,
   Lock,
   Shield,
 };
 
-const themeStyles = {
+
+const themeStyles: Record<PrivacyTheme, {
+  bg: string;
+  text: string;
+  border: string;
+}> = {
   blue: {
     bg: "bg-blue-50",
     text: "text-blue-600",

@@ -1,19 +1,26 @@
 import { TermsSection as TermsSectionType } from "@/types/TermsSection";
 import { CircleAlert, Gavel, Scale } from "lucide-react"
 import type { ReactNode } from "react";
+import type { LucideIcon } from "lucide-react";
+import type { TermsIcon, TermsTheme } from "@/types/TermsSection";
 
 interface TermsSectionProps {
   section: TermsSectionType;
   children: ReactNode;
 };
 
-const iconMap = {
+const iconMap: Record<TermsIcon, LucideIcon> = {
   Gavel,
   Scale,
   CircleAlert,
 };
 
-const themeStyles = {
+const themeStyles: Record<TermsTheme, {
+  bg: string;
+  text: string;
+  border: string;
+  contentBorder: string;
+}> = {
   blue: {
     bg: "bg-blue-50",
     text: "text-blue-600",
