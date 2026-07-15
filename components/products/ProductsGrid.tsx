@@ -1,8 +1,12 @@
+import { Product } from "@/types/products/products";
 import ProductCard from "../ProductCard";
 
-const dummy = [1, 2, 3, 4, 5, 6, 7, 8];
+interface ProductsGridProps{
+  products: Product[];
+}
 
-const ProductsGrid = () => {
+const ProductsGrid = ({products}: ProductsGridProps) => {
+  console.log(products);
   return (
   <main className="lg:col-span-3">
 
@@ -23,8 +27,8 @@ const ProductsGrid = () => {
 
     <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6">
       {
-        dummy.map((item)=>(
-          <ProductCard key={item}/>
+        products.map((item)=>(
+          <ProductCard key={item._id} product={item}/>
         ))
       }
     </div>
