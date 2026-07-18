@@ -8,11 +8,12 @@ interface ProductCardProps{
 }
 
 const ProductCard = ({product}: ProductCardProps) => {
+console.log(product.mainImage)
   return (
     <div className="group relative bg-white rounded-lg border border-gray-50 overflow-hidden transition-all duration-300 flex flex-col h-full hover:shadow-lg">
         <div className="absolute top-2 left-2 z-20 pointer-events-none">
             <div className="bg-discount text-white px-3 py-1 rounded-full text-[10px] font-bold shadow-sm">
-                Save: ৳{product.price/10}
+                Save: ৳{product.regularPrice - product.price}
             </div>
         </div>
         <div className="absolute top-2 right-2 z-20">
@@ -20,9 +21,9 @@ const ProductCard = ({product}: ProductCardProps) => {
                     <Heart className="w-[18px] h-[18px]"/>
                 </button>
         </div>
-        <Link href="/" className="relative aspect-[5/4] overflow-hidden bg-white border-b border-gray-50 flex items-center justify-center">
+        <Link href={`/products/${product._id}`} className="relative aspect-[5/4] overflow-hidden bg-white border-b border-gray-50 flex items-center justify-center">
                   <Image
-                    src= {product.image}
+                    src= {product.mainImage}
                     alt={product.name}
                     priority={true} 
                     sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 20vw"
@@ -43,7 +44,7 @@ const ProductCard = ({product}: ProductCardProps) => {
                 <div className="mt-auto pt-2 flex items-center justify-between">
                     <div className="flex flex-col">
                         <span className="text-base font-bold text-danger">৳{product.price}</span>
-                        <span className="text-[10px] text-gray-400 line-through">৳{product.price}</span>
+                        <span className="text-[10px] text-gray-400 line-through">৳{product.regularPrice}</span>
                     </div>
                     <button className="p-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-primary hover:text-white transition-all">
                         <ShoppingCart className="w-4 h-4"/>

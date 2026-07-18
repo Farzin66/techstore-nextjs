@@ -3,17 +3,31 @@ import mongoose, { Schema, model, models } from "mongoose";
 const ProductSchema = new Schema(
   {
     name: { type: String, required: true },
+    slug: { type: String, required: true, unique: true },
+    code: { type: String },
     description: { type: String, required: true },
     price: { type: Number, required: true },
     regularPrice: { type: Number },
     images: { type: [String], default: [] },
+    mainImage: { type: String },
+    keyFeatures: [{ type: String }],
     image: { type: String }, // Legacy field retained for compatibility with existing product documents
     category: { type: Schema.Types.ObjectId, ref: "Category", required: true },
     subCategory: { type: String }, // Optional: Keep for legacy or extra categorization if needed, but primary is the ref
     brand: { type: String },
     modelName: { type: String },
     warranty: { type: String },
-    specifications: { type: String },
+    specifications: [
+      {
+        title: String,
+        items: [
+          {
+            label: String,
+            value: String,
+          },
+        ],
+      },
+    ],
     stock: { type: Number, default: 10 },
     reviews: [
       {
@@ -28,7 +42,7 @@ const ProductSchema = new Schema(
     avgRating: { type: Number, default: 0 },
     numReviews: { type: Number, default: 0 },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 // Address potential Hot Module Replacement (HMR) issues by clearing the model if schema components are missing

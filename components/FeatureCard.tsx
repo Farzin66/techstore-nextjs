@@ -15,7 +15,6 @@ const FeatureCard = ({
   iconColor,
   bgColor,
 }: FeatureCardProps) => {
-    console.log(iconColor, bgColor);
     
   return (
     <div className="p-10 rounded-[40px] bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all group cursor-pointer">

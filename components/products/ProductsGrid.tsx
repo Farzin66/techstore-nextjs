@@ -6,7 +6,6 @@ interface ProductsGridProps{
 }
 
 const ProductsGrid = ({products}: ProductsGridProps) => {
-  console.log(products);
   return (
   <main className="lg:col-span-3">
 
