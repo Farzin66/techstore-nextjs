@@ -1,4 +1,4 @@
-import { TermsSection } from "@/types/TermsSection";
+import { TermsSection } from "@/types/Terms-section";
 
 export const termsSections : TermsSection[] = [
     {

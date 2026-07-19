@@ -9,9 +9,7 @@ const SearchBox = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const [search, setSearch] = useState(
-    searchParams.get("search") || ""
-  );
+  const [search, setSearch] = useState(searchParams.get("search") || "");
 
   const debouncedSearch = useDebounce(search, 500);
 
@@ -26,26 +24,20 @@ const SearchBox = () => {
 
     const query = params.toString();
 
-    const newUrl = query
-      ? `/products?${query}`
-      : "/products";
+    const newUrl = query ? `/products?${query}` : "/products";
 
-    const currentUrl =
-      window.location.pathname + window.location.search;
+    const currentUrl = window.location.pathname + window.location.search;
 
     if (currentUrl !== newUrl) {
       router.replace(newUrl);
     }
-
   }, [debouncedSearch, searchParams, router]);
 
-
   function searchInputChangeHandler(
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ) {
     setSearch(event.target.value);
   }
-
 
   return (
     <div>
@@ -59,6 +51,7 @@ const SearchBox = () => {
 
         <input
           type="text"
+          placeholder="Search products..."
           value={search}
           onChange={searchInputChangeHandler}
           className="w-full pl-12 pr-4 py-3.5 bg-gray-50/50 border border-transparent rounded-2xl focus:bg-white focus:border-primary transition-all text-sm font-semibold outline-none"

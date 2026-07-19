@@ -1,4 +1,4 @@
-import { FooterBottomLink } from "@/types/footerBottomLink";
+import { FooterBottomLink } from "@/types/footer-bottom-link";
 
 export const footerBottomLinks: FooterBottomLink[] =[
     {

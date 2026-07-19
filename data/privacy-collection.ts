@@ -1,4 +1,4 @@
-import { PrivacyCollectionData } from "@/types/PrivacySection";
+import { PrivacyCollectionData } from "@/types/privacy-section";
 
 export const privacyCollection: PrivacyCollectionData = [
   {

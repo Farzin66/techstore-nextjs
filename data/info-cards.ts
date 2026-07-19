@@ -1,4 +1,4 @@
-import { InfoCard } from "@/types/infoCard";
+import { InfoCard } from "@/types/info-card";
 
 export const infoCards: InfoCard[] = [
   {

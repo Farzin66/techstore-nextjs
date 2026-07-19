@@ -9,9 +9,9 @@ import {
   Smartphone,
 } from "lucide-react";
 
-import { Category } from "@/types/category";
+import { FeaturedCategory } from "@/types/featured-category";
 
-export const categories: Category[] = [
+export const categories: FeaturedCategory[] = [
   {
     id: 1,
     name: "All Products",
@@ -56,8 +56,8 @@ export const categories: Category[] = [
   },
   {
     id: 8,
-    name: "Laptop",
-    slug: "laptop",
+    name: "Laptops",
+    slug: "laptops",
     icon: Laptop,
   },
   {
@@ -74,8 +74,8 @@ export const categories: Category[] = [
   },
   {
     id: 11,
-    name: "Smartphone",
-    slug: "smartphone",
+    name: "Smartphones",
+    slug: "smartphones",
     icon: Smartphone,
   },
 ];

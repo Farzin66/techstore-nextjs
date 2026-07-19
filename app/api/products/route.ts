@@ -12,18 +12,24 @@ export async function GET(req: Request) {
     const category = searchParams.get("category");
     const search = searchParams.get("search");
     const page = parseInt(searchParams.get("page") || "1");
-    const limit = parseInt(searchParams.get("limit") || "12");
+    const limit = parseInt(searchParams.get("limit") || "16");
     const skip = (page - 1) * limit;
     const sort = searchParams.get("sort") || "newest";
     const minPrice = searchParams.get("minPrice");
     const maxPrice = searchParams.get("maxPrice");
 
     const query: any = {};
-    if (category && category !== "All") {
-      // Fetch sub-categories if any
-      const subCategories = await Category.find({ parent: category }).select("_id").lean();
-      const categoryIds = [category, ...subCategories.map(c => c._id)];
-      query.category = { $in: categoryIds };
+    // if (category && category !== "All") {
+    //   // Fetch sub-categories if any
+
+    //   const subCategories = await Category.find({ parent: category }).select("_id").lean();
+    //   const categoryIds = [category, ...subCategories.map(c => c._id)];
+    //   query.category = { $in: categoryIds };
+    // }
+    const categoryDoc = await Category.findOne({ slug: category });
+
+    if (categoryDoc) {
+      query.category = categoryDoc._id;
     }
     if (search) {
       query.name = { $regex: search, $options: "i" };
@@ -46,26 +52,31 @@ export async function GET(req: Request) {
       .sort(sortOption)
       .skip(skip)
       .limit(limit);
-    
+
     // Make sure all products have a consistent image format, even for older items
-    const migratedProducts = products.map(p => {
-        const productObj = p.toObject();
-        if (!productObj.images || productObj.images.length === 0) {
-            productObj.images = productObj.image ? [productObj.image] : [];
-        }
-        return productObj;
+    const migratedProducts = products.map((p) => {
+      const productObj = p.toObject();
+      if (!productObj.images || productObj.images.length === 0) {
+        productObj.images = productObj.image ? [productObj.image] : [];
+      }
+      return productObj;
     });
 
     const totalPages = Math.ceil(totalProducts / limit);
 
     return NextResponse.json({
-        products: migratedProducts,
-        totalPages,
-        currentPage: page,
-        totalProducts
+      products: migratedProducts,
+      totalPages,
+      currentPage: page,
+      totalProducts,
     });
   } catch (error) {
-    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+    // return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+    console.error(error);
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 },
+    );
   }
 }
 
@@ -79,10 +90,13 @@ export async function POST(req: Request) {
 
     const data = await req.json();
     await connectDB();
-    
+
     const newProduct = await Product.create(data);
     return NextResponse.json(newProduct, { status: 201 });
   } catch (error) {
-    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 },
+    );
   }
 }

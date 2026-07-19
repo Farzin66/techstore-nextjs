@@ -1,7 +1,7 @@
 import TermsSection from "@/components/terms/TermsSection";
-import { termsSections } from "@/data/termsSections";
-import { termsSiteGuardrails } from "@/data/termsSiteGuardrails";
-import { termsUserProtocol } from "@/data/termsUserProtocol";
+import { termsSections } from "@/data/terms-sections";
+import { termsSiteGuardrails } from "@/data/terms-site-guardrails";
+import { termsUserProtocol } from "@/data/terms-user-protocol";
 import { ArrowRight, ChevronRight, FileText, ShieldCheck } from "lucide-react";
 
 const page = () => {

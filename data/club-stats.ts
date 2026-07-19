@@ -1,4 +1,5 @@
-import { ClubStat } from "@/types/clubStat";
+import { ClubStat } from "@/types/club-Stat";
+
 
 export const clubStats: ClubStat[] = [
   {

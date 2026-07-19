@@ -1,4 +1,4 @@
-import { footerBottomLinks } from "@/data/footerBottomLinks";
+import { footerBottomLinks } from "@/data/footer-bottom-links";
 import Link from "next/link";
 
 const FooterBottom = () => {

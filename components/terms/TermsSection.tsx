@@ -1,8 +1,8 @@
-import { TermsSection as TermsSectionType } from "@/types/TermsSection";
+import { TermsSection as TermsSectionType } from "@/types/Terms-section";
 import { CircleAlert, Gavel, Scale } from "lucide-react"
 import type { ReactNode } from "react";
 import type { LucideIcon } from "lucide-react";
-import type { TermsIcon, TermsTheme } from "@/types/TermsSection";
+import type { TermsIcon, TermsTheme } from "@/types/Terms-section";
 
 interface TermsSectionProps {
   section: TermsSectionType;

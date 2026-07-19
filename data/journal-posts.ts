@@ -1,4 +1,4 @@
-import {JournalPost} from "@/types/journalPost"
+import {JournalPost} from "@/types/journal-post"
 
 export const journalPosts:JournalPost[] = [
   {

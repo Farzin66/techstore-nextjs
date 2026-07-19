@@ -1,4 +1,4 @@
-import { PrivacySecurityData } from "@/types/PrivacySection";
+import { PrivacySecurityData } from "@/types/privacy-section";
 import { Shield, Lock, Eye, CircleCheck } from "lucide-react";
 
 export const privacySecurity: PrivacySecurityData = [

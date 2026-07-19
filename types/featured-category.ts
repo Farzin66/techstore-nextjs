@@ -1,6 +1,6 @@
 import { LucideIcon } from "lucide-react";
 
-export interface Category {
+export interface FeaturedCategory {
   id: number;
   name: string;
   slug: string;

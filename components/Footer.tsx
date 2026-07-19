@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Logo from "./Logo"
-import { socialLinks } from "@/data/socialLinks"
+import { socialLinks } from "@/data/social-links"
 import CatalogLinks from "./footer/CatalogLinks"
 import SupportLinks from "./footer/SupportLinks"
 import FooterInfo from "./footer/FooterInfo"

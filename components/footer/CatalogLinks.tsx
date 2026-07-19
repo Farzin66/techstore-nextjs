@@ -1,4 +1,4 @@
-import { catalogLinks } from "@/data/catalogLinks";
+import { catalogLinks } from "@/data/catalog-links";
 import  Link  from "next/link";
 
 const CatalogLinks = () => {

@@ -1,4 +1,4 @@
-import { TermsUserProtocol } from "@/types/TermsSection";
+import { TermsUserProtocol } from "@/types/Terms-section";
 
 export const termsUserProtocol: TermsUserProtocol[] = [
     {

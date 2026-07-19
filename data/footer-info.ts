@@ -1,4 +1,4 @@
-import { FooterInfo } from "@/types/footerInfo";
+import { FooterInfo } from "@/types/footer-info";
 import { Mail, MapPin, Phone } from "lucide-react";
 
 export const footerInfo: FooterInfo[] =[

@@ -1,4 +1,4 @@
-import { SupportContactInfo } from "@/types/supportContactInfo"
+import { SupportContactInfo } from "@/types/support-contact-info"
 
 interface ContactInfoCardProps {
     contact: SupportContactInfo;

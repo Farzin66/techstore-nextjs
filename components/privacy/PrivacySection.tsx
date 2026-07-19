@@ -5,7 +5,7 @@ import type {
   PrivacySection as PrivacySectionType,
   PrivacyIcon,
   PrivacyTheme,
-} from "@/types/PrivacySection";
+} from "@/types/privacy-section";
 
 interface PrivacySectionProps {
   section: PrivacySectionType;

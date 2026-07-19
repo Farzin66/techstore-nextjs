@@ -1,4 +1,4 @@
-import type { CookiesDeploymentStrategy } from "@/types/CookiesSection";
+import type { CookiesDeploymentStrategy } from "@/types/cookies-section";
 
 export const cookiesDeploymentStrategy: CookiesDeploymentStrategy[]  = [
     {

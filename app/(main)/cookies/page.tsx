@@ -1,7 +1,7 @@
 
 import CookiesSection from "@/components/cookies/CookiesSection";
-import { cookiesDeploymentStrategy } from "@/data/cookiesDeploymentStrategy";
-import { cookiesSections } from "@/data/cookiesSection";
+import { cookiesDeploymentStrategy } from "@/data/cookies-deployment-strategy";
+import { cookiesSections } from "@/data/cookies-section";
 import { ArrowRight, ChevronRight, Cookie, ShieldCheck, Settings, Heart } from "lucide-react"
 
 

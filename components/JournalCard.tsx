@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { JournalPost } from "@/types/journalPost";
+import { JournalPost } from "@/types/journal-post";
 type JournalCardProps = Omit<JournalPost, "id">;
 
 export const JournalCard = ({ title, category, image }: JournalCardProps) => {

@@ -1,4 +1,4 @@
-import { supportLinks } from "@/data/supportLinks";
+import { supportLinks } from "@/data/support-links";
 import  Link  from "next/link";
 
 const SupportLinks = () => {

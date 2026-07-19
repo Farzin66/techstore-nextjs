@@ -1,4 +1,4 @@
-import { Category } from "../category";
+import { Category } from "../featured-category";
 
 export interface Product {
   _id: string;

@@ -13,7 +13,7 @@ const ProductsGrid = ({products}: ProductsGridProps) => {
 
     <div className="flex items-center justify-between mb-8 pb-4 border-b border-gray-100">
       <p className="text-sm font-bold text-gray-500">
-        Showing <span className="text-foreground">15</span> revolutionary devices
+        Showing <span className="text-foreground">{products.length}</span> revolutionary devices
       </p>
       <select className="bg-transparent border-none focus:ring-0 text-sm font-black text-foreground cursor-pointer">
         <option value="newest">Newest Arrivals</option>

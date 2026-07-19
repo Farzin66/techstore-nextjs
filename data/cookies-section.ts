@@ -1,4 +1,4 @@
-import { CookiesSection } from "@/types/CookiesSection";
+import { CookiesSection } from "@/types/cookies-section";
 
 export const cookiesSections : CookiesSection[] = [
     {

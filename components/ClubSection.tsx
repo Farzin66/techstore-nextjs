@@ -1,5 +1,5 @@
 import { Sparkles } from "lucide-react";
-import { clubStats } from "@/data/clubStats";
+import { clubStats } from "@/data/club-stats";
 
 function ClubSection() {
   return (

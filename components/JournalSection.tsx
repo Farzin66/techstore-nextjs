@@ -1,5 +1,5 @@
 import { Zap } from "lucide-react"
-import { journalPosts } from "@/data/journalPosts"
+import { journalPosts } from "@/data/journal-posts"
 import JournalCard from "./JournalCard"
 
 const JournalSection = () => {

@@ -3,7 +3,7 @@ import ContactInfoCard from "@/components/support/ContactInfoCard";
 import FAQSection from "@/components/support/FAQSection";
 import LiveChatCard from "@/components/support/LiveChatCard";
 import SupportHero from "@/components/support/SupportHero";
-import { supportContactInfo } from "@/data/supportContactInfo";
+import { supportContactInfo } from "@/data/support-contact-info";
 
 const page = () => {
   return (

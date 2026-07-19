@@ -1,4 +1,4 @@
-import { footerInfo } from "@/data/footerInfo";
+import { footerInfo } from "@/data/footer-info";
 
 const FooterInfo = () => {
   return (

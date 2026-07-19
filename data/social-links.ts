@@ -1,5 +1,5 @@
 import { Facebook, Github, Instagram, Twitter } from "lucide-react";
-import { SocialLink } from "@/types/socialLink";
+import { SocialLink } from "@/types/social-link";
 
 export const socialLinks: SocialLink[] = [
   {

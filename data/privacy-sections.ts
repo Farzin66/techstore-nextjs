@@ -1,6 +1,6 @@
 
 
-import { PrivacySectionsData } from "@/types/PrivacySection";
+import { PrivacySectionsData } from "@/types/privacy-section";
 
 
 export const privacySections: PrivacySectionsData = [

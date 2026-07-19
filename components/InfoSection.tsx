@@ -1,4 +1,4 @@
-import { infoCards } from "@/data/infoCards";
+import { infoCards } from "@/data/info-cards";
 
 const InfoSection = () => {
   return (

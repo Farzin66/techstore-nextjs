@@ -6,11 +6,11 @@ import {
   Shield,
 } from "lucide-react";
 import Link from "next/link";
-import { privacySections } from "@/data/privacySections";
+import { privacySections } from "@/data/privacy-sections";
 import PrivacySection from "@/components/privacy/PrivacySection";
-import { privacyCollection } from "@/data/privacyCollection";
-import { privacySecurity } from "@/data/privacySecurity";
-import { privacyControl } from "@/data/privacyControl";
+import { privacyCollection } from "@/data/privacy-collection";
+import { privacySecurity } from "@/data/privacy-security";
+import { privacyControl } from "@/data/privacy-control";
 
 const page = () => {
   return (

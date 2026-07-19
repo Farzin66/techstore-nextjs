@@ -7,13 +7,19 @@ import ProductsHero from "@/components/products/ProductsHero"
 interface ProductsPageProps {
   searchParams: Promise<{
     search?: string;
+    category?: string;
+    minPrice?: string;
+    maxPrice?: string;
   }>;
 }
 
 const page = async ({searchParams}: ProductsPageProps) => {
   const params = await searchParams;
   const search = params.search || "";
-  const data = await getProducts(search);
+  const category = params.category || ""
+  const minPrice = params.minPrice || ""
+  const maxPrice = params.maxPrice || ""
+  const data = await getProducts(search, category, minPrice, maxPrice);
 
   return (
     <div className="bg-[#F8FAFC] min-h-screen pt-12 pb-24">

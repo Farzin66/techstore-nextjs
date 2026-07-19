@@ -2,7 +2,7 @@
 import { ShieldCheck, Zap, Award } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { heroSlides } from "@/data/heroSlides";
+import { heroSlides } from "@/data/hero-slides";
 
 
 const Hero = () => {

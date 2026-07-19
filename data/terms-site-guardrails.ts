@@ -1,4 +1,4 @@
-import { TermsSiteGuardrail } from "@/types/TermsSection";
+import { TermsSiteGuardrail } from "@/types/Terms-section";
 
 export const termsSiteGuardrails: TermsSiteGuardrail[] = [
     {

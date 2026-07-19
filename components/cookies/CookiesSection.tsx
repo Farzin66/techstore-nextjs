@@ -5,7 +5,7 @@ import type {
   CookiesSection as CookiesSectionType,
   CookiesIcon,
   CookiesTheme,
-} from "@/types/CookiesSection";
+} from "@/types/cookies-section";
 
 interface CookiesSectionProps {
   section: CookiesSectionType;
