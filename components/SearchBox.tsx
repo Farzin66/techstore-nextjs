@@ -3,37 +3,49 @@
 import { useDebounce } from "@/app/hooks/useDebounce";
 import { Search } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const SearchBox = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [search, setSearch] = useState(searchParams.get("search") || "");
 
-  useEffect(() => {
-    setSearch(searchParams.get("search") || "");
-  }, [searchParams]);
+  const [search, setSearch] = useState(
+    searchParams.get("search") || ""
+  );
 
   const debouncedSearch = useDebounce(search, 500);
 
   useEffect(() => {
     const params = new URLSearchParams(searchParams);
-    
-    if (debouncedSearch.trim() === "") {
-      params.delete("search");
-    } else {
+
+    if (debouncedSearch.trim()) {
       params.set("search", debouncedSearch);
+    } else {
+      params.delete("search");
     }
+
     const query = params.toString();
-    router.replace(query ? `/products?${query}` : "/products");
+
+    const newUrl = query
+      ? `/products?${query}`
+      : "/products";
+
+    const currentUrl =
+      window.location.pathname + window.location.search;
+
+    if (currentUrl !== newUrl) {
+      router.replace(newUrl);
+    }
+
   }, [debouncedSearch, searchParams, router]);
 
+
   function searchInputChangeHandler(
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: React.ChangeEvent<HTMLInputElement>
   ) {
-    const value = event.target.value;
-    setSearch(value);
+    setSearch(event.target.value);
   }
+
 
   return (
     <div>
@@ -41,8 +53,10 @@ const SearchBox = () => {
         <Search className="w-3.5 h-3.5" />
         Search
       </h3>
+
       <div className="relative group">
-        <Search className=" w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-primary transition-colors" />
+        <Search className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-primary transition-colors" />
+
         <input
           type="text"
           value={search}
