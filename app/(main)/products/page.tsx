@@ -4,9 +4,16 @@ import ProductsGrid from "@/components/products/ProductsGrid"
 import ProductsHero from "@/components/products/ProductsHero"
 
 
+interface ProductsPageProps {
+  searchParams: Promise<{
+    search?: string;
+  }>;
+}
 
-const page = async () => {
-  const data = await getProducts();
+const page = async ({searchParams}: ProductsPageProps) => {
+  const params = await searchParams;
+  const search = params.search || "";
+  const data = await getProducts(search);
 
   return (
     <div className="bg-[#F8FAFC] min-h-screen pt-12 pb-24">

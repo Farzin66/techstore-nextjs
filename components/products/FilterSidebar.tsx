@@ -1,29 +1,17 @@
 import {
-  Search,
   SlidersHorizontal,
   TrendingUp,
   Zap,
   Sparkles,
 } from "lucide-react";
 import { categories } from "@/data/categories";
+import SearchBox from "../SearchBox";
 
 const FilterSidebar = () => {
   return (
     <aside className="lg:col-span-1 space-y-8">
       <div className="bg-white rounded-[32px] border border-gray-100/50 shadow-sm p-8 space-y-10">
-        <div>
-          <h3 className="text-xs font-bold uppercase tracking-[2px] text-slate-400 mb-6 flex items-center gap-2">
-            <Search className="w-3.5 h-3.5" />
-            Search
-          </h3>
-          <div className="relative group">
-            <Search className=" w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-primary transition-colors" />
-            <input
-              type="text"
-              className="w-full pl-12 pr-4 py-3.5 bg-gray-50/50 border border-transparent rounded-2xl focus:bg-white focus:border-primary transition-all text-sm font-semibold outline-none"
-            />
-          </div>
-        </div>
+        <SearchBox/>
         <div>
           <h3 className="text-xs font-bold uppercase tracking-[2px] text-slate-400 mb-6 flex items-center gap-2">
             <SlidersHorizontal className="w-3.5 h-3.5" />

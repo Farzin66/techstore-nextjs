@@ -11,7 +11,6 @@ import Link from "next/link";
 const page = async ({params}:ParamsID) => {
 
   const {id} = await params;
-  console.log("ID:", id);
   const goalProduct = await getProductById(id)
 
   return (
