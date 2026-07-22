@@ -1,12 +1,13 @@
 import { Product } from "@/types/products/products";
 import { ProductResponse } from "@/types/products/products-response";
 
-export async function getProducts(search?: string, category?: string, minPrice?: string, maxPrice?: string) {
+export async function getProducts(search?: string, category?: string, minPrice?: string, maxPrice?: string, sort?: string) {
   const params = new URLSearchParams();
   if (search?.trim()) params.set("search", search);
   if (category?.trim()) params.set("category", category);
   if (minPrice?.trim()) params.set("minPrice", minPrice);
   if (maxPrice?.trim()) params.set("maxPrice", maxPrice);
+  if (sort?.trim()) params.set("sort", sort);
   const url = `http://localhost:3000/api/products?${params.toString()}`;
   try {
     const response = await fetch(url);

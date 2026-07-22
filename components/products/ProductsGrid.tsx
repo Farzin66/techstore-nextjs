@@ -1,11 +1,18 @@
 import { Product } from "@/types/products/products";
 import ProductCard from "../ProductCard";
+import SortSelect from "../SortSelect";
 
 interface ProductsGridProps{
   products: Product[];
+  view: "list" | "grid";
 }
 
-const ProductsGrid = ({products}: ProductsGridProps) => {
+const ProductsGrid = ({products, view}: ProductsGridProps) => {
+  const productsGridClassName =
+  view === "grid"
+    ? "grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6"
+    : "grid grid-cols-1 gap-8";
+
   return (
   <main className="lg:col-span-3">
 
@@ -15,19 +22,15 @@ const ProductsGrid = ({products}: ProductsGridProps) => {
       <p className="text-sm font-bold text-gray-500">
         Showing <span className="text-foreground">{products.length}</span> revolutionary devices
       </p>
-      <select className="bg-transparent border-none focus:ring-0 text-sm font-black text-foreground cursor-pointer">
-        <option value="newest">Newest Arrivals</option>
-        <option value="price-asc">Price: Low to High</option>
-        <option value="price-desc">Price: High to Low</option>
-      </select>
+      <SortSelect/>
     </div>
 
     {/* Products Grid */}
 
-    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6">
+    <div className={productsGridClassName}>
       {
         products.map((item)=>(
-          <ProductCard key={item._id} product={item}/>
+          <ProductCard key={item._id} product={item} view={view}/>
         ))
       }
     </div>
