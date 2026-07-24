@@ -12,6 +12,7 @@ interface ProductsPageProps {
     maxPrice?: string;
     view?: "list" | "grid";
     sort?: "newest" | "price-asc" | "price-desc";
+    page?: string;
   }>;
 }
 
@@ -23,7 +24,11 @@ const page = async ({searchParams}: ProductsPageProps) => {
   const maxPrice = params.maxPrice || "";
   const view = params.view || "grid";
   const sort = params.sort || "newest";
-  const data = await getProducts(search, category, minPrice, maxPrice, sort);
+  const page = Number(params.page || "1");
+
+  console.log(params);
+  console.log(page);
+  const data = await getProducts(search, category, minPrice, maxPrice, sort, page);
 
   return (
     <div className="bg-[#F8FAFC] min-h-screen pt-12 pb-24">
@@ -31,7 +36,7 @@ const page = async ({searchParams}: ProductsPageProps) => {
         <ProductsHero/>
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 md:gap-12">
             <FilterSidebar/>
-            <ProductsGrid products={data.products} view={view}/>
+            <ProductsGrid products={data.products} view={view} currentPage={data.currentPage} totalPages={data.totalPages}/>
         </div>
       </div>
     </div>

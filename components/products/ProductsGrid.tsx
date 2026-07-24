@@ -1,17 +1,21 @@
 import { Product } from "@/types/products/products";
 import ProductCard from "../ProductCard";
 import SortSelect from "../SortSelect";
+import Pagination from "./Pagination";
 
 interface ProductsGridProps{
   products: Product[];
   view: "list" | "grid";
+  currentPage: number;
+  totalPages: number
 }
 
-const ProductsGrid = ({products, view}: ProductsGridProps) => {
+const ProductsGrid = ({products, view, currentPage, totalPages}: ProductsGridProps) => {
   const productsGridClassName =
   view === "grid"
     ? "grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6"
     : "grid grid-cols-1 gap-8";
+
 
   return (
   <main className="lg:col-span-3">
@@ -36,15 +40,7 @@ const ProductsGrid = ({products, view}: ProductsGridProps) => {
     </div>
 
     {/* Pagination */}
-    
-    <div className="flex items-center justify-center gap-2 mt-16">
-      <button className="px-6 py-3 bg-white border border-gray-100 rounded-xl text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-primary hover:border-primary disabled:opacity-30 disabled:hover:text-gray-500 disabled:hover:border-gray-100 transition-all shadow-sm active:scale-95 cursor-pointer">Previous</button>
-      <div className="flex items-center gap-1 mx-4">
-        <button className="w-10 h-10 rounded-xl text-[10px] font-black transition-all cursor-pointer bg-primary text-white shadow-lg shadow-primary/20 scale-110">1</button>
-        <button className="w-10 h-10 rounded-xl text-[10px] font-black transition-all cursor-pointer bg-white text-gray-400 border border-gray-100 hover:bg-gray-50">2</button>
-      </div>
-      <button className="px-6 py-3 bg-white border border-gray-100 rounded-xl text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-primary hover:border-primary disabled:opacity-30 disabled:hover:text-gray-500 disabled:hover:border-gray-100 transition-all shadow-sm active:scale-95 cursor-pointer">Next</button>
-    </div>
+      <Pagination currentPage={currentPage} totalPages={totalPages}/>
   </main>
   );
 };

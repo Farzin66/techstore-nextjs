@@ -12,11 +12,17 @@ export async function GET(req: Request) {
     const category = searchParams.get("category");
     const search = searchParams.get("search");
     const page = parseInt(searchParams.get("page") || "1");
-    const limit = parseInt(searchParams.get("limit") || "16");
+    const limit = 8;
     const skip = (page - 1) * limit;
     const sort = searchParams.get("sort") || "newest";
     const minPrice = searchParams.get("minPrice");
     const maxPrice = searchParams.get("maxPrice");
+
+    console.log({
+  page,
+  limit,
+  skip,
+});
 
     const query: any = {};
     // if (category && category !== "All") {
@@ -41,10 +47,19 @@ export async function GET(req: Request) {
       if (maxPrice) query.price.$lte = parseFloat(maxPrice);
     }
 
-    let sortOption: any = { createdAt: -1 };
-    if (sort === "price-asc") sortOption = { price: 1 };
-    else if (sort === "price-desc") sortOption = { price: -1 };
-    else if (sort === "newest") sortOption = { createdAt: -1 };
+    // let sortOption: any = { createdAt: -1 };
+    // if (sort === "price-asc") sortOption = { price: 1 };
+    // else if (sort === "price-desc") sortOption = { price: -1 };
+    // else if (sort === "newest") sortOption = { createdAt: -1 };
+    let sortOption: any = { createdAt: -1, _id: -1 };
+
+if (sort === "price-asc") {
+  sortOption = { price: 1, _id: 1 };
+} else if (sort === "price-desc") {
+  sortOption = { price: -1, _id: -1 };
+} else if (sort === "newest") {
+  sortOption = { createdAt: -1, _id: -1 };
+}
 
     const totalProducts = await Product.countDocuments(query);
     const products = await Product.find(query)
@@ -52,6 +67,13 @@ export async function GET(req: Request) {
       .sort(sortOption)
       .skip(skip)
       .limit(limit);
+
+      console.log(
+  products.map((p) => ({
+    name: p.name,
+    id: p._id,
+  }))
+);
 
     // Make sure all products have a consistent image format, even for older items
     const migratedProducts = products.map((p) => {

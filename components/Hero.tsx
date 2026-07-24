@@ -83,7 +83,7 @@ const Hero = () => {
                     width={800}
                     height={800}
                     priority
-                    className="w-full h-full object-contain p-4 lg:p-0 drop-shadow-[0_15px_30px_rgba(34,197,94,0.1) ]"
+                    className="max-w-[85%] max-h-[85%] object-contain p-4 lg:p-0 drop-shadow-[0_15px_30px_rgba(34,197,94,0.1) ]"
                   />
                   <div className="absolute bottom-[10%] right-0 bg-slate-900 text-white px-3 py-1 rounded-lg shadow-xl hidden sm:block">
                     <p className="text-[8px] font-bold uppercase tracking-widest text-emerald-400">
