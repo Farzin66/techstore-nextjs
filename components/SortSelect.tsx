@@ -10,7 +10,6 @@ const SortSelect = () => {
   function sortSelectChangeHandler(
     event: React.ChangeEvent<HTMLSelectElement>,
   ) {
-    console.log(event.target.value);
     const sortValue = event.target.value;
     const params = new URLSearchParams(searchParams);
     params.set("sort", sortValue);

@@ -18,12 +18,6 @@ export async function GET(req: Request) {
     const minPrice = searchParams.get("minPrice");
     const maxPrice = searchParams.get("maxPrice");
 
-    console.log({
-  page,
-  limit,
-  skip,
-});
-
     const query: any = {};
     // if (category && category !== "All") {
     //   // Fetch sub-categories if any
@@ -68,12 +62,6 @@ if (sort === "price-asc") {
       .skip(skip)
       .limit(limit);
 
-      console.log(
-  products.map((p) => ({
-    name: p.name,
-    id: p._id,
-  }))
-);
 
     // Make sure all products have a consistent image format, even for older items
     const migratedProducts = products.map((p) => {

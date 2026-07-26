@@ -1,15 +1,33 @@
-import { Category } from "../featured-category";
+import { Category } from "./category";
+
+
+export interface ProductFeature {
+  title: string;
+  value: string;
+}
 
 export interface Product {
   _id: string;
+
   name: string;
+  slug: string;
   description: string;
+
+  brand: string;
+  code: string;
+  category: Category;
+
   price: number;
   regularPrice: number;
-  images: string[];
-  mainImage: string;
-  category: Category;
   stock: number;
+
   avgRating: number;
   numReviews: number;
+
+  mainImage: string;
+  images: string[];
+
+  keyFeatures: ProductFeature[];
+  technicalSpecifications: ProductFeature[];
 }
+

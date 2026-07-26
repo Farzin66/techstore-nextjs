@@ -28,7 +28,7 @@ const deploymentThemeStyles = {
 
 
 const page = () => {
-    console.log(cookiesSections);
+    
   return (
     <div className="min-h-screen bg-white selection:bg-primary/20">
         <div className="relative overflow-hidden bg-white py-24 sm:py-32 border-b border-gray-100">

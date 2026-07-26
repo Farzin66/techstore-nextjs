@@ -1,54 +1,74 @@
-import mongoose, { Schema, model, models } from "mongoose";
+import { Schema, model, models } from "mongoose";
+
+const ProductFeatureSchema = new Schema(
+  {
+    title: { type: String, required: true },
+    value: { type: String, required: true },
+  },
+  { _id: false }
+);
+
+const ReviewSchema = new Schema(
+  {
+    userId: { type: String, required: true },
+    name: { type: String, required: true },
+    email: { type: String, required: true },
+    rating: { type: Number, required: true, min: 1, max: 5 },
+    comment: { type: String, required: true },
+    createdAt: { type: Date, default: Date.now },
+  },
+  { _id: false }
+);
 
 const ProductSchema = new Schema(
   {
     name: { type: String, required: true },
     slug: { type: String, required: true, unique: true },
-    code: { type: String },
+
     description: { type: String, required: true },
-    price: { type: Number, required: true },
-    regularPrice: { type: Number },
-    images: { type: [String], default: [] },
-    mainImage: { type: String },
-    keyFeatures: [{ type: String }],
-    image: { type: String }, // Legacy field retained for compatibility with existing product documents
-    category: { type: Schema.Types.ObjectId, ref: "Category", required: true },
-    subCategory: { type: String }, // Optional: Keep for legacy or extra categorization if needed, but primary is the ref
+
     brand: { type: String },
-    modelName: { type: String },
-    warranty: { type: String },
-    specifications: [
-      {
-        title: String,
-        items: [
-          {
-            label: String,
-            value: String,
-          },
-        ],
-      },
-    ],
-    stock: { type: Number, default: 10 },
-    reviews: [
-      {
-        userId: { type: String, required: true },
-        name: { type: String, required: true },
-        email: { type: String, required: true },
-        rating: { type: Number, required: true, min: 1, max: 5 },
-        comment: { type: String, required: true },
-        createdAt: { type: Date, default: Date.now },
-      },
-    ],
+    code: { type: String },
+
+    category: {
+      type: Schema.Types.ObjectId,
+      ref: "Category",
+      required: true,
+    },
+
+    price: { type: Number, required: true },
+    regularPrice: { type: Number, required: true },
+
+    stock: { type: Number, default: 0 },
+
     avgRating: { type: Number, default: 0 },
     numReviews: { type: Number, default: 0 },
-  },
-  { timestamps: true },
-);
 
-// Address potential Hot Module Replacement (HMR) issues by clearing the model if schema components are missing
-if (models.Product && !models.Product.schema.path("reviews")) {
-  delete models.Product;
-}
+    mainImage: { type: String, required: true },
+    images: {
+      type: [String],
+      default: [],
+    },
+
+    keyFeatures: {
+      type: [ProductFeatureSchema],
+      default: [],
+    },
+
+    technicalSpecifications: {
+      type: [ProductFeatureSchema],
+      default: [],
+    },
+
+    reviews: {
+      type: [ReviewSchema],
+      default: [],
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
 const Product = models.Product || model("Product", ProductSchema);
 

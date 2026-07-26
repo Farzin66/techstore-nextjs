@@ -87,16 +87,77 @@ export async function GET() {
         mainImage:
           "/images/apple-watch-ultra-3/Apple-Watch-Ultra-3-preview.webp",
 
-        keyFeatures: [],
-
         category: getCategoryId("Gadget"),
 
         brand: "Apple",
 
         stock: 10,
+        code: "B6F8DE",
+
+        keyFeatures: [
+          {
+            title: "Display",
+            value: "2.12-inch Always-On Retina LTPO OLED",
+          },
+          {
+            title: "Chip",
+            value: "Apple S10 SiP",
+          },
+          {
+            title: "Body",
+            value: "49mm Titanium Case",
+          },
+          {
+            title: "Water Resistance",
+            value: "100m + EN13319 Certified",
+          },
+        ],
+
+        technicalSpecifications: [
+          {
+            title: "Display Size",
+            value: "2.12-inch LTPO OLED",
+          },
+          {
+            title: "Resolution",
+            value: "410 × 502 pixels",
+          },
+          {
+            title: "Brightness",
+            value: "Up to 3000 nits",
+          },
+          {
+            title: "Processor",
+            value: "Apple S10 SiP",
+          },
+          {
+            title: "Storage",
+            value: "64GB",
+          },
+          {
+            title: "Connectivity",
+            value: "Wi-Fi, Bluetooth 5.3, GPS, LTE",
+          },
+          {
+            title: "Battery",
+            value: "Up to 72 hours (Low Power Mode)",
+          },
+          {
+            title: "Charging",
+            value: "Fast Magnetic Charging",
+          },
+          {
+            title: "Sensors",
+            value: "Heart Rate, ECG, Blood Oxygen, Temperature, Depth",
+          },
+          {
+            title: "Operating System",
+            value: "watchOS",
+          },
+        ],
       },
 
-        {
+      {
         name: "MX Brio",
         slug: "mx-brio",
         description: `Logitech MX Brio Ultra HD 4K Webcam
@@ -110,7 +171,7 @@ The MX Brio includes dual beamforming microphones with advanced noise reduction 
         Additional features include RightLight 3 with HDR technology, advanced autofocus, a built-in privacy shutter, and Logi Options+ software for full manual camera controls such as ISO, white balance, exposure, tint, vibrance, and more.`,
         price: 21000,
         regularPrice: 22000,
-        avgRating:0,
+        avgRating: 0,
         images: [
           "/images/mx-brio/MX-Brio-1.webp",
           "/images/mx-brio/MX-Brio-2.webp",
@@ -118,16 +179,77 @@ The MX Brio includes dual beamforming microphones with advanced noise reduction 
 
         mainImage: "/images/mx-brio/MX-Brio-preview.webp",
 
-        keyFeatures: [],
-
         category: getCategoryId("Computer Accessories"),
 
         brand: "Logitech",
 
         stock: 10,
+        code: "ACA380",
+
+        keyFeatures: [
+          {
+            title: "Resolution",
+            value: "4K Ultra HD",
+          },
+          {
+            title: "Frame Rate",
+            value: "4K30 / 1080p60",
+          },
+          {
+            title: "Microphones",
+            value: "Dual Beamforming",
+          },
+          {
+            title: "Connection",
+            value: "USB Type-C",
+          },
+        ],
+
+        technicalSpecifications: [
+          {
+            title: "Sensor",
+            value: "Sony STARVIS CMOS",
+          },
+          {
+            title: "Max Resolution",
+            value: "3840 × 2160",
+          },
+          {
+            title: "Video Modes",
+            value: "4K30 / 1080p60 / 720p60",
+          },
+          {
+            title: "Field of View",
+            value: "90° / 78° / 65°",
+          },
+          {
+            title: "Focus",
+            value: "Autofocus",
+          },
+          {
+            title: "HDR",
+            value: "RightLight 5 HDR",
+          },
+          {
+            title: "Microphones",
+            value: "Dual Beamforming Noise Reduction",
+          },
+          {
+            title: "Interface",
+            value: "USB-C (USB 3.0)",
+          },
+          {
+            title: "Privacy Shutter",
+            value: "Built-in",
+          },
+          {
+            title: "Compatibility",
+            value: "Windows / macOS",
+          },
+        ],
       },
 
-         {
+      {
         name: "ROG Rapture GT-AX11000 Pro",
         slug: "rog-rapture-gt-ax11000-pro",
         description: `Asus ROG Rapture GT-AX11000 Pro Tri-Band 11000 Mbps Gigabit WiFi Gaming Router
@@ -137,7 +259,7 @@ The MX Brio includes dual beamforming microphones with advanced noise reduction 
         Advanced technologies such as OFDMA, MU-MIMO, Beamforming, RangeBoost Plus, WPA3 security, ASUSWRT, AiMesh compatibility, and gaming acceleration ensure exceptional wireless coverage and optimized online gameplay.`,
         price: 60000,
         regularPrice: 61000,
-        avgRating:5,
+        avgRating: 5,
         images: [
           "/images/rog-rapture-gt-ax11000-pro/ROG-Rapture-GT-AX11000-Pro-1.webp",
           "/images/rog-rapture-gt-ax11000-pro/ROG-Rapture-GT-AX11000-Pro-2.webp",
@@ -148,15 +270,75 @@ The MX Brio includes dual beamforming microphones with advanced noise reduction 
         mainImage:
           "/images/rog-rapture-gt-ax11000-pro/ROG-Rapture-GT-AX11000-Pro-preview.webp",
 
-        keyFeatures: [],
-
         category: getCategoryId("Networking"),
 
         brand: "Asus",
 
         stock: 10,
+        Code: "515A52",
+
+        keyFeatures: [
+          {
+            title: "WiFi",
+            value: "WiFi 6 Tri-Band",
+          },
+          {
+            title: "Processor",
+            value: "2.0GHz Quad-Core",
+          },
+          {
+            title: "WAN",
+            value: "10G + 2.5G",
+          },
+          {
+            title: "Antennas",
+            value: "8 External Antennas",
+          },
+        ],
+
+        technicalSpecifications: [
+          {
+            title: "CPU",
+            value: "2.0GHz Quad-Core",
+          },
+          {
+            title: "RAM",
+            value: "1GB DDR4",
+          },
+          {
+            title: "Flash",
+            value: "256MB NAND",
+          },
+          {
+            title: "WiFi Standard",
+            value: "WiFi 6 (802.11ax)",
+          },
+          {
+            title: "Wireless Speed",
+            value: "Up to 11000Mbps",
+          },
+          {
+            title: "Frequency",
+            value: "Tri-Band",
+          },
+          {
+            title: "WAN Ports",
+            value: "1×10G + 1×2.5G",
+          },
+          {
+            title: "LAN Ports",
+            value: "4×Gigabit",
+          },
+          {
+            title: "USB",
+            value: "USB 3.2 Gen1 + USB 2.0",
+          },
+          {
+            title: "Security",
+            value: "WPA3, WPA2",
+          },
+        ],
       },
-      
 
       {
         name: "Mac Studio M4 Max",
@@ -167,7 +349,7 @@ The MX Brio includes dual beamforming microphones with advanced noise reduction 
         With support for up to five displays, Thunderbolt 5 connectivity, and 10Gb Ethernet, the Apple Mac Studio M4 Max is built to be the ultimate hub for video editors, 3D artists, developers, and content creators.`,
         price: 285000,
         regularPrice: 313500,
-        avgRating:0,
+        avgRating: 0,
         images: [
           "/images/mac-studio-m4-max/Mac-Studio-M4-Max-1.webp",
           "/images/mac-studio-m4-max/Mac-Studio-M4-Max-2.webp",
@@ -176,16 +358,75 @@ The MX Brio includes dual beamforming microphones with advanced noise reduction 
 
         mainImage: "/images/mac-studio-m4-max/Mac-Studio-M4-Max-preview.webp",
 
-        keyFeatures: [],
-
         category: getCategoryId("Desktop"),
 
         brand: "Apple",
 
         stock: 10,
-      },
+        code: "EB676E",
 
-    
+        keyFeatures: [
+          {
+            title: "Chip",
+            value: "Apple M4 Max",
+          },
+          {
+            title: "CPU",
+            value: "14-Core",
+          },
+          {
+            title: "GPU",
+            value: "32-Core",
+          },
+          {
+            title: "Memory",
+            value: "36GB Unified",
+          },
+        ],
+
+        technicalSpecifications: [
+          {
+            title: "Processor",
+            value: "Apple M4 Max",
+          },
+          {
+            title: "CPU",
+            value: "14-Core",
+          },
+          {
+            title: "GPU",
+            value: "32-Core",
+          },
+          {
+            title: "Neural Engine",
+            value: "16-Core",
+          },
+          {
+            title: "Memory",
+            value: "36GB Unified Memory",
+          },
+          {
+            title: "Storage",
+            value: "1TB SSD",
+          },
+          {
+            title: "Ports",
+            value: "Thunderbolt 5, HDMI, USB-C",
+          },
+          {
+            title: "Networking",
+            value: "Wi-Fi 6E, Bluetooth 5.3, 10Gb Ethernet",
+          },
+          {
+            title: "Operating System",
+            value: "macOS",
+          },
+          {
+            title: "Color",
+            value: "Silver",
+          },
+        ],
+      },
 
       {
         name: "ROG Azoth Extreme",
@@ -197,7 +438,7 @@ The MX Brio includes dual beamforming microphones with advanced noise reduction 
         Compatible with Windows 11 and macOS, the ROG Azoth Extreme combines professional-grade gaming performance with luxury design and advanced customization through Armoury Crate.`,
         price: 63999,
         regularPrice: 66000,
-        avgRating:0,
+        avgRating: 0,
         images: [
           "/images/rog-azoth-extreme/ROG-Azoth-Extreme-1.webp",
           "/images/rog-azoth-extreme/ROG-Azoth-Extreme-2.webp",
@@ -207,13 +448,74 @@ The MX Brio includes dual beamforming microphones with advanced noise reduction 
 
         mainImage: "/images/rog-azoth-extreme/ROG-Azoth-Extreme-preview.webp",
 
-        keyFeatures: [],
-
         category: getCategoryId("Computer Accessories"),
 
         brand: "Asus",
 
         stock: 10,
+        code: "06EB87",
+
+        keyFeatures: [
+          {
+            title: "Switches",
+            value: "ROG NX Mechanical",
+          },
+          {
+            title: "Connectivity",
+            value: "Tri-Mode Wireless",
+          },
+          {
+            title: "Display",
+            value: "OLED Touchscreen",
+          },
+          {
+            title: "Polling Rate",
+            value: "8000Hz",
+          },
+        ],
+
+        technicalSpecifications: [
+          {
+            title: "Keyboard Type",
+            value: "Mechanical Gaming Keyboard",
+          },
+          {
+            title: "Switches",
+            value: "ROG NX Hot-Swappable",
+          },
+          {
+            title: "Connectivity",
+            value: "USB-C, Bluetooth, 2.4GHz",
+          },
+          {
+            title: "Polling Rate",
+            value: "8000Hz",
+          },
+          {
+            title: "Lighting",
+            value: "Per-Key Aura RGB",
+          },
+          {
+            title: "Display",
+            value: "OLED Touchscreen",
+          },
+          {
+            title: "Battery",
+            value: "Long-life Rechargeable",
+          },
+          {
+            title: "Compatibility",
+            value: "Windows / macOS",
+          },
+          {
+            title: "Software",
+            value: "Armoury Crate",
+          },
+          {
+            title: "Extras",
+            value: "Detachable Wrist Rest",
+          },
+        ],
       },
 
       {
@@ -226,7 +528,7 @@ The MX Brio includes dual beamforming microphones with advanced noise reduction 
         Perfect for collectors and gamers who want a premium PlayStation experience with exclusive aesthetics and top-tier gaming performance.`,
         price: 87000,
         regularPrice: 95700,
-        avgRating:0,
+        avgRating: 0,
         images: [
           "/images/playstation-5-ghost-of-yotei-gold-edition/PlayStation-5-Ghost-of-Yotei-Gold-Edition-1.webp",
           "/images/playstation-5-ghost-of-yotei-gold-edition/PlayStation-5-Ghost-of-Yotei-Gold-Edition-2.webp",
@@ -237,16 +539,75 @@ The MX Brio includes dual beamforming microphones with advanced noise reduction 
         mainImage:
           "/images/playstation-5-ghost-of-yotei-gold-edition/PlayStation-5-Ghost-of-Yotei-Gold-Edition-preview.webp",
 
-        keyFeatures: [],
-
         category: getCategoryId("Gaming Console"),
 
         brand: "Sony",
 
         stock: 10,
-      },
+        code: "F2CFB5",
 
-   
+        keyFeatures: [
+          {
+            title: "Storage",
+            value: "1TB Ultra High-Speed SSD",
+          },
+          {
+            title: "Graphics",
+            value: "4K Gaming up to 120Hz",
+          },
+          {
+            title: "Controller",
+            value: "DualSense Wireless Controller",
+          },
+          {
+            title: "Edition",
+            value: "Ghost of Yōtei Gold Limited Edition",
+          },
+        ],
+
+        technicalSpecifications: [
+          {
+            title: "CPU",
+            value: "AMD Zen 2 8-Core",
+          },
+          {
+            title: "GPU",
+            value: "AMD RDNA 2",
+          },
+          {
+            title: "Storage",
+            value: "1TB SSD",
+          },
+          {
+            title: "Video Output",
+            value: "Up to 4K 120Hz / 8K Supported",
+          },
+          {
+            title: "Ray Tracing",
+            value: "Supported",
+          },
+          {
+            title: "Audio",
+            value: "Tempest 3D AudioTech",
+          },
+          {
+            title: "Controller",
+            value: "DualSense",
+          },
+          {
+            title: "Network",
+            value: "Wi-Fi 6, Bluetooth",
+          },
+          {
+            title: "Backward Compatibility",
+            value: "PS4 Games Supported",
+          },
+          {
+            title: "Edition",
+            value: "Limited Gold Edition",
+          },
+        ],
+      },
 
       {
         name: "iPhone 17 Pro Max",
@@ -259,7 +620,7 @@ The MX Brio includes dual beamforming microphones with advanced noise reduction 
         Combined with a premium titanium body, USB-C connectivity, Wi-Fi 7, Apple Intelligence, and all-day battery life, the iPhone 17 Pro Max is Apple's most advanced smartphone yet.`,
         price: 230000,
         regularPrice: 249999,
-        avgRating:0,
+        avgRating: 0,
         images: [
           "/images/iphone-17-pro-max/iPhone-17-Pro-Max-1.webp",
           "/images/iphone-17-pro-max/iPhone-17-Pro-Max-2.webp",
@@ -269,13 +630,74 @@ The MX Brio includes dual beamforming microphones with advanced noise reduction 
 
         mainImage: "/images/iphone-17-pro-max/iPhone-17-Pro-Max-preview.webp",
 
-        keyFeatures: [],
-
         category: getCategoryId("Smartphone"),
 
         brand: "Apple",
 
         stock: 10,
+        code: "842468",
+
+        keyFeatures: [
+          {
+            title: "Display",
+            value: "6.9-inch LTPO OLED 120Hz",
+          },
+          {
+            title: "Chip",
+            value: "Apple A19 Pro",
+          },
+          {
+            title: "Camera",
+            value: "Triple 48MP Pro Camera",
+          },
+          {
+            title: "Body",
+            value: "Grade 5 Titanium",
+          },
+        ],
+
+        technicalSpecifications: [
+          {
+            title: "Display",
+            value: "6.9-inch LTPO Super Retina XDR OLED",
+          },
+          {
+            title: "Resolution",
+            value: "2868 × 1320",
+          },
+          {
+            title: "Processor",
+            value: "Apple A19 Pro",
+          },
+          {
+            title: "RAM",
+            value: "12GB",
+          },
+          {
+            title: "Storage",
+            value: "256GB / 512GB / 1TB / 2TB",
+          },
+          {
+            title: "Main Camera",
+            value: "48MP + 48MP + 48MP",
+          },
+          {
+            title: "Front Camera",
+            value: "24MP",
+          },
+          {
+            title: "Battery",
+            value: "Up to 30 Hours Video Playback",
+          },
+          {
+            title: "Operating System",
+            value: "iOS 19",
+          },
+          {
+            title: "Protection",
+            value: "IP68",
+          },
+        ],
       },
 
       {
@@ -288,7 +710,7 @@ The MX Brio includes dual beamforming microphones with advanced noise reduction 
         With support for 8K resolution, DisplayPort 2.1a, HDMI, PCIe 5.0 power delivery, and advanced ray tracing technologies, the RTX 5090 LIGHTNING Z is designed for enthusiasts who demand uncompromising performance.`,
         price: 990000,
         regularPrice: 995000,
-        avgRating:5,
+        avgRating: 5,
         images: [
           "/images/geforce-rtx-5090-32g-lightning-z/GeForce-RTX-5090-32G-LIGHTNING-Z-1.webp",
           "/images/geforce-rtx-5090-32g-lightning-z/GeForce-RTX-5090-32G-LIGHTNING-Z-2.webp",
@@ -299,13 +721,74 @@ The MX Brio includes dual beamforming microphones with advanced noise reduction 
         mainImage:
           "/images/geforce-rtx-5090-32g-lightning-z/GeForce-RTX-5090-32G-LIGHTNING-Z-preview.webp",
 
-        keyFeatures: [],
-
         category: getCategoryId("Computer Hardware"),
 
         brand: "MSI",
 
         stock: 10,
+        code: "515A3C",
+
+        keyFeatures: [
+          {
+            title: "GPU",
+            value: "NVIDIA RTX 5090",
+          },
+          {
+            title: "Memory",
+            value: "32GB GDDR7",
+          },
+          {
+            title: "Cooling",
+            value: "Liquid Cooling",
+          },
+          {
+            title: "CUDA Cores",
+            value: "21760",
+          },
+        ],
+
+        technicalSpecifications: [
+          {
+            title: "CUDA Cores",
+            value: "21760",
+          },
+          {
+            title: "Boost Clock",
+            value: "2730 MHz",
+          },
+          {
+            title: "Extreme Clock",
+            value: "2775 MHz",
+          },
+          {
+            title: "Memory",
+            value: "32GB GDDR7",
+          },
+          {
+            title: "Memory Bus",
+            value: "512-bit",
+          },
+          {
+            title: "Display Outputs",
+            value: "3× DisplayPort 2.1a + HDMI",
+          },
+          {
+            title: "Power Connector",
+            value: "16-pin PCIe 5.0",
+          },
+          {
+            title: "Cooling",
+            value: "Liquid Cooling System",
+          },
+          {
+            title: "API",
+            value: "DirectX 12 Ultimate",
+          },
+          {
+            title: "Maximum Resolution",
+            value: "7680 × 4320",
+          },
+        ],
       },
 
       {
@@ -318,7 +801,7 @@ The MX Brio includes dual beamforming microphones with advanced noise reduction 
         Additional features such as KVM Switch, CoreSync lighting, Picture-by-Picture, USB hub, ergonomic stand adjustments, and premium build quality make it one of the most capable flagship monitors available today.`,
         price: 320000,
         regularPrice: 340000,
-        avgRating:0,
+        avgRating: 0,
         images: [
           "/images/odyssey-neo-g9/Odyssey-Neo-G9-1.webp",
           "/images/odyssey-neo-g9/Odyssey-Neo-G9-2.webp",
@@ -328,13 +811,74 @@ The MX Brio includes dual beamforming microphones with advanced noise reduction 
 
         mainImage: "/images/odyssey-neo-g9/Odyssey-Neo-G9-preview.webp",
 
-        keyFeatures: [],
-
         category: getCategoryId("Monitor"),
 
         brand: "Samsung",
 
         stock: 10,
+        code: "515A35",
+
+        keyFeatures: [
+          {
+            title: "Size",
+            value: "57-inch Dual UHD",
+          },
+          {
+            title: "Refresh Rate",
+            value: "240Hz",
+          },
+          {
+            title: "Panel",
+            value: "Quantum Mini LED",
+          },
+          {
+            title: "Response Time",
+            value: "1ms",
+          },
+        ],
+
+        technicalSpecifications: [
+          {
+            title: "Display Size",
+            value: "57-inch",
+          },
+          {
+            title: "Resolution",
+            value: "7680 × 2160",
+          },
+          {
+            title: "Panel",
+            value: "VA Mini LED",
+          },
+          {
+            title: "Refresh Rate",
+            value: "240Hz",
+          },
+          {
+            title: "Response Time",
+            value: "1ms GTG",
+          },
+          {
+            title: "HDR",
+            value: "DisplayHDR 1000",
+          },
+          {
+            title: "Adaptive Sync",
+            value: "FreeSync Premium Pro",
+          },
+          {
+            title: "Ports",
+            value: "DisplayPort 2.1 + 3× HDMI 2.1",
+          },
+          {
+            title: "USB Hub",
+            value: "2× USB 3.0",
+          },
+          {
+            title: "Curvature",
+            value: "1000R",
+          },
+        ],
       },
 
       {
@@ -347,7 +891,7 @@ The MX Brio includes dual beamforming microphones with advanced noise reduction 
         With official Starlink hardware, premium build quality, and flexible deployment, the Flat High Performance Kit is an excellent choice for remote homes, businesses, RVs, marine installations, and mission-critical internet connectivity.`,
         price: 185000,
         regularPrice: 185000,
-        avgRating:0,
+        avgRating: 0,
         images: [
           "/images/starlink-flat-high-performance/Starlink-Flat-High-Performance-1.webp",
           "/images/starlink-flat-high-performance/Starlink-Flat-High-Performance-2.webp",
@@ -356,13 +900,74 @@ The MX Brio includes dual beamforming microphones with advanced noise reduction 
         mainImage:
           "/images/starlink-flat-high-performance/Starlink-Flat-High-Performance-preview.webp",
 
-        keyFeatures: [],
-
         category: getCategoryId("Networking"),
 
         brand: "Starlink",
 
         stock: 10,
+        code: "6F2DA6",
+
+        keyFeatures: [
+          {
+            title: "Antenna",
+            value: "Electronic Phased Array",
+          },
+          {
+            title: "Coverage",
+            value: "Up to 185m²",
+          },
+          {
+            title: "Devices",
+            value: "Supports 128 Devices",
+          },
+          {
+            title: "Weather",
+            value: "Extreme Weather Resistant",
+          },
+        ],
+
+        technicalSpecifications: [
+          {
+            title: "Antenna Type",
+            value: "Electronic Phased Array",
+          },
+          {
+            title: "Field of View",
+            value: "140°",
+          },
+          {
+            title: "Wi-Fi",
+            value: "Wi-Fi 5 Dual-Band",
+          },
+          {
+            title: "Coverage",
+            value: "Up to 185m²",
+          },
+          {
+            title: "Device Capacity",
+            value: "128 Devices",
+          },
+          {
+            title: "Mesh Support",
+            value: "Up to 12 Nodes",
+          },
+          {
+            title: "Wind Resistance",
+            value: "Up to 280 km/h",
+          },
+          {
+            title: "Snow Melt",
+            value: "75 mm/hour",
+          },
+          {
+            title: "Dish Rating",
+            value: "IP56",
+          },
+          {
+            title: "Router Rating",
+            value: "IP54",
+          },
+        ],
       },
 
       {
@@ -375,7 +980,7 @@ The MX Brio includes dual beamforming microphones with advanced noise reduction 
         Its premium glass console, wireless rear speaker connectivity, and high-quality Bose audio processing make it one of the most advanced home theater systems available for immersive entertainment.`,
         price: 660000,
         regularPrice: 665000,
-        avgRating:0,
+        avgRating: 0,
         images: [
           "/images/lifestyle-650/Lifestyle-650-1.webp",
           "/images/lifestyle-650/Lifestyle-650-2.webp",
@@ -385,13 +990,74 @@ The MX Brio includes dual beamforming microphones with advanced noise reduction 
 
         mainImage: "/images/lifestyle-650/Lifestyle-650-preview.webp",
 
-        keyFeatures: [],
-
         category: getCategoryId("Audio"),
 
         brand: "Bose",
 
         stock: 10,
+        code: "4DE06D",
+
+        keyFeatures: [
+          {
+            title: "Speaker System",
+            value: "5.1 Channel Home Entertainment",
+          },
+          {
+            title: "Speakers",
+            value: "OmniJewel Speaker System",
+          },
+          {
+            title: "Bass Module",
+            value: "Wireless Acoustimass Module",
+          },
+          {
+            title: "Connectivity",
+            value: "Bluetooth + HDMI ARC",
+          },
+        ],
+
+        technicalSpecifications: [
+          {
+            title: "Center Speaker",
+            value: "OmniJewel Centre Speaker",
+          },
+          {
+            title: "Satellite Speakers",
+            value: "4 × OmniJewel Speakers",
+          },
+          {
+            title: "Bass Module",
+            value: "Wireless Acoustimass Bass Module",
+          },
+          {
+            title: "Audio Technology",
+            value: "ADAPTiQ Room Calibration",
+          },
+          {
+            title: "HDMI",
+            value: "1× HDMI ARC Output + 5× HDMI Inputs",
+          },
+          {
+            title: "Digital Audio",
+            value: "2× Optical + 2× Coaxial",
+          },
+          {
+            title: "Bluetooth",
+            value: "Supported",
+          },
+          {
+            title: "Ethernet",
+            value: "1× RJ45",
+          },
+          {
+            title: "USB",
+            value: "Software Updates Only",
+          },
+          {
+            title: "Warranty",
+            value: "1 Year Service Warranty",
+          },
+        ],
       },
 
       {
@@ -405,7 +1071,7 @@ The MX Brio includes dual beamforming microphones with advanced noise reduction 
         With Wi-Fi, Bluetooth, USB-C connectivity, HDR support, slow-motion recording, and rugged construction, the HERO11 Creator Edition is built for creators who demand professional-quality content anywhere.`,
         price: 45000,
         regularPrice: 48400,
-        avgRating:0,
+        avgRating: 0,
         images: [
           "/images/hero11-black-creator-edition/HERO11-Black-Creator-Edition-1.webp",
           "/images/hero11-black-creator-edition/HERO11-Black-Creator-Edition-2.webp",
@@ -416,13 +1082,74 @@ The MX Brio includes dual beamforming microphones with advanced noise reduction 
         mainImage:
           "/images/hero11-black-creator-edition/HERO11-Black-Creator-Edition-preview.webp",
 
-        keyFeatures: [],
-
         category: getCategoryId("Gadget"),
 
         brand: "GoPro",
 
         stock: 10,
+        code: "528102",
+
+        keyFeatures: [
+          {
+            title: "Camera",
+            value: "27MP Action Camera",
+          },
+          {
+            title: "Video",
+            value: "5.3K Recording",
+          },
+          {
+            title: "Display",
+            value: "Dual LCD Displays",
+          },
+          {
+            title: "Waterproof",
+            value: "Up to 10m",
+          },
+        ],
+
+        technicalSpecifications: [
+          {
+            title: "Sensor",
+            value: '1/1.9" CMOS',
+          },
+          {
+            title: "Photo Resolution",
+            value: "27MP",
+          },
+          {
+            title: "Video Resolution",
+            value: "5.3K",
+          },
+          {
+            title: "Slow Motion",
+            value: "Up to 8×",
+          },
+          {
+            title: "Rear Display",
+            value: '2.27" Touch LCD',
+          },
+          {
+            title: "Front Display",
+            value: '1.4" Color LCD',
+          },
+          {
+            title: "Battery",
+            value: "1720mAh Enduro Battery",
+          },
+          {
+            title: "Connectivity",
+            value: "Wi-Fi + Bluetooth + USB-C",
+          },
+          {
+            title: "Storage",
+            value: "microSD (V30/UHS-3)",
+          },
+          {
+            title: "Water Resistance",
+            value: "10m",
+          },
+        ],
       },
 
       {
@@ -436,7 +1163,7 @@ The MX Brio includes dual beamforming microphones with advanced noise reduction 
         The Fly More Combo Plus includes three Intelligent Flight Battery Plus units, a Two-Way Charging Hub, spare propellers, carrying bag, and the DJI RC2 controller with a built-in display for a complete premium flying experience.`,
         price: 97000,
         regularPrice: 120000,
-        avgRating:5,
+        avgRating: 5,
         images: [
           "/images/mini-5-pro-fly-more-combo-plus/Mini-5-Pro-Fly-More-Combo-Plus-1.webp",
           "/images/mini-5-pro-fly-more-combo-plus/Mini-5-Pro-Fly-More-Combo-Plus-2.webp",
@@ -447,13 +1174,74 @@ The MX Brio includes dual beamforming microphones with advanced noise reduction 
         mainImage:
           "/images/mini-5-pro-fly-more-combo-plus/Mini-5-Pro-Fly-More-Combo-Plus-preview.webp",
 
-        keyFeatures: [],
-
         category: getCategoryId("Gadget"),
 
         brand: "DJI",
 
         stock: 10,
+        code: "20A51A",
+
+        keyFeatures: [
+          {
+            title: "Camera",
+            value: "50MP 1-inch CMOS",
+          },
+          {
+            title: "Video",
+            value: "4K 120fps",
+          },
+          {
+            title: "Flight Time",
+            value: "Up to 52 Minutes",
+          },
+          {
+            title: "Controller",
+            value: "DJI RC2",
+          },
+        ],
+
+        technicalSpecifications: [
+          {
+            title: "Sensor",
+            value: "1-inch CMOS",
+          },
+          {
+            title: "Resolution",
+            value: "50MP",
+          },
+          {
+            title: "Lens",
+            value: "24mm f/1.8",
+          },
+          {
+            title: "Video",
+            value: "4K 120fps / FHD 240fps",
+          },
+          {
+            title: "Flight Time",
+            value: "52 Minutes",
+          },
+          {
+            title: "Transmission",
+            value: "DJI O4+ (20km)",
+          },
+          {
+            title: "Obstacle Avoidance",
+            value: "Omnidirectional + LiDAR",
+          },
+          {
+            title: "Controller",
+            value: "DJI RC2",
+          },
+          {
+            title: "Battery",
+            value: "Intelligent Flight Battery Plus",
+          },
+          {
+            title: "Weight",
+            value: "<249g / 290g (Plus Battery)",
+          },
+        ],
       },
 
       {
@@ -467,7 +1255,7 @@ The MX Brio includes dual beamforming microphones with advanced noise reduction 
         Combined with 64GB DDR5 memory, a 1TB PCIe Gen4 SSD, Wi-Fi 7, Thunderbolt 5, Dolby Atmos speakers, RGB keyboard, and premium cooling, the ROG Strix SCAR 18 is engineered for users who demand absolute flagship performance.`,
         price: 649000,
         regularPrice: 649900,
-        avgRating:0,
+        avgRating: 0,
         images: [
           "/images/rog-strix-scar/ROG-Strix-SCAR-1.webp",
           "/images/rog-strix-scar/ROG-Strix-SCAR-2.webp",
@@ -475,16 +1263,76 @@ The MX Brio includes dual beamforming microphones with advanced noise reduction 
           "/images/rog-strix-scar/ROG-Strix-SCAR-4.webp",
         ],
 
-        mainImage:
-          "/images/rog-strix-scar/Rog-Strix-Scar-preview.webp",
-
-        keyFeatures: [],
+        mainImage: "/images/rog-strix-scar/Rog-Strix-Scar-preview.webp",
 
         category: getCategoryId("Laptop"),
 
         brand: "Asus",
 
         stock: 10,
+        code: "D1040E",
+
+        keyFeatures: [
+          {
+            title: "Processor",
+            value: "Intel Core Ultra 9 275HX",
+          },
+          {
+            title: "Display",
+            value: '18" 2.5K 240Hz OLED',
+          },
+          {
+            title: "Graphics",
+            value: "RTX 5090 Laptop 24GB",
+          },
+          {
+            title: "Memory",
+            value: "64GB DDR5 + 1TB SSD",
+          },
+        ],
+
+        technicalSpecifications: [
+          {
+            title: "CPU",
+            value: "Intel Core Ultra 9 275HX",
+          },
+          {
+            title: "Frequency",
+            value: "2.7GHz up to 5.4GHz",
+          },
+          {
+            title: "Display",
+            value: '18" WQXGA OLED 240Hz',
+          },
+          {
+            title: "Graphics",
+            value: "RTX 5090 Laptop 24GB GDDR7",
+          },
+          {
+            title: "Memory",
+            value: "64GB DDR5 5600MHz",
+          },
+          {
+            title: "Storage",
+            value: "1TB PCIe Gen4 NVMe SSD",
+          },
+          {
+            title: "Battery",
+            value: "90Wh",
+          },
+          {
+            title: "Networking",
+            value: "Wi-Fi 7 + Bluetooth 5.4 + 2.5G LAN",
+          },
+          {
+            title: "Operating System",
+            value: "Windows 11 Home",
+          },
+          {
+            title: "Warranty",
+            value: "2 Years International",
+          },
+        ],
       },
 
       {
@@ -497,7 +1345,7 @@ The MX Brio includes dual beamforming microphones with advanced noise reduction 
         With MagSafe charging, Thunderbolt connectivity, Touch ID security, premium aluminum construction, and macOS, the MacBook Air 15 is an ideal laptop for professionals, students, and creators who want power in an ultra-portable package.`,
         price: 98000,
         regularPrice: 107800,
-        avgRating:5,
+        avgRating: 5,
         images: [
           "/images/macbook-air-15/MacBook-Air-15-1.webp",
           "/images/macbook-air-15/MacBook-Air-15-2.webp",
@@ -507,13 +1355,74 @@ The MX Brio includes dual beamforming microphones with advanced noise reduction 
 
         mainImage: "/images/macbook-air-15/MacBook-Air-15-preview.webp",
 
-        keyFeatures: [],
-
         category: getCategoryId("Laptop"),
 
         brand: "Apple",
 
         stock: 10,
+        code: "EE9481",
+
+        keyFeatures: [
+          {
+            title: "Display",
+            value: "15.3-inch Liquid Retina",
+          },
+          {
+            title: "Processor",
+            value: "Apple M3 Chip",
+          },
+          {
+            title: "Battery",
+            value: "Up to 18 Hours",
+          },
+          {
+            title: "Design",
+            value: "Ultra-Thin Aluminum Body",
+          },
+        ],
+
+        technicalSpecifications: [
+          {
+            title: "Display",
+            value: "15.3-inch Liquid Retina",
+          },
+          {
+            title: "Resolution",
+            value: "2880 × 1864",
+          },
+          {
+            title: "Processor",
+            value: "Apple M3",
+          },
+          {
+            title: "CPU",
+            value: "8-Core",
+          },
+          {
+            title: "GPU",
+            value: "Up to 10-Core",
+          },
+          {
+            title: "Memory",
+            value: "8GB / 16GB / 24GB Unified Memory",
+          },
+          {
+            title: "Storage",
+            value: "256GB / 512GB / 1TB / 2TB SSD",
+          },
+          {
+            title: "Battery Life",
+            value: "Up to 18 Hours",
+          },
+          {
+            title: "Connectivity",
+            value: "2× Thunderbolt / USB4, MagSafe 3",
+          },
+          {
+            title: "Operating System",
+            value: "macOS",
+          },
+        ],
       },
     ]);
 

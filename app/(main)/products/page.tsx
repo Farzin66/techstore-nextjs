@@ -26,8 +26,7 @@ const page = async ({searchParams}: ProductsPageProps) => {
   const sort = params.sort || "newest";
   const page = Number(params.page || "1");
 
-  console.log(params);
-  console.log(page);
+  
   const data = await getProducts(search, category, minPrice, maxPrice, sort, page);
 
   return (

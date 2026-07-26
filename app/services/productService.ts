@@ -20,7 +20,7 @@ if (page !== undefined && page > 1) {
 }
 
   const url = `http://localhost:3000/api/products?${params.toString()}`;
-  console.log(url);
+
   try {
     const response = await fetch(url);
     if (!response.ok) {
