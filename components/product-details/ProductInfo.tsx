@@ -7,7 +7,6 @@ interface ProductInfoProps {
 }
 
 const ProductInfo = ({ product }: ProductInfoProps) => {
-  console.log(product.keyFeatures);
 
   return (
     <div className="lg:col-span-7 flex flex-col space-y-6">

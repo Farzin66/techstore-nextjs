@@ -1,12 +1,17 @@
 import { Product } from "@/types/products/products";
-import { MessageSquare } from "lucide-react";
+import { MessageSquare, Star } from "lucide-react";
 import Link from "next/link";
 
 interface ReviewProps {
   product: Product;
 }
 
+const reviewArray = [5,4,3,2,1];
+const stars = [1,2,3,4,5];
+
 const Review = ({product}: ReviewProps) => {
+  
+  
   return (
     <div className="max-w-7xl mx-auto px-4 md:px-0">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
@@ -14,52 +19,35 @@ const Review = ({product}: ReviewProps) => {
           <div className="bg-zinc-50/50 p-8 rounded-3xl border border-white shadow-xl shadow-gray-100/20">
             <div className="flex items-center justify-between mb-8">
               <div>
-                <h2 className="text-5xl font-black text-foreground tracking-tighter mb-1">0.0</h2>
+                <h2 className="text-5xl font-black text-foreground tracking-tighter mb-1">{product.avgRating.toFixed(1)}</h2>
                 <p className="text-[9px] font-black uppercase tracking-widest text-gray-400">Global Rating</p>
               </div>
               <div className="text-right">
-                <div className="flex text-yellow-400 mb-1 justify-end">
+                <div className="flex mb-1 justify-end">
+                  {
+                    stars.map((star)=>(
+                      <Star 
+                        key={star}
+                        className={star <= product.avgRating ? "w-[14px] h-[14px] fill-yellow-400 text-yellow-400" : "w-[14px] h-[14px] fill-none text-gray-400"}  />
+                    ))
+                  }
                 </div>
-                <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">0 Verifications</p>
-                </div>
+                <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">{product.avgRating > 0 ? 1 : 0} Verifications</p>
+              </div>
             </div>
             <div className="space-y-3">
-                <div className="flex items-center gap-4 group">
-                  <span className="text-[9px] font-black text-gray-400 w-3">5</span>
-                  <div className="flex-1 h-1.5 bg-white rounded-full overflow-hidden border border-gray-100/50 relative">
-                    <div className="h-full bg-primary relative z-10"></div>
+              {
+                reviewArray.map((item)=>{
+                  const isActive = product.avgRating === item;
+                  return <div key={item} className="flex items-center gap-4 group">
+                    <span className="text-[9px] font-black text-gray-400 w-3">{item}</span>
+                    <div className="flex-1 h-1.5 bg-white rounded-full overflow-hidden border border-gray-100/50 relative">
+                      <div className={`h-full bg-primary relative z-10 ${isActive ? "w-full" : "w-0"} `}></div>
+                    </div>
+                    <span className="text-[9px] font-bold text-gray-400 w-6 group-hover:text-primary transition-colors">{isActive ? "100%" : "0%"}</span>
                   </div>
-                  <span className="text-[9px] font-bold text-gray-400 w-6 group-hover:text-primary transition-colors">NaN%</span>
-                </div>
-                <div className="flex items-center gap-4 group">
-                  <span className="text-[9px] font-black text-gray-400 w-3">4</span>
-                  <div className="flex-1 h-1.5 bg-white rounded-full overflow-hidden border border-gray-100/50 relative">
-                    <div className="h-full bg-primary relative z-10"></div>
-                  </div>
-                  <span className="text-[9px] font-bold text-gray-400 w-6 group-hover:text-primary transition-colors">NaN%</span>
-                </div>
-                <div className="flex items-center gap-4 group">
-                  <span className="text-[9px] font-black text-gray-400 w-3">3</span>
-                  <div className="flex-1 h-1.5 bg-white rounded-full overflow-hidden border border-gray-100/50 relative">
-                    <div className="h-full bg-primary relative z-10"></div>
-                  </div>
-                  <span className="text-[9px] font-bold text-gray-400 w-6 group-hover:text-primary transition-colors">NaN%</span>
-                </div>
-                <div className="flex items-center gap-4 group">
-                  <span className="text-[9px] font-black text-gray-400 w-3">2</span>
-                  <div className="flex-1 h-1.5 bg-white rounded-full overflow-hidden border border-gray-100/50 relative">
-                    <div className="h-full bg-primary relative z-10"></div>
-                  </div>
-                  <span className="text-[9px] font-bold text-gray-400 w-6 group-hover:text-primary transition-colors">NaN%</span>
-                </div>
-                <div className="flex items-center gap-4 group">
-                  <span className="text-[9px] font-black text-gray-400 w-3">1</span>
-                  <div className="flex-1 h-1.5 bg-white rounded-full overflow-hidden border border-gray-100/50 relative">
-                    <div className="h-full bg-primary relative z-10">
-                  </div>
-                  <span className="text-[9px] font-bold text-gray-400 w-6 group-hover:text-primary transition-colors">NaN%</span>
-                </div>
-              </div>
+                })
+              }
               <div className="relative p-8 bg-white rounded-3xl border border-zinc-100 shadow-2xl shadow-gray-100/40">
                 <div className="flex items-center gap-3 mb-8">
                   <div className="w-10 h-10 rounded-xl bg-primary/5 flex items-center justify-center text-primary">

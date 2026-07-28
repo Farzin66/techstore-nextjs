@@ -12,27 +12,32 @@ interface ProductTabProps {
 
 const ProductTabs = ({product}: ProductTabProps) => {
   const [activeTab, setActiveTab] = useState("description");
+  const baseClass = "relative py-4 px-6 text-xs font-bold transition-all whitespace-nowrap flex items-center gap-2 group rounded-t-lg"
+  const activeClass = "text-white bg-[#ef4444] shadow-md";
+  const regularClass = "text-gray-500 hover:text-primary bg-gray-50/50  mx-0.5 border-t border-x border-transparent hover:border-gray-100";
+  const getTabClass = (tab: string) =>
+    `${baseClass} ${activeTab === tab ? activeClass : regularClass}`;
 
   return (
     <div className="mt-12 overflow-hidden">
       <div className="flex justify-start md:justify-center border-b border-gray-100 mb-8 overflow-x-auto no-scrollbar pt-4">
         <button
           onClick={() => setActiveTab("specification")}
-          className="relative py-4 px-6 text-xs font-bold transition-all whitespace-nowrap flex items-center gap-2 group text-white bg-[#ef4444] rounded-t-lg shadow-md"
+          className={getTabClass("specification")}
         >
           <ListTodo className="w-[14px] h-[14px]" />
           Specification
         </button>
         <button
           onClick={() => setActiveTab("description")}
-          className="relative py-4 px-6 text-xs font-bold transition-all whitespace-nowrap flex items-center gap-2 group text-gray-500 hover:text-primary bg-gray-50/50 rounded-t-lg mx-0.5 border-t border-x border-transparent hover:border-gray-100"
+          className={getTabClass("description")}
         >
           <FileText className="w-[14px] h-[14px]" />
           Description
         </button>
         <button
           onClick={() => setActiveTab("reviews")}
-          className="relative py-4 px-6 text-xs font-bold transition-all whitespace-nowrap flex items-center gap-2 group text-gray-500 hover:text-primary bg-gray-50/50 rounded-t-lg mx-0.5 border-t border-x border-transparent hover:border-gray-100"
+          className={getTabClass("reviews")}
         >
           <MessageSquare className="w-[14px] h-[14px]" />
           Reviews

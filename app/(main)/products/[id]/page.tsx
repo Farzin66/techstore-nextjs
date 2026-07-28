@@ -8,9 +8,6 @@ import ProductTabs from "@/components/product-details/ProductTabs";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 
-console.log("DETAIL PAGE LOADED");
-
-
   interface ParamsID{
     params: Promise<{
       id: string;

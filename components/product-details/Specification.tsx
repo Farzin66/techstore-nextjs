@@ -5,6 +5,25 @@ interface SpecificationProps {
   product: Product;
 }
 
+const keyFeatures = [
+  {
+    title: "Performance",
+    value: "High-performance flagship experience",
+  },
+  {
+    title: "Build",
+    value: "Professional build with durable materials",
+  },
+  {
+    title: "Innovation",
+    value: "Advanced technology for daily lifestyle",
+  },
+  {
+    title: "Authenticity",
+    value: "Authentic component verification",
+  },
+];
+
 const Specification = ({ product }: SpecificationProps) => {
   return (
     <div className="max-w-7xl mx-auto px-4 md:px-0">
@@ -21,38 +40,17 @@ const Specification = ({ product }: SpecificationProps) => {
               </h3>
             </div>
             <div className="divide-y divide-gray-100 bg-white">
-              <div className="flex flex-col sm:flex-row hover:bg-gray-50 transition-colors">
-                <div className="px-5 sm:px-8 py-3 sm:py-5 font-bold text-gray-500 text-[10px] sm:text-xs sm:w-1/3 bg-gray-50/40 uppercase tracking-tight sm:tracking-normal">
-                  Performance
-                </div>
-                <div className="px-5 sm:px-8 py-3 sm:py-5 text-slate-800 font-bold sm:font-medium text-[11px] sm:text-xs border-t border-gray-50 sm:border-0">
-                  High-performance flagship experience
-                </div>
-              </div>
-              <div className="flex flex-col sm:flex-row hover:bg-gray-50 transition-colors">
-                <div className="px-5 sm:px-8 py-3 sm:py-5 font-bold text-gray-500 text-[10px] sm:text-xs sm:w-1/3 bg-gray-50/40 uppercase tracking-tight sm:tracking-normal">
-                  Build
-                </div>
-                <div className="px-5 sm:px-8 py-3 sm:py-5 text-slate-800 font-bold sm:font-medium text-[11px] sm:text-xs border-t border-gray-50 sm:border-0">
-                  Professional build with durable materials
-                </div>
-              </div>
-              <div className="flex flex-col sm:flex-row hover:bg-gray-50 transition-colors">
-                <div className="px-5 sm:px-8 py-3 sm:py-5 font-bold text-gray-500 text-[10px] sm:text-xs sm:w-1/3 bg-gray-50/40 uppercase tracking-tight sm:tracking-normal">
-                  Innovation
-                </div>
-                <div className="px-5 sm:px-8 py-3 sm:py-5 text-slate-800 font-bold sm:font-medium text-[11px] sm:text-xs border-t border-gray-50 sm:border-0">
-                  Advanced technology for daily lifestyle
-                </div>
-              </div>
-              <div className="flex flex-col sm:flex-row hover:bg-gray-50 transition-colors">
-                <div className="px-5 sm:px-8 py-3 sm:py-5 font-bold text-gray-500 text-[10px] sm:text-xs sm:w-1/3 bg-gray-50/40 uppercase tracking-tight sm:tracking-normal">
-                  Authenticity
-                </div>
-                <div className="px-5 sm:px-8 py-3 sm:py-5 text-slate-800 font-bold sm:font-medium text-[11px] sm:text-xs border-t border-gray-50 sm:border-0">
-                  Authentic component verification
-                </div>
-              </div>
+              {keyFeatures.map((item) => (
+                  <div key={item.title} className="flex flex-col sm:flex-row hover:bg-gray-50 transition-colors">
+                    <div className="px-5 sm:px-8 py-3 sm:py-5 font-bold text-gray-500 text-[10px] sm:text-xs sm:w-1/3 bg-gray-50/40 uppercase tracking-tight sm:tracking-normal">
+                      {item.title}
+                    </div>
+                    <div className="px-5 sm:px-8 py-3 sm:py-5 text-slate-800 font-bold sm:font-medium text-[11px] sm:text-xs border-t border-gray-50 sm:border-0">
+                      {item.value}
+                    </div>
+                  </div>
+                )
+              )}
             </div>
             <div className="bg-[#f0fdf4] border-t border-b border-gray-100 px-5 sm:px-8 py-4 mt-6">
               <h3 className="font-bold text-primary uppercase tracking-wider italic text-xs sm:text-sm flex items-center gap-2">
@@ -61,9 +59,9 @@ const Specification = ({ product }: SpecificationProps) => {
               </h3>
             </div>
             <div className="divide-y divide-gray-100">
-              {product.technicalSpecifications.map((item, index) => (
+              {product.technicalSpecifications.map((item) => (
                 <div
-                  key={index}
+                  key={item.title}
                   className="flex flex-col sm:flex-row hover:bg-gray-50 transition-colors"
                 >
                   <div className="px-5 sm:px-8 py-3 sm:py-5 font-bold text-gray-500 text-[10px] sm:text-xs sm:w-1/3 bg-gray-50/40 uppercase tracking-tight sm:tracking-normal">
