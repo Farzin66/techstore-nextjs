@@ -1,10 +1,7 @@
-
-
 import { getProductById } from "@/app/services/productService";
 import ProductGallery from "@/components/product-details/ProductGallery";
 import ProductInfo from "@/components/product-details/ProductInfo";
 import ProductTabs from "@/components/product-details/ProductTabs";
-
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 

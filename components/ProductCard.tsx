@@ -1,3 +1,4 @@
+import { formatPrice } from "@/lib/formatPrice";
 import { Product } from "@/types/products/products";
 import {Heart, Star, ShoppingCart} from "lucide-react";
 import Image from "next/image";
@@ -40,7 +41,7 @@ const buttonClass = isGrid
     <div className={cardClass}>
         <div className="absolute top-2 left-2 z-20 pointer-events-none">
             <div className="bg-discount text-white px-3 py-1 rounded-full text-[10px] font-bold shadow-sm">
-                Save: ৳{product.regularPrice - product.price}
+                Save: ৳{formatPrice(product.regularPrice - product.price)}
             </div>
         </div>
         <div className="absolute top-2 right-2 z-20">
@@ -70,8 +71,8 @@ const buttonClass = isGrid
                 </Link>
                 <div className={priceSectionClass}>
                     <div className="flex flex-col">
-                        <span className="text-base font-bold text-danger">৳{product.price}</span>
-                        <span className="text-[10px] text-gray-400 line-through">৳{product.regularPrice}</span>
+                        <span className="text-base font-bold text-danger">৳{formatPrice(product.price)}</span>
+                        <span className="text-[10px] text-gray-400 line-through">৳{formatPrice(product.regularPrice)}</span>
                     </div>
                     <button className={buttonClass}>
                         <ShoppingCart className="w-4 h-4"/>

@@ -96,63 +96,162 @@ export async function GET() {
 
         keyFeatures: [
           {
-            title: "Display",
-            value: "2.12-inch Always-On Retina LTPO OLED",
+            title: "Processor & Performance",
+            value: "Verified Premium",
           },
           {
-            title: "Chip",
-            value: "Apple S10 SiP",
+            title: "Chipset",
+            value: "S10 chip with 64-bit dual-core processor",
           },
           {
-            title: "Body",
-            value: "49mm Titanium Case",
+            title: "Neural Engine",
+            value: "4-core (Enhanced for on-device Siri and health tracking)",
           },
           {
-            title: "Water Resistance",
-            value: "100m + EN13319 Certified",
+            title: "Capacity",
+            value: "64GB Internal Storage",
+          },
+          {
+            title: "Operating System",
+            value: "watchOS",
           },
         ],
 
         technicalSpecifications: [
           {
-            title: "Display Size",
-            value: "2.12-inch LTPO OLED",
+            title: "Processor & Performance",
+            value: "Verified Premium",
           },
           {
-            title: "Resolution",
-            value: "410 × 502 pixels",
+            title: "Chipset",
+            value: "S10 chip with 64-bit dual-core processor",
           },
           {
-            title: "Brightness",
-            value: "Up to 3000 nits",
+            title: "Neural Engine",
+            value: "4-core (Enhanced for on-device Siri and health tracking)",
           },
           {
-            title: "Processor",
-            value: "Apple S10 SiP",
-          },
-          {
-            title: "Storage",
-            value: "64GB",
-          },
-          {
-            title: "Connectivity",
-            value: "Wi-Fi, Bluetooth 5.3, GPS, LTE",
-          },
-          {
-            title: "Battery",
-            value: "Up to 72 hours (Low Power Mode)",
-          },
-          {
-            title: "Charging",
-            value: "Fast Magnetic Charging",
-          },
-          {
-            title: "Sensors",
-            value: "Heart Rate, ECG, Blood Oxygen, Temperature, Depth",
+            title: "Capacity",
+            value: "64GB Internal Storage",
           },
           {
             title: "Operating System",
             value: "watchOS",
+          },
+          {
+            title: "Type",
+            value: "Always-On Retina Display (Wide-angle OLED with LTPO3)",
+          },
+          {
+            title: "Brightness",
+            value: "Up to 3000 nits Peak / 1 nit Minimum",
+          },
+          {
+            title: "Resolution",
+            value: "422 x 514 pixels (326 ppi)",
+          },
+          {
+            title: "Protection",
+            value: "Flat Sapphire Crystal Display",
+          },
+          {
+            title: "Special Features",
+            value:
+              "1Hz Refresh rate, Night Mode for Ultra faces, 1245 sq mm display area",
+          },
+          {
+            title: "Normal Use",
+            value: "Up to 42 hours",
+          },
+          {
+            title: "Low Power Mode",
+            value: "Up to 72 hours",
+          },
+          {
+            title: "Fast Charging",
+            value: "* 0% to 80% in ~45 minutes, 15 mins for 12 hours of use",
+          },
+          {
+            title: "GPS",
+            value:
+              "L1 and L5 precision dual-frequency (GPS, GLONASS, Galileo, QZSS, BeiDou)",
+          },
+          {
+            title: "Cellular",
+            value: "5G and LTE support with International Roaming",
+          },
+          {
+            title: "Wireless",
+            value: "Wi-Fi 4 (Dual-band 2.4GHz/5GHz), Bluetooth 5.3",
+          },
+          {
+            title: "Ultra-Wideband",
+            value: "Second-generation chip (U2) for precision finding",
+          },
+          {
+            title: "Sensors",
+            value:
+              "Electrical heart sensor, 3rd Gen Optical heart sensor, Blood Oxygen, Depth Gauge, Water Temperature, High-g Accelerometer, and Always-on Altimeter",
+          },
+          {
+            title: "Health Monitoring",
+            value:
+              "Blood Oxygen, ECG, Sleep Apnea notifications, Hypertension alerts, Cycle Tracking (Ovulation estimates)",
+          },
+          {
+            title: "Safety Features",
+            value:
+              "Satellite Connectivity (Emergency SOS, Find My), Crash/Fall Detection, 86-decibel Siren, and Backtrack",
+          },
+          {
+            title: "Audio",
+            value: "Three-microphone array with beamforming; Dual speakers",
+          },
+          {
+            title: "Material",
+            value: "Grade 5 Titanium Case",
+          },
+          {
+            title: "Water Resistance",
+            value: "100m (Swim-proof); Recreational Scuba to 40m (EN13319)",
+          },
+          {
+            title: "Dust Resistance",
+            value: "IP6X",
+          },
+          {
+            title: "Durability",
+            value:
+              "Tested to MIL-STD 810H (Extreme temperature, altitude, and shock)",
+          },
+          {
+            title: "Physical",
+            value:
+              "Customizable Action Button, Digital Crown with Haptic Feedback, Side Button",
+          },
+          {
+            title: "Gestures",
+            value: "Double tap and wrist flick support",
+          },
+          {
+            title: "Dimensions",
+            value: "49mm (H) x 44mm (W) x 12mm (D)",
+          },
+          {
+            title: "Weight",
+            value: "~61.8 grams",
+          },
+          {
+            title: "Wrist Fit",
+            value: "Fits 130–210mm wrists",
+          },
+          {
+            title: "Color",
+            value: "Natural Titanium, Black Titanium",
+          },
+          {
+            title: "Warranty Details",
+            value: "No Warranty (As per provided info)",
           },
         ],
       },
@@ -160,14 +259,9 @@ export async function GET() {
       {
         name: "MX Brio",
         slug: "mx-brio",
-        description: `Logitech MX Brio Ultra HD 4K Webcam
-
-The Logitech MX Brio Ultra HD 4K Webcam is a cutting-edge webcam designed to provide superior video quality and audio clarity for professional video conferencing and content production.
-
-This webcam features USB 3.0 connectivity, 4K Ultra HD recording at 30fps, and Full HD 1080p recording at 60fps for exceptionally smooth and detailed video.
-
-The MX Brio includes dual beamforming microphones with advanced noise reduction technology to capture clear voice while minimizing background noise.
-
+        description: `Logitech MX Brio Ultra HD 4K Webcam The Logitech MX Brio Ultra HD 4K Webcam is a cutting-edge webcam designed to provide superior video quality and audio clarity for professional video conferencing and content production.
+        This webcam features USB 3.0 connectivity, 4K Ultra HD recording at 30fps, and Full HD 1080p recording at 60fps for exceptionally smooth and detailed video.
+        The MX Brio includes dual beamforming microphones with advanced noise reduction technology to capture clear voice while minimizing background noise.
         Additional features include RightLight 3 with HDR technology, advanced autofocus, a built-in privacy shutter, and Logi Options+ software for full manual camera controls such as ISO, white balance, exposure, tint, vibrance, and more.`,
         price: 21000,
         regularPrice: 22000,

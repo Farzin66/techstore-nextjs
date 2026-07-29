@@ -25,13 +25,17 @@ const ProductGallery = ({ product }: ProductGalleryProps) => {
           />
         </div>
       </div>
-      
+
       <div className="flex gap-3 overflow-x-auto pb-2 no-scrollbar">
         {product.images.map((image: string, index: number) => (
           <button
             key={index}
             onClick={() => setSelectedImage(index)}
-            className="relative w-16 h-16 rounded border transition-all flex-shrink-0 border-primary shadow-sm"
+            className={`relative w-16 h-16 rounded border transition-all flex-shrink-0 ${
+              selectedImage === index
+                ? "border-primary shadow-sm"
+                : "border-gray-200 hover:border-gray-300"
+            }`}
           >
             <Image
               src={image}

@@ -40,7 +40,7 @@ const Specification = ({ product }: SpecificationProps) => {
               </h3>
             </div>
             <div className="divide-y divide-gray-100 bg-white">
-              {keyFeatures.map((item) => (
+              {keyFeatures.map((item)=> (
                   <div key={item.title} className="flex flex-col sm:flex-row hover:bg-gray-50 transition-colors">
                     <div className="px-5 sm:px-8 py-3 sm:py-5 font-bold text-gray-500 text-[10px] sm:text-xs sm:w-1/3 bg-gray-50/40 uppercase tracking-tight sm:tracking-normal">
                       {item.title}
@@ -49,8 +49,7 @@ const Specification = ({ product }: SpecificationProps) => {
                       {item.value}
                     </div>
                   </div>
-                )
-              )}
+                ))}
             </div>
             <div className="bg-[#f0fdf4] border-t border-b border-gray-100 px-5 sm:px-8 py-4 mt-6">
               <h3 className="font-bold text-primary uppercase tracking-wider italic text-xs sm:text-sm flex items-center gap-2">
