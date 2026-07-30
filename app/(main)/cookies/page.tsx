@@ -1,5 +1,6 @@
 
 import CookiesSection from "@/components/cookies/CookiesSection";
+import PageSectionNavigation from "@/components/ui/PageSectionNavigation";
 import { cookiesDeploymentStrategy } from "@/data/cookies-deployment-strategy";
 import { cookiesSections } from "@/data/cookies-section";
 import { ArrowRight, ChevronRight, Cookie, ShieldCheck, Settings, Heart } from "lucide-react"
@@ -63,16 +64,7 @@ const page = () => {
 
                 {/* Sidebar */}
                 <aside className="sticky top-32 hidden lg:block space-y-8">
-                    <nav className="space-y-2">
-                        {
-                            cookiesSections.map((item)=>(
-                                <button key={item.id} className="w-full flex items-center justify-between px-4 py-3 rounded-2xl transition-all duration-300 group bg-primary text-white shadow-lg shadow-primary/25 translate-x-2">
-                                    <span className="text-sm font-bold tracking-tight">{item.navbarTitle}</span>
-                                    <ChevronRight className="w-4 h-4 transition-transform duration-300 rotate-90"/>
-                                </button>
-                            ))
-                        }
-                    </nav>
+                    <PageSectionNavigation sections={cookiesSections}/>
                     <div className="p-6 bg-gray-50 rounded-3xl border border-gray-100 space-y-4">
                         <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Helpful Info</p>
                         <p className="text-xs text-gray-500 leading-relaxed font-medium">Disabling essential cookies may interrupt your core shopping experience.</p>

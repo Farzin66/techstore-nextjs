@@ -53,7 +53,7 @@ const TermsSection = ({ section, children }: TermsSectionProps) => {
                 <Icon className="w-7 h-7"/>
             </div>
             <div>
-                <h2 className="text-3xl font-black text-foreground tracking-tight">{section.title}</h2>
+                <h2 className="text-3xl font-black text-foreground tracking-tight">{section.navTitle}</h2>
                 <p className="text-sm text-gray-400 font-bold uppercase tracking-widest">{section.subtitle}</p>
             </div>
         </div>

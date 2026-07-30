@@ -5,7 +5,7 @@ export type TermsIcon = "Gavel" | "Scale" | "CircleAlert";
 export interface TermsSection {
         id: number;
         sectionId: string;
-        title: string;
+        navTitle: string;
         subtitle: string;
         icon: TermsIcon;
         theme: TermsTheme;

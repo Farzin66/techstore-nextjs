@@ -2,7 +2,7 @@
 import { Product } from "@/types/products/products";
 import { Heart } from "lucide-react";
 import { useState } from "react";
-import WishlistItems from "../WishlistItems";
+
 
 interface ProductInfoProps {
   product: Product;

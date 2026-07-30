@@ -1,7 +1,8 @@
 import { Product } from "@/types/products/products";
-import ProductCard from "../ProductCard";
-import SortSelect from "../SortSelect";
+
 import Pagination from "./Pagination";
+import SortSelect from "../ui/SortSelect";
+import ProductCard from "../ui/ProductCard";
 
 interface ProductsGridProps{
   products: Product[];

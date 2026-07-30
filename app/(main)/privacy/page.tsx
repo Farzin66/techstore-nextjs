@@ -11,6 +11,7 @@ import PrivacySection from "@/components/privacy/PrivacySection";
 import { privacyCollection } from "@/data/privacy-collection";
 import { privacySecurity } from "@/data/privacy-security";
 import { privacyControl } from "@/data/privacy-control";
+import PageSectionNavigation from "@/components/ui/PageSectionNavigation";
 
 const page = () => {
   return (
@@ -47,26 +48,9 @@ const page = () => {
 
       <div className="container-custom py-20 lg:py-32">
         <div className="grid lg:grid-cols-[280px_1fr] gap-20 items-start">
-          {/* Sidebar */}
           <aside className="sticky top-32 hidden lg:block space-y-8">
-            <nav className="space-y-2">
-              {privacySections.map((section) => (
-                <button
-                  key={section.id}
-                  className={`w-full flex items-center justify-between px-4 py-3 rounded-2xl transition-all duration-300 group ${
-                    section.id === 1
-                      ? "bg-primary text-white shadow-lg shadow-primary/25 translate-x-2"
-                      : "hover:bg-gray-50 text-gray-500"
-                  }`}
-                >
-                  <span className="text-sm font-bold tracking-tight">
-                    {section.navTitle}
-                  </span>
-                  <ChevronRight className="w-[12px] h-[12px] transition-transform duration-300 rotate-90" />
-                </button>
-              ))}
-            </nav>
-            <div className="p-6 bg-gray-50 rounded-3xl border border-gray-100 space-y-4">
+            <PageSectionNavigation sections={privacySections}/>
+             <div className="p-6 bg-gray-50 rounded-3xl border border-gray-100 space-y-4">
               <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest">
                 Need Clarity?
               </p>
@@ -81,7 +65,7 @@ const page = () => {
                 Email Support
                 <ArrowRight className="w-[14px] h-[14px]" />
               </Link>
-            </div>
+             </div>
           </aside>
 
           {/* Sections */}

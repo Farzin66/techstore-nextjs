@@ -2,10 +2,11 @@
 
 import { SlidersHorizontal, TrendingUp, Sparkles, Zap } from "lucide-react";
 import { categories } from "@/data/categories";
-import SearchBox from "../SearchBox";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useDebounce } from "@/app/hooks/useDebounce";
+import SearchBox from "../ui/SearchBox";
+
 
 const FilterSidebar = () => {
   const searchParams = useSearchParams();

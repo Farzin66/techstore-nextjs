@@ -1,4 +1,5 @@
 import TermsSection from "@/components/terms/TermsSection";
+import PageSectionNavigation from "@/components/ui/PageSectionNavigation";
 import { termsSections } from "@/data/terms-sections";
 import { termsSiteGuardrails } from "@/data/terms-site-guardrails";
 import { termsUserProtocol } from "@/data/terms-user-protocol";
@@ -39,23 +40,7 @@ const page = () => {
         <div className="grid lg:grid-cols-[280px_1fr] gap-20 items-start">
           {/* Sidebar */}
           <aside className="sticky top-32 hidden lg:block space-y-8">
-            <nav className="space-y-2">
-              {termsSections.map((item) => (
-                <button
-                  key={item.id}
-                  className={`w-full flex items-center justify-between px-4 py-3 rounded-2xl transition-all duration-300 group ${
-                    item.id === 1
-                      ? "bg-primary text-white shadow-lg shadow-primary/25 translate-x-2"
-                      : "hover:bg-gray-50 text-gray-500"
-                  }`}
-                >
-                  <span className="text-sm font-bold tracking-tight">
-                    {item.title}
-                  </span>
-                  <ChevronRight className="w-4 h-4 transition-transform duration-300 rotate-90" />
-                </button>
-              ))}
-            </nav>
+            <PageSectionNavigation sections={termsSections}/>
             <div className="p-6 bg-gray-50 rounded-3xl border border-gray-100 space-y-4">
               <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest">
                 Fair Play

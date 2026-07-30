@@ -4,7 +4,7 @@ export const termsSections : TermsSection[] = [
     {
         id:1,
         sectionId: "responsibilities",
-        title: "User Protocol",
+        navTitle: "User Protocol",
         subtitle: "Platform Conduct",
         icon: "Gavel",
         theme: "blue",
@@ -12,7 +12,7 @@ export const termsSections : TermsSection[] = [
     {
         id:2,
         sectionId: "orders",
-        title: "Transaction Matrix",
+        navTitle: "Transaction Matrix",
         subtitle: "Payment Operations",
         icon: "Scale",
         theme: "amber",
@@ -20,7 +20,7 @@ export const termsSections : TermsSection[] = [
     {
         id:3,
         sectionId: "liability",
-        title: "Site Guardrails",
+        navTitle: "Site Guardrails",
         subtitle: "Liability Limitations",
         icon:"CircleAlert",
         theme: "rose",

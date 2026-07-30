@@ -8,7 +8,7 @@ export type DeploymentStrategyIcon = "Settings" | "ShieldCheck" | "Heart";
 export interface CookiesSection{ 
         id: number;
         sectionId: string;
-        navbarTitle: string;
+        navTitle: string;
         title: string;
         subtitle: string;
         icon: CookiesIcon;

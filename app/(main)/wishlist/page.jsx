@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowLeft} from "lucide-react";
-import EmptyWishlist from "@/components/EmptyWishlist.tsx";
+import EmptyWishlist from "@/components/ui/EmptyWishlist";
 import WishlistItems from "@/components/WishlistItems.tsx";
 
 const page = () => {

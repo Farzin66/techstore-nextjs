@@ -14,7 +14,7 @@ const page = () => {
               <UserPlus className="w-[28px] h-[28px]" />
             </div>
             <h2 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight leading-[1.1] mb-4">
-              Create an
+              Create an{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-indigo-600 italic font-serif">
                 Account
               </span>

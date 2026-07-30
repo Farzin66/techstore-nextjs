@@ -1,12 +1,13 @@
-import BrandSection from "@/components/BrandSection";
-import FeaturesSection from "@/components/FeatueresSection";
-import FeaturedCategories from "@/components/FeaturedCategories";
-import FeaturedProducts from "@/components/FeaturedProducts";
-import Hero from "@/components/Hero";
-import SpotlightSection from "@/components/SpotlightSection";
-import ClubSection from "@/components/ClubSection";
-import JournalSection from "@/components/JournalSection";
-import InfoSection from "@/components/InfoSection";
+import Hero from "@/components/home/Hero";
+import BrandSection from "@/components/home/BrandSection";
+import FeaturedCategories from "@/components/home/FeaturedCategories";
+import FeaturedProducts from "@/components/home/FeaturedProducts";
+import FeaturesSection from "@/components/home/FeaturesSection";
+import SpotlightSection from "@/components/home/SpotlightSection";
+import ClubSection from "@/components/home/ClubSection";
+import JournalSection from "@/components/home/JournalSection";
+import InfoSection from "@/components/home/InfoSection";
+
 
 const Home = () => {
   return <div>

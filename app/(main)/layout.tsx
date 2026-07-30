@@ -1,6 +1,7 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import SupportButton from "@/components/SupportButton";
+import Footer from "@/components/layout/Footer";
+import Navbar from "@/components/layout/Navbar";
+import SupportButton from "@/components/layout/SupportButton";
+
 
 export default function MainLayout({
   children,
