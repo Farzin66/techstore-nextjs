@@ -10,31 +10,31 @@ interface ProductCardProps{
 }
 
 const ProductCard = ({product, view}: ProductCardProps) => {
-    const isGrid = view === "grid";
+  const isGrid = view === "grid";
 
-const cardClass = isGrid
-  ? "group relative bg-white rounded-lg border border-gray-50 overflow-hidden transition-all duration-300 flex flex-col h-full hover:shadow-lg"
-  : "group relative bg-white rounded-lg border border-gray-50 overflow-hidden transition-all duration-300 flex flex-row hover:shadow-lg";
+  const cardClass = isGrid
+    ? "group relative bg-white rounded-lg border border-gray-50 overflow-hidden transition-all duration-300 flex flex-col h-full hover:shadow-lg"
+    : "group relative bg-white rounded-lg border border-gray-50 overflow-hidden transition-all duration-300 flex flex-row hover:shadow-lg";
 
-const imageWrapperClass = isGrid
-  ? "relative aspect-[5/4] overflow-hidden bg-white border-b border-gray-50 flex items-center justify-center"
-  : "relative w-64 min-w-64 aspect-[5/4] overflow-hidden bg-white border-r border-gray-50 flex items-center justify-center";
+  const imageWrapperClass = isGrid
+    ? "relative aspect-[5/4] overflow-hidden bg-white border-b border-gray-50 flex items-center justify-center"
+    : "relative w-64 min-w-64 aspect-[5/4] overflow-hidden bg-white border-r border-gray-50 flex items-center justify-center";
 
-const contentClass = isGrid
-  ? "p-3 flex flex-col flex-grow"
-  : "flex-1 p-6 flex flex-col justify-between";
+  const contentClass = isGrid
+    ? "p-3 flex flex-col flex-grow"
+    : "flex-1 p-6 flex flex-col justify-between";
 
-const titleClass = isGrid
-  ? "text-[13px] font-bold text-slate-800 mb-2 group-hover:text-primary transition-colors line-clamp-2 leading-tight h-8"
-  : "text-xl font-bold text-slate-800 mb-3 group-hover:text-primary transition-colors";
+  const titleClass = isGrid
+    ? "text-[13px] font-bold text-slate-800 mb-2 group-hover:text-primary transition-colors line-clamp-2 leading-tight h-8"
+    : "text-xl font-bold text-slate-800 mb-3 group-hover:text-primary transition-colors";
 
-const priceSectionClass = isGrid
-  ? "mt-auto pt-2 flex items-center justify-between"
-  : "mt-6 flex items-center justify-between";
+  const priceSectionClass = isGrid
+    ? "mt-auto pt-2 flex items-center justify-between"
+    : "mt-6 flex items-center justify-between";
 
-const buttonClass = isGrid
-  ? "p-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-primary hover:text-white transition-all"
-  : "p-3 bg-gray-100 text-gray-600 rounded-xl hover:bg-primary hover:text-white transition-all";
+  const buttonClass = isGrid
+    ? "p-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-primary hover:text-white transition-all"
+    : "p-3 bg-gray-100 text-gray-600 rounded-xl hover:bg-primary hover:text-white transition-all";
 
 
   return (

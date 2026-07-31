@@ -23,6 +23,7 @@ export interface Product {
 
   avgRating: number;
   numReviews: number;
+  limit: number;
 
   mainImage: string;
   images: string[];

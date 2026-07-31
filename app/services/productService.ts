@@ -8,6 +8,7 @@ export async function getProducts(
   maxPrice?: string, 
   sort?: string, 
   page?: number,
+  limit?: number
   ) {
   const params = new URLSearchParams();
   if (search?.trim()) params.set("search", search);
@@ -15,8 +16,11 @@ export async function getProducts(
   if (minPrice?.trim()) params.set("minPrice", minPrice);
   if (maxPrice?.trim()) params.set("maxPrice", maxPrice);
   if (sort?.trim()) params.set("sort", sort);
-if (page !== undefined && page > 1) {
+  if (page !== undefined && page > 1) {
   params.set("page", page.toString());
+}
+  if (limit !== undefined) {
+  params.set("limit", limit.toString());
 }
 
   const url = `http://localhost:3000/api/products?${params.toString()}`;
