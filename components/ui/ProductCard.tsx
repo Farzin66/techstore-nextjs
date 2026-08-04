@@ -1,3 +1,5 @@
+"use client"
+import useWishlistStore from "@/app/stores/wishlist-store";
 import { formatPrice } from "@/lib/formatPrice";
 import { Product } from "@/types/products/products";
 import {Heart, Star, ShoppingCart} from "lucide-react";
@@ -36,6 +38,10 @@ const ProductCard = ({product, view}: ProductCardProps) => {
     ? "p-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-primary hover:text-white transition-all"
     : "p-3 bg-gray-100 text-gray-600 rounded-xl hover:bg-primary hover:text-white transition-all";
 
+  const wishlist = useWishlistStore((state)=> state.wishlist);
+  const isInWishlist = useWishlistStore((state)=> state.isInWishlist);
+  const toggleWishlist = useWishlistStore((state)=> state.toggleWishlist);
+
 
   return (
     <div className={cardClass}>
@@ -45,8 +51,10 @@ const ProductCard = ({product, view}: ProductCardProps) => {
             </div>
         </div>
         <div className="absolute top-2 right-2 z-20">
-                <button className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white/90 backdrop-blur-sm border border-gray-100 shadow-sm text-gray-300 hover:text-red-500">
-                    <Heart className="w-[18px] h-[18px]"/>
+                <button 
+                  onClick={()=>toggleWishlist(product)}
+                  className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white/90 backdrop-blur-sm border border-gray-100 shadow-sm text-gray-300 hover:text-red-500">
+                    <Heart className={`w-[18px] h-[18px] ${isInWishlist(product._id) ? "text-red-500 fill-red-500" : "text-gray-300"}`}/>
                 </button>
         </div>
         <Link href={`/products/${product._id}`} className={imageWrapperClass}>

@@ -19,13 +19,6 @@ export async function GET(req: Request) {
     const maxPrice = searchParams.get("maxPrice");
 
     const query: any = {};
-    // if (category && category !== "All") {
-    //   // Fetch sub-categories if any
-
-    //   const subCategories = await Category.find({ parent: category }).select("_id").lean();
-    //   const categoryIds = [category, ...subCategories.map(c => c._id)];
-    //   query.category = { $in: categoryIds };
-    // }
     const categoryDoc = await Category.findOne({ slug: category });
 
     if (categoryDoc) {
@@ -40,11 +33,6 @@ export async function GET(req: Request) {
       if (minPrice) query.price.$gte = parseFloat(minPrice);
       if (maxPrice) query.price.$lte = parseFloat(maxPrice);
     }
-
-    // let sortOption: any = { createdAt: -1 };
-    // if (sort === "price-asc") sortOption = { price: 1 };
-    // else if (sort === "price-desc") sortOption = { price: -1 };
-    // else if (sort === "newest") sortOption = { createdAt: -1 };
     let sortOption: any = { createdAt: -1, _id: -1 };
 
 if (sort === "price-asc") {

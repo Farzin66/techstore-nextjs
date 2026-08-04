@@ -5,7 +5,7 @@ import { categories } from "@/data/categories";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useDebounce } from "@/app/hooks/useDebounce";
-import SearchBox from "../ui/SearchBox";
+import ProductSearch from "../ui/ProductSearch";
 
 
 const FilterSidebar = () => {
@@ -70,7 +70,7 @@ const FilterSidebar = () => {
   return (
     <aside className="lg:col-span-1 space-y-8">
       <div className="bg-white rounded-[32px] border border-gray-100/50 shadow-sm p-8 space-y-10">
-        <SearchBox />
+        <ProductSearch />
         <div>
           <h3 className="text-xs font-bold uppercase tracking-[2px] text-slate-400 mb-6 flex items-center gap-2">
             <SlidersHorizontal className="w-3.5 h-3.5" />

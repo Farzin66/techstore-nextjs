@@ -5,13 +5,13 @@ import { Search } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-const SearchBox = () => {
+const ProductSearch = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const [search, setSearch] = useState(searchParams.get("search") || "");
+  const [searchTerm, setSearchTerm] = useState(searchParams.get("search") || "");
 
-  const debouncedSearch = useDebounce(search, 500);
+  const debouncedSearch = useDebounce(searchTerm, 500);
 
   useEffect(() => {
     const params = new URLSearchParams(searchParams);
@@ -36,7 +36,7 @@ const SearchBox = () => {
   function searchInputChangeHandler(
     event: React.ChangeEvent<HTMLInputElement>,
   ) {
-    setSearch(event.target.value);
+    setSearchTerm(event.target.value);
   }
 
   return (
@@ -52,7 +52,7 @@ const SearchBox = () => {
         <input
           type="text"
           placeholder="Search products..."
-          value={search}
+          value={searchTerm}
           onChange={searchInputChangeHandler}
           className="w-full pl-12 pr-4 py-3.5 bg-gray-50/50 border border-transparent rounded-2xl focus:bg-white focus:border-primary transition-all text-sm font-semibold outline-none"
         />
@@ -61,4 +61,4 @@ const SearchBox = () => {
   );
 };
 
-export default SearchBox;
+export default ProductSearch;

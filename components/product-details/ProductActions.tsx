@@ -2,7 +2,7 @@
 import { Product } from "@/types/products/products";
 import { Heart } from "lucide-react";
 import { useState } from "react";
-
+import useWishlistStore from "@/app/stores/wishlist-store";
 
 interface ProductInfoProps {
   product: Product;
@@ -10,7 +10,8 @@ interface ProductInfoProps {
 
 const ProductActions = ({ product }: ProductInfoProps) => {
   const [quantity, setQuantity] = useState(1);
-  const [isWishlisted, setIsWishlisted] = useState(false);
+  const toggleWishlist = useWishlistStore((state) => state.toggleWishlist);
+  const wishlist = useWishlistStore((state) => state.wishlist);
 
   const decreaseQuantity = () => {
     setQuantity((prev) => {
@@ -28,10 +29,6 @@ const ProductActions = ({ product }: ProductInfoProps) => {
       }
       return prev + 1;
     });
-  };
-
-  const toggleWishlist = () => {
-    setIsWishlisted(!isWishlisted);
   };
 
   const BuyNow = () => {};
@@ -73,12 +70,14 @@ const ProductActions = ({ product }: ProductInfoProps) => {
           Add to Cart
         </button>
         <button
-          onClick={toggleWishlist}
-          className={`w-12 h-12 sm:w-14 sm:h-14 border-2 rounded-lg flex items-center justify-center transition-all flex-shrink-0 border-gray-200 text-gray-300 hover:text-red-500 hover:border-red-500 ${isWishlisted && "bg-red-500"} `}
+          onClick={() => toggleWishlist(product)}
+          className={`w-12 h-12 sm:w-14 sm:h-14 border-2 rounded-lg flex items-center justify-center transition-all flex-shrink-0 border-gray-200 text-gray-300 hover:text-red-500 hover:border-red-500 ${wishlist.some((item) => item._id === product._id) && "bg-red-500"} `}
         >
           <Heart
             className={`w-[18px] h-[18px] sm:w-[22px] sm:h-[22px] ${
-              isWishlisted ? "fill-white text-white" : ""
+              wishlist.some((item) => item._id === product._id)
+                ? "fill-white text-white"
+                : ""
             }`}
           />
         </button>
