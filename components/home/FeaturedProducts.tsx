@@ -16,7 +16,7 @@ const FeaturedProducts = async () => {
         <div className="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-6 md:gap-0">
             <div>
                 <h2 className="text-2xl font-bold text-[#1E293B] uppercase tracking-wide">
-                    Featured
+                    Featured{" "}
                     <span className="text-primary italic">Products</span>
                 </h2>
                 <p className="text-gray-400 text-xs mt-1">Check & Select Your Desired Product!</p>

@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import { Product } from "@/types/products/products";
 import { Heart } from "lucide-react";
 import { useState } from "react";
