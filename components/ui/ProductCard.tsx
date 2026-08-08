@@ -1,17 +1,18 @@
-"use client"
+"use client";
+import useCartStore from "@/app/stores/cart-store";
 import useWishlistStore from "@/app/stores/wishlist-store";
 import { formatPrice } from "@/lib/formatPrice";
 import { Product } from "@/types/products/products";
-import {Heart, Star, ShoppingCart} from "lucide-react";
+import { Heart, Star, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-interface ProductCardProps{
+interface ProductCardProps {
   product: Product;
   view: "list" | "grid";
 }
 
-const ProductCard = ({product, view}: ProductCardProps) => {
+const ProductCard = ({ product, view }: ProductCardProps) => {
   const isGrid = view === "grid";
 
   const cardClass = isGrid
@@ -38,57 +39,76 @@ const ProductCard = ({product, view}: ProductCardProps) => {
     ? "p-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-primary hover:text-white transition-all"
     : "p-3 bg-gray-100 text-gray-600 rounded-xl hover:bg-primary hover:text-white transition-all";
 
-  const wishlist = useWishlistStore((state)=> state.wishlist);
-  const isInWishlist = useWishlistStore((state)=> state.isInWishlist);
-  const toggleWishlist = useWishlistStore((state)=> state.toggleWishlist);
+  const wishlist = useWishlistStore((state) => state.wishlist);
+  const toggleWishlist = useWishlistStore((state) => state.toggleWishlist);
+  const isInWishlist = wishlist.some((item) => item._id === product._id);
 
+  const addToCart = useCartStore((state) => state.addToCart);
 
   return (
     <div className={cardClass}>
-        <div className="absolute top-2 left-2 z-20 pointer-events-none">
-            <div className="bg-discount text-white px-3 py-1 rounded-full text-[10px] font-bold shadow-sm">
-                Save: ৳{formatPrice(product.regularPrice - product.price)}
-            </div>
+      <div className="absolute top-2 left-2 z-20 pointer-events-none">
+        <div className="bg-discount text-white px-3 py-1 rounded-full text-[10px] font-bold shadow-sm">
+          Save: ৳{formatPrice(product.regularPrice - product.price)}
         </div>
-        <div className="absolute top-2 right-2 z-20">
-                <button 
-                  onClick={()=>toggleWishlist(product)}
-                  className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white/90 backdrop-blur-sm border border-gray-100 shadow-sm text-gray-300 hover:text-red-500">
-                    <Heart className={`w-[18px] h-[18px] ${isInWishlist(product._id) ? "text-red-500 fill-red-500" : "text-gray-300"}`}/>
-                </button>
+      </div>
+      <div className="absolute top-2 right-2 z-20">
+        <button
+          onClick={() => toggleWishlist(product)}
+          className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white/90 backdrop-blur-sm border border-gray-100 shadow-sm text-gray-300 hover:text-red-500"
+        >
+          <Heart
+            className={`w-[18px] h-[18px] ${isInWishlist ? "text-red-500 fill-red-500" : "text-gray-300"}`}
+          />
+        </button>
+      </div>
+      <Link href={`/products/${product._id}`} className={imageWrapperClass}>
+        <Image
+          src={product.mainImage}
+          alt={product.name}
+          priority={true}
+          sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 20vw"
+          fill
+          className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+        />
+      </Link>
+      <div className={contentClass}>
+        <div className="flex items-center justify-between mb-1.5">
+          <span className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">
+            {product.name}
+          </span>
+          <div className="flex items-center gap-1">
+            <Star className="w-[9px] h-[9px] fill-yellow-400 text-yellow-400" />
+            <span className="text-[10px] text-gray-600 font-bold">
+              {product.avgRating}
+            </span>
+          </div>
         </div>
-        <Link href={`/products/${product._id}`} className={imageWrapperClass}>
-                  <Image
-                    src= {product.mainImage}
-                    alt={product.name}
-                    priority={true} 
-                    sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 20vw"
-                    fill
-                    className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"/>
+        <Link href={`/products/${product._id}`} className={titleClass}>
+          {product.name}
         </Link>
-        <div className={contentClass}>
-                <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">{product.name}</span>
-                    <div className="flex items-center gap-1">
-                        <Star className="w-[9px] h-[9px] fill-yellow-400 text-yellow-400"/>
-                        <span className="text-[10px] text-gray-600 font-bold">{product.avgRating}</span>
-                    </div>
-                </div>
-                <Link href={`/products/${product._id}`} className={titleClass}>
-                    {product.name}
-                </Link>
-                <div className={priceSectionClass}>
-                    <div className="flex flex-col">
-                        <span className="text-base font-bold text-danger">৳{formatPrice(product.price)}</span>
-                        <span className="text-[10px] text-gray-400 line-through">৳{formatPrice(product.regularPrice)}</span>
-                    </div>
-                    <button className={buttonClass}>
-                        <ShoppingCart className="w-4 h-4"/>
-                    </button>
-                </div>
+        <div className={priceSectionClass}>
+          <div className="flex flex-col">
+            <span className="text-base font-bold text-danger">
+              ৳{formatPrice(product.price)}
+            </span>
+            <span className="text-[10px] text-gray-400 line-through">
+              ৳{formatPrice(product.regularPrice)}
+            </span>
+          </div>
+          <button
+            className={buttonClass}
+            // onClick={() => addToCart(product)}
+            onClick={() => {
+              addToCart(product);
+            }}
+          >
+            <ShoppingCart className="w-4 h-4" />
+          </button>
         </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProductCard
+export default ProductCard;

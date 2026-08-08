@@ -14,25 +14,7 @@ interface WishlistState {
 
 
 const useWishlistStore = create<WishlistState>((set, get) => ({
-    wishlist: [
-      {
-        name: "Mac Studio M4 Max",
-        _id: "123",
-        price: 285000,
-        stock: 10,
-        avgRating: 4.8,
-        mainImage: "/images/mac-studio-m4-max/Mac-Studio-M4-Max-preview.webp",
-      }as Product,
-
-      {
-        name: "ROG Azoth Extreme",
-        _id: "1234",
-        price: 63999,
-        stock: 0,
-        avgRating: 4.2,
-        mainImage: "/images/rog-azoth-extreme/ROG-Azoth-Extreme-preview.webp",
-      }as Product,
-    ],
+    wishlist: [],
 
     isInWishlist: (id)=>{
          return get().wishlist.some((item) => item._id === id)

@@ -1,3 +1,4 @@
+"use client";
 import { Product } from "@/types/products/products";
 import { Heart, ShoppingCart, Star } from "lucide-react";
 import { formatPrice } from "@/lib/formatPrice";

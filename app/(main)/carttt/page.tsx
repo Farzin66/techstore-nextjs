@@ -1,5 +1,6 @@
-import CartItemCard from "@/components/cart/CartItemCard";
+import CartItems from "@/components/cart/CartItems";
 import CartSummary from "@/components/cart/CartSummary";
+import EmptyCart from "@/components/cart/EmptyCart";
 import { Zap } from "lucide-react";
 
 const page = () => {
@@ -21,9 +22,9 @@ const page = () => {
                 <span>Fast Checkout Available</span>
               </div>
           </div>
-          <div className="grid grid-cols-1 xl:grid-cols-[1fr_380px] gap-8 items-start">
+           <div className="grid grid-cols-1 xl:grid-cols-[1fr_380px] gap-8 items-start">
             <div>
-              <CartItemCard/>
+              <CartItems/>
             </div>
             {/* Cart Summary */}
             <aside>

@@ -1,116 +1,37 @@
 "use client"
+import useCartStore from "@/app/stores/cart-store";
 import { formatPrice } from "@/lib/formatPrice";
 import { Product } from "@/types/products/products";
 import { Trash2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { CartItem } from "@/types/products/cart-item";
 
-  const product: Partial<Product> = {
-    name: "Mac Studio M4 Max",
-    limit: 10,
-    _id: "6a66299987913b4d83cba2c2",
-    description: `Apple Mac Studio M4 Max
-        The Apple Mac Studio M4 Max is Apple’s most advanced compact desktop, designed for professionals who need workstation-level performance in a sleek, space-saving design.
-        Powered by the M4 Max chip, this Mac Studio combines a 14-core CPU, 32-core GPU, and 16-core Neural Engine to deliver extreme speed for creative workflows, AI tasks, and high-end productivity.
-        With support for up to five displays, Thunderbolt 5 connectivity, and 10Gb Ethernet, the Apple Mac Studio M4 Max is built to be the ultimate hub for video editors, 3D artists, developers, and content creators.`,
-    price: 285000,
-    regularPrice: 313500,
-    avgRating: 0,
-    images: [
-      "/images/mac-studio-m4-max/Mac-Studio-M4-Max-1.webp",
-      "/images/mac-studio-m4-max/Mac-Studio-M4-Max-2.webp",
-      "/images/mac-studio-m4-max/Mac-Studio-M4-Max-3.webp",
-    ],
+interface CartItemCardProps {
+  item: CartItem;
+}
 
-    mainImage: "/images/mac-studio-m4-max/Mac-Studio-M4-Max-preview.webp",
-    brand: "Apple",
+const CartItemCard = ({item}: CartItemCardProps) => {
+  console.log("🔥 CART ITEM CARD RECEIVED:", item);
+  console.log("🔥 CART ITEM CARD TYPE:", typeof item);
+  const { product, quantity } = item;
+  const removeFromCart = useCartStore((state) => state.removeFromCart);
+  const updateQuantity = useCartStore((state) => state.updateQuantity);
+  
+  
+const decreaseQuantity = () => {
+  if (quantity <= 1) return;
 
-    stock: 10,
-    code: "EB676E",
+  updateQuantity(product._id, quantity - 1);
+};
 
-    keyFeatures: [
-      {
-        title: "Chip",
-        value: "Apple M4 Max",
-      },
-      {
-        title: "CPU",
-        value: "14-Core",
-      },
-      {
-        title: "GPU",
-        value: "32-Core",
-      },
-      {
-        title: "Memory",
-        value: "36GB Unified",
-      },
-    ],
+const increaseQuantity = () => {
+  if (quantity >= product.stock!) return;
 
-    technicalSpecifications: [
-      {
-        title: "Processor",
-        value: "Apple M4 Max",
-      },
-      {
-        title: "CPU",
-        value: "14-Core",
-      },
-      {
-        title: "GPU",
-        value: "32-Core",
-      },
-      {
-        title: "Neural Engine",
-        value: "16-Core",
-      },
-      {
-        title: "Memory",
-        value: "36GB Unified Memory",
-      },
-      {
-        title: "Storage",
-        value: "1TB SSD",
-      },
-      {
-        title: "Ports",
-        value: "Thunderbolt 5, HDMI, USB-C",
-      },
-      {
-        title: "Networking",
-        value: "Wi-Fi 6E, Bluetooth 5.3, 10Gb Ethernet",
-      },
-      {
-        title: "Operating System",
-        value: "macOS",
-      },
-      {
-        title: "Color",
-        value: "Silver",
-      },
-    ],
-  };
+  updateQuantity(product._id, quantity + 1);
+};
 
-const CartItemCard = () => {
-  const [quantity, setQuantity] = useState(1);
-  const decreaseQuantity = () => {
-    setQuantity((prev) => {
-      if (prev <= 1) {
-        return 1;
-      }
-      return prev - 1;
-    });
-  };
-
-  const increaseQuantity = () => {
-    setQuantity((prev) => {
-      if (prev >= product.stock!) {
-        return product.stock!;
-      }
-      return prev + 1;
-    });
-  };
+ 
 
   return (
     
@@ -153,9 +74,13 @@ const CartItemCard = () => {
               +
             </button>
           </div>
-          <div className="w-10 h-10 sm:w-14 sm:h-14 border-2 rounded-lg flex items-center justify-center transition-all flex-shrink-0 border-gray-50 text-gray-300 hover:text-red-500 hover:border-red-500">
+          <button 
+            type="button"
+            className="w-10 h-10 sm:w-14 sm:h-14 border-2 rounded-lg flex items-center justify-center transition-all flex-shrink-0 border-gray-50 text-gray-300 hover:text-red-500 hover:border-red-500"
+            onClick={()=> removeFromCart(product._id)}
+          >  
             <Trash2 className="w-5 h-5"/>
-          </div>
+          </button>
         </div>
         <div className="flex flex-col">
           <span className="text-base font-bold text-primary">৳{formatPrice(product.price!)}</span>
