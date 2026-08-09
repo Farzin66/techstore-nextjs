@@ -1,8 +1,44 @@
+"use client";
 import { ArrowRight, Eye, Lock, Mail, User, UserPlus, Zap } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+
 
 const page = () => {
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const router = useRouter();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try{
+      
+  const response = await fetch("/api/auth/register",{
+    method: "POST",
+    headers: {"Content-Type": "application/json",},
+    body: JSON.stringify({
+      name,
+      email,
+      password,
+    }),
+  });
+  const data = await response.json();
+    if (!response.ok) {
+    console.log("Registration failed:", data.message);
+    return;
+  }
+  router.push(`/verify-otp?email=${encodeURIComponent(data.email)}`);
+  
+  console.log("Registration successful:", data);
+    }catch (error){
+      console.error("Registration error:", error);
+    }
+  }
+
   return (
     <main className="min-h-[90vh] w-full flex items-center justify-center bg-[#fafafa] py-12 px-4 sm:px-6 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px] translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
@@ -24,7 +60,7 @@ const page = () => {
               and manage your orders.
             </p>
           </div>
-          <form action="" className="space-y-5">
+          <form onSubmit={handleSubmit} className="space-y-5">
             <div className="space-y-2">
               <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1 block">
                 FULL NAME
@@ -33,6 +69,8 @@ const page = () => {
                 <User className="w-[20px] h-[20px] absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors" />
                 <input
                   type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   required
                   className="w-full pl-14 pr-6 py-4 bg-slate-50 rounded-2xl border-2 border-transparent focus:bg-white focus:border-primary/20 focus:ring-4 focus:ring-primary/5 transition-all font-bold text-slate-900 placeholder:text-slate-300"
                   placeholder="John Doe"
@@ -46,7 +84,9 @@ const page = () => {
               <div className="relative group">
                 <Mail className="w-[20px] h-[20px] absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors" />
                 <input
-                  type="text"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                   className="w-full pl-14 pr-6 py-4 bg-slate-50 rounded-2xl border-2 border-transparent focus:bg-white focus:border-primary/20 focus:ring-4 focus:ring-primary/5 transition-all font-bold text-slate-900 placeholder:text-slate-300"
                   placeholder="you@example.com"
@@ -60,7 +100,9 @@ const page = () => {
               <div className="relative group">
                 <Lock className="w-[20px] h-[20px] absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors" />
                 <input
-                  type="text"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   required
                   className="w-full pl-14 pr-6 py-4 bg-slate-50 rounded-2xl border-2 border-transparent focus:bg-white focus:border-primary/20 focus:ring-4 focus:ring-primary/5 transition-all font-bold text-slate-900 placeholder:text-slate-300"
                   placeholder="••••••••"
@@ -98,6 +140,7 @@ const page = () => {
             <Image
               alt="Join the Elite"
               src="/register.webp"
+              loading="eager"
               fill
               sizes="50vw"
               className="object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal hover:scale-105 transition-all duration-1000 ease-out"

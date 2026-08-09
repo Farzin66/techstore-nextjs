@@ -12,8 +12,6 @@ interface CartItemCardProps {
 }
 
 const CartItemCard = ({item}: CartItemCardProps) => {
-  console.log("🔥 CART ITEM CARD RECEIVED:", item);
-  console.log("🔥 CART ITEM CARD TYPE:", typeof item);
   const { product, quantity } = item;
   const removeFromCart = useCartStore((state) => state.removeFromCart);
   const updateQuantity = useCartStore((state) => state.updateQuantity);

@@ -15,6 +15,7 @@ import Logo from "./Logo";
 import useWishlistStore from "@/app/stores/wishlist-store";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
+import useCartStore from "@/app/stores/cart-store";
 
 // Nav icon styles
 const navIconClass =
@@ -31,23 +32,31 @@ const signInButtonClass =
 
 const Navbar = () => {
   const wishlistCount = useWishlistStore((state) => state.wishlist.length);
+  const cartCount = useCartStore((state) =>
+    state.cart.reduce((total, item) => total + item.quantity, 0),
+  );
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [searchTerm, setSearchTerm] = useState(searchParams.get("search") || "");
+  const [searchTerm, setSearchTerm] = useState(
+    searchParams.get("search") || "",
+  );
 
-
-  const searchInputChangeHandler = (event: React.ChangeEvent<HTMLInputElement>,) => {
+  const searchInputChangeHandler = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
     setSearchTerm(event.target.value);
-  }
+  };
 
-  const searchInputKeyDownHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === "Enter" && searchTerm.trim()){
+  const searchInputKeyDownHandler = (
+    event: React.KeyboardEvent<HTMLInputElement>,
+  ) => {
+    if (event.key === "Enter" && searchTerm.trim()) {
       const trimmedSerchTerm = searchTerm.trim();
       const encodedSearchTerm = encodeURIComponent(trimmedSerchTerm);
-      router.push(`/products?search=${encodedSearchTerm}`)
+      router.push(`/products?search=${encodedSearchTerm}`);
     }
-  }
- 
+  };
+
   return (
     <header className="bg-white/80 backdrop-blur-xl border-b border-gray-100 sticky top-0 z-50 transition-all duration-300">
       {/* Main container */}
@@ -93,7 +102,6 @@ const Navbar = () => {
               onKeyDown={searchInputKeyDownHandler}
             />
           </div>
-      
 
           <div className="flex items-center gap-1 sm:gap-2">
             <Link
@@ -117,7 +125,15 @@ const Navbar = () => {
               aria-label="Shopping cart"
               className={actionButtonClass}
             >
-              <ShoppingCart className="sm:w-5.5 sm:h-5.5 group-hover:scale-110 transition-transform" />
+              <div className="relative">
+                <ShoppingCart className="sm:w-5.5 sm:h-5.5 group-hover:scale-110 transition-transform" />
+
+                {cartCount > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-primary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
+                    {cartCount}
+                  </span>
+                )}
+              </div>
             </Link>
 
             <Link href="/login" className={signInButtonClass}>
