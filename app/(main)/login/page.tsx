@@ -54,7 +54,7 @@ const page = () => {
                   Password
                 </label>
                 <Link
-                  href="/forgetpassword"
+                  href="/forgot-password"
                   className="text-[10px] font-bold uppercase tracking-widest text-primary hover:text-primary-dark transition-colors"
                 >
                   Forgot password?
