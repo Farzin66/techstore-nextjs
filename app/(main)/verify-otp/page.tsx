@@ -1,11 +1,12 @@
 "use client";
 
 import { ArrowRight, Mail, ShieldCheck } from "lucide-react";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
 const VerifyOtpPage = () => {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const email = searchParams.get("email");
 
   const [otp, setOtp] = useState("");
@@ -33,10 +34,37 @@ const VerifyOtpPage = () => {
       }
 
       console.log("Verification successful:", data);
+      router.push("/login");
+      
     } catch (error) {
       console.error("Verification error:", error);
     }
   };
+
+  const handleResendOtp = async () => {
+  try {
+    const response = await fetch("/api/auth/resend-otp", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+      }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      console.log("Resend failed:", data.message);
+      return;
+    }
+
+    console.log("Resend successful:", data.message);
+  } catch (error) {
+    console.error("Resend error:", error);
+  }
+};
 
   return (
     <div className="min-h-[90vh] w-full flex items-center justify-center bg-[#fafafa] py-12 px-4 sm:px-6 relative overflow-hidden font-sans">
@@ -54,10 +82,9 @@ const VerifyOtpPage = () => {
           <br />
           <span className="text-slate-900 font-bold">{email}</span>
         </p>
-        <form className="space-y-8">
+        <form onSubmit={handleSubmit} className="space-y-8">
           <div className="flex justify-between gap-2 sm:gap-3">
             <input
-              
               type="text"
               placeholder=" Enter your 6-digit code "
               required
@@ -79,7 +106,10 @@ const VerifyOtpPage = () => {
           <p className="text-sm text-slate-400 font-medium mb-4">
             Didn't receive the code?
           </p>
-          <button className="flex items-center justify-center gap-2 mx-auto font-bold text-primary disabled:text-slate-300 transition-colors group">
+          <button
+            type="button"
+            onClick={handleResendOtp} 
+            className="flex items-center justify-center gap-2 mx-auto font-bold text-primary disabled:text-slate-300 transition-colors group">
             <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" />
             Resend New Code
           </button>

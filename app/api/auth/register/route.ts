@@ -31,12 +31,18 @@ export async function POST(req: Request) {
     );
 
     // 4. Send verification email
+    // try {
+    //   await sendVerificationEmail(email, otp);
+    //   console.log(`Registration OTP for ${email}: ${otp}`); // Server log for debugging
+    // } catch (emailError) {
+    //   console.error("Email error:", emailError);
+    // }
     try {
-      await sendVerificationEmail(email, otp);
-      console.log(`Registration OTP for ${email}: ${otp}`); // Server log for debugging
-    } catch (emailError) {
-      console.error("Email error:", emailError);
-    }
+  const result = await sendVerificationEmail(email, otp);
+  console.log("EMAIL SENT:", result);
+} catch (emailError) {
+  console.error("EMAIL ERROR:", emailError);
+}
 
     return NextResponse.json({ 
       message: "Registration successful! Please check your email for the verification code.",

@@ -26,6 +26,7 @@
     "react-dom": "19.2.4",
     "react-hook-form": "^7.71.2",
     "react-hot-toast": "^2.6.0",
+    "resend": "^6.18.1",
     "stripe": "^22.0.0",
     "sweetalert2": "^11.26.24",
     "sweetalert2-react-content": "^5.1.2",

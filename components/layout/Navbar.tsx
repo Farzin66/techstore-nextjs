@@ -16,6 +16,7 @@ import useWishlistStore from "@/app/stores/wishlist-store";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import useCartStore from "@/app/stores/cart-store";
+import { useSession, signOut } from "next-auth/react";
 
 // Nav icon styles
 const navIconClass =
@@ -32,6 +33,7 @@ const signInButtonClass =
 
 const Navbar = () => {
   const wishlistCount = useWishlistStore((state) => state.wishlist.length);
+  const { data: session, status } = useSession();
   const cartCount = useCartStore((state) =>
     state.cart.reduce((total, item) => total + item.quantity, 0),
   );
@@ -136,14 +138,37 @@ const Navbar = () => {
               </div>
             </Link>
 
-            <Link href="/login" className={signInButtonClass}>
-              <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg sm:rounded-xl flex items-center justify-center">
-                <User className="sm:w-4.5 sm:h-4.5" />
+            {status === "loading" ? (
+              <div className={signInButtonClass}>
+                <span className="text-xs sm:text-sm">Loading...</span>
               </div>
-              <span className="hidden sm:block text-xs sm:text-sm tracking-tight">
-                Sign In
-              </span>
-            </Link>
+            ) : session ? (
+              <div className="flex items-center gap-2">
+                <div className="hidden sm:block text-sm font-bold text-slate-900">
+                  {session.user?.name}
+                </div>
+
+                <button onClick={() => signOut()} className={signInButtonClass}>
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg sm:rounded-xl flex items-center justify-center">
+                    <User className="sm:w-4.5 sm:h-4.5" />
+                  </div>
+
+                  <span className="hidden sm:block text-xs sm:text-sm tracking-tight">
+                    Logout
+                  </span>
+                </button>
+              </div>
+            ) : (
+              <Link href="/login" className={signInButtonClass}>
+                <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg sm:rounded-xl flex items-center justify-center">
+                  <User className="sm:w-4.5 sm:h-4.5" />
+                </div>
+
+                <span className="hidden sm:block text-xs sm:text-sm tracking-tight">
+                  Sign In
+                </span>
+              </Link>
+            )}
           </div>
         </div>
       </div>

@@ -5,9 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-
 const page = () => {
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,29 +13,29 @@ const page = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    try{
-      
-  const response = await fetch("/api/auth/register",{
-    method: "POST",
-    headers: {"Content-Type": "application/json",},
-    body: JSON.stringify({
-      name,
-      email,
-      password,
-    }),
-  });
-  const data = await response.json();
-    if (!response.ok) {
-    console.log("Registration failed:", data.message);
-    return;
-  }
-  router.push(`/verify-otp?email=${encodeURIComponent(data.email)}`);
-  
-  console.log("Registration successful:", data);
-    }catch (error){
+    
+    try {
+      const response = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          password,
+        }),
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        console.log("Registration failed:", data.message);
+        return;
+      }
+
+      console.log("Registration successful:", data);
+      router.push(`/verify-otp?email=${encodeURIComponent(data.email)}`);
+    } catch (error) {
       console.error("Registration error:", error);
     }
-  }
+  };
 
   return (
     <main className="min-h-[90vh] w-full flex items-center justify-center bg-[#fafafa] py-12 px-4 sm:px-6 relative overflow-hidden">
@@ -148,13 +146,18 @@ const page = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
             <div className="absolute inset-0 bg-indigo-500/10 mix-blend-overlay"></div>
             <div className="absolute inset-0 p-12 flex flex-col justify-end">
-                <div className="bg-white/10 backdrop-blur-2xl border border-white/20 p-8 rounded-3xl">
-                    <div className="w-12 h-12 rounded-full bg-white text-slate-950 flex items-center justify-center mb-6">
-                        <Zap className="w-[24px] h-[24px] animate-pulse"/>
-                    </div>
-                    <h3 className="text-2xl text-white font-black tracking-tight mb-3">0 Setup. 100% Performance.</h3>
-                    <p className="text-white/70 font-medium leading-relaxed">Join over 12,000 top-tier professionals who have upgraded their workflow through our curated hardware collection.</p>
+              <div className="bg-white/10 backdrop-blur-2xl border border-white/20 p-8 rounded-3xl">
+                <div className="w-12 h-12 rounded-full bg-white text-slate-950 flex items-center justify-center mb-6">
+                  <Zap className="w-[24px] h-[24px] animate-pulse" />
                 </div>
+                <h3 className="text-2xl text-white font-black tracking-tight mb-3">
+                  0 Setup. 100% Performance.
+                </h3>
+                <p className="text-white/70 font-medium leading-relaxed">
+                  Join over 12,000 top-tier professionals who have upgraded
+                  their workflow through our curated hardware collection.
+                </p>
+              </div>
             </div>
           </div>
         </div>
