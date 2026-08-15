@@ -3,9 +3,11 @@
 import { ShieldCheck } from "lucide-react";
 import useCartStore from "@/app/stores/cart-store";
 import { formatPrice } from "@/lib/formatPrice";
+import { useRouter } from "next/navigation";
 
 const CartSummary = () => {
   const cart = useCartStore((state) => state.cart);
+  const router = useRouter();
   const subtotal = cart.reduce(
     (total, item) => total + item.product.price * item.quantity,
     0,
@@ -50,7 +52,9 @@ const CartSummary = () => {
         </span>
       </div>
 
-      <button className="w-full mt-8 py-4 rounded-2xl bg-primary hover:bg-primary-dark transition-colors text-white font-black uppercase tracking-[2px] shadow-xl shadow-primary/20">
+      <button
+        onClick={()=>{router.push(`/checkout`)}} 
+        className="w-full mt-8 py-4 rounded-2xl bg-primary hover:bg-primary-dark transition-colors text-white font-black uppercase tracking-[2px] shadow-xl shadow-primary/20">
         Checkout Now
       </button>
 
