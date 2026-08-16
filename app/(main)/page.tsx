@@ -12,25 +12,16 @@ import InfoSection from "@/components/home/InfoSection";
 const Home = () => {
   return <div>
     <Hero/>
-    <br />
     <BrandSection/>
-    <br />
-    <FeaturedCategories/>
-    <br />
-    <FeaturedProducts/>
-    <br />
-    <FeaturesSection/>
-    <br />
-    <SpotlightSection/>
-    <br />
-    <br />
-    <br />
-    <ClubSection/>
-    <br />
-    <JournalSection/>
-    <br />
-    <InfoSection/>
-    <br />
+    <div className="container-custom py-12 lg:py-16 relative z-20 flex flex-col gap-12 lg:gap-16">
+      <FeaturedCategories/>
+      <FeaturedProducts/>
+      <FeaturesSection/>
+      <SpotlightSection/>
+      <ClubSection/>
+      <JournalSection/>
+      <InfoSection/>
+    </div>
   </div>;
 };
 
