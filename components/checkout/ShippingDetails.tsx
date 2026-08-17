@@ -6,6 +6,7 @@ import { checkoutSchema } from "@/lib/checkout";
 import useCartStore from "@/app/stores/cart-store";
 import { useRouter } from "next/navigation";
 
+
 const ShippingDetails = () => {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -20,6 +21,8 @@ const ShippingDetails = () => {
   const cart = useCartStore((state) => state.cart);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const router = useRouter();
+
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
 

@@ -19,7 +19,7 @@ export async function PUT(req: Request) {
     if (!user) {
       return NextResponse.json({ error: "User not found" }, { status: 404 });
     }
-
+    
     const updateData: any = {};
     if (name) updateData.name = name;
     if (image) updateData.image = image;

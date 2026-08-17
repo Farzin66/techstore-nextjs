@@ -1,7 +1,9 @@
+import DashboardOverview from "@/components/dashboard/DashboardOverview";
+
 export default function DashboardPage() {
   return (
     <div>
-      <h1>Dashboard</h1>
+      <DashboardOverview/>
     </div>
   );
 }
