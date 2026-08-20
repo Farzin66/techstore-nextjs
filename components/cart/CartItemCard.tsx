@@ -1,7 +1,6 @@
 "use client"
 import useCartStore from "@/app/stores/cart-store";
 import { formatPrice } from "@/lib/formatPrice";
-import { Product } from "@/types/products/products";
 import { Trash2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";

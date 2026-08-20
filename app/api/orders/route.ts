@@ -36,26 +36,41 @@ export async function POST(req: Request) {
   }
 }
 
+// export async function GET(req: Request) {
+//   try {
+//     await connectDB();
+//     const session = await getServerSession(authOptions);
+    
+//     if (!session) {
+//       return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+//     }
+
+//     const isAdmin = ["super-admin", "admin", "manager"].includes(session.user.role as string);
+
+//     if (isAdmin) {
+//       const orders = await Order.find().sort({ createdAt: -1 });
+//       return NextResponse.json(orders);
+//     }
+
+//     // Regular users only see their own orders
+//     const orders = await Order.find({ user: session.user.id }).sort({ createdAt: -1 });
+//     return NextResponse.json(orders);
+//   } catch (error) {
+//     return NextResponse.json({ message: "Error fetching orders" }, { status: 500 });
+//   }
+// }
+
 export async function GET(req: Request) {
   try {
     await connectDB();
-    const session = await getServerSession(authOptions);
-    
-    if (!session) {
-      return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
-    }
 
-    const isAdmin = ["super-admin", "admin", "manager"].includes(session.user.role as string);
+    const orders = await Order.find().sort({ createdAt: -1 });
 
-    if (isAdmin) {
-      const orders = await Order.find().sort({ createdAt: -1 });
-      return NextResponse.json(orders);
-    }
-
-    // Regular users only see their own orders
-    const orders = await Order.find({ user: session.user.id }).sort({ createdAt: -1 });
     return NextResponse.json(orders);
   } catch (error) {
-    return NextResponse.json({ message: "Error fetching orders" }, { status: 500 });
+    return NextResponse.json(
+      { message: "Error fetching orders" },
+      { status: 500 }
+    );
   }
 }

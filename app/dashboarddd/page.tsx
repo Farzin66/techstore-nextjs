@@ -1,9 +1,11 @@
-import DashboardOverview from "@/components/dashboard/DashboardOverview";
+import DashboardOverview from "@/components/dashboard/overview/DashboardOverview";
+import DashboardPayments from "@/components/dashboard/payments/DashboardPayments";
 
 export default function DashboardPage() {
   return (
     <div>
-      <DashboardOverview/>
+      {/* <DashboardOverview/> */}
+      <DashboardPayments/>
     </div>
   );
 }

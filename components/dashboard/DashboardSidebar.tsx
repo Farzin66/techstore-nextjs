@@ -10,9 +10,9 @@ import {
 } from "lucide-react";
 import Logo from "../layout/Logo";
 
-const Sidebar = () => {
+const DashboardSidebar = () => {
   return (
-    <aside className="w-72 rounded-2xl bg-white border border-gray-100 flex flex-col">
+    <aside className="w-72 rounded-2xl bg-white mb-10 border border-gray-100 flex flex-col">
       {/* Brand */}
       <div className="h-24 px-6 flex flex-col justify-center border-b border-gray-100">
         <Logo />
@@ -72,4 +72,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default DashboardSidebar;

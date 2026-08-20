@@ -1,11 +1,11 @@
 import { Clock } from "lucide-react";
 
-const DashboardHeader = () => {
+const OverviewHeader = () => {
   return (
     <div className="flex flex-col md:flex-row md:items-center justify-between mb-12 mt-8 gap-6 md:gap-0">
       <div>
         <h2 className="text-2xl font-bold text-[#1E293B] uppercase tracking-wide">
-          DASHBOARD OVERVIEW
+          Dashboard Overview
         </h2>
         <span className="text-gray-400 text-xs mt-1">Welcome back, </span>
         <span className="text-primary italic">User name !</span>
@@ -18,4 +18,4 @@ const DashboardHeader = () => {
   );
 };
 
-export default DashboardHeader;
+export default OverviewHeader;
