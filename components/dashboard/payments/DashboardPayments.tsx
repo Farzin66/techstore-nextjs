@@ -12,19 +12,20 @@ const DashboardPayments = () => {
                 icon= {Truck}
                 title= "Cash on Delivery"
                 description="Allow customers to pay upon receipt of goods."
-                label= "CONNECTED"
+                status= "CONNECTED"
             />
              <PaymentsCard
                 icon= {CreditCard}
                 title= "Stripe Checkout"
                 description="Secure credit and debit card payments globally."
-                label= "INACTIVE"
+                status= "INACTIVE"
             />
              <PaymentsCard
                 icon= {ShieldCheck}
                 title= "SSLCommerz"
                 description="Popular local payment gateway for Bangladesh."
-                label= "INACTIVE"
+                status= "INACTIVE"
+
             />
         </div>
         <PaymentsAdvanceConfigBanner/>

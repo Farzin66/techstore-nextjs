@@ -10,7 +10,7 @@ export default function DashboardLayout({
   return (
     <div className="container-custom">
       <DashboardTopbar/>
-      <div className="grid grid-cols-1 lg:grid-cols-[288px_1fr] gap-8 md:gap-12 bg-gray-50">
+      <div className="grid p-6 rounded-lg grid-cols-1 lg:grid-cols-[288px_1fr] gap-8 md:gap-12 bg-gray-50">
         <DashboardSidebar />
         <main className="mr-10">{children}</main>
       </div>
