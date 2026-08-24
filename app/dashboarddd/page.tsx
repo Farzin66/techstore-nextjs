@@ -1,3 +1,4 @@
+import DashboardCategories from "@/components/dashboard/categories/DashboardCategories";
 import DashboardOrders from "@/components/dashboard/orders/DashboardOrders";
 import DashboardOverview from "@/components/dashboard/overview/DashboardOverview";
 import DashboardPayments from "@/components/dashboard/payments/DashboardPayments";
@@ -10,7 +11,8 @@ export default function DashboardPage() {
       {/* <DashboardOverview/> */}
       {/* <DashboardPayments/> */}
       {/* <DashboardOrders/> */}
-      <DashboardSettings/>
+      {/* <DashboardSettings/> */}
+      <DashboardCategories/>
     </div>
   );
 }

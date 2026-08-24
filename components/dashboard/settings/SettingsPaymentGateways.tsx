@@ -50,24 +50,24 @@ const SettingsPaymentGateways = () => {
       <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
         <div className="flex flex-col gap-2">
           <label className="text-xs font-bold text-gray-400 uppercase">BKASH NUMBER</label>
-          <input className="w-full rounded-2xl border border-gray-100 bg-gray-50 px-6 py-4 text-sm font-bold placeholder-black" placeholder="017XXXXXXX" />
+          <input className="w-full rounded-2xl border border-gray-100 bg-gray-50 px-6 py-4 text-sm font-bold" placeholder="017XXXXXXX" />
         </div>
         <div className="flex flex-col gap-2">
           <label className="text-xs font-bold text-gray-400 uppercase">NAGAD NUMBER</label>
-          <input className="w-full rounded-2xl border border-gray-100 bg-gray-50 px-6 py-4 text-sm font-bold placeholder-black" placeholder="017XXXXXXX" />
+          <input className="w-full rounded-2xl border border-gray-100 bg-gray-50 px-6 py-4 text-sm font-bold" placeholder="017XXXXXXX" />
         </div>
       </div>
 
       <div className="mt-6 flex flex-col gap-2">
         <label className="text-xs font-bold text-gray-400 uppercase">ROCKET NUMBER</label>
-        <input className="w-full rounded-2xl border border-gray-100 bg-gray-50 px-6 py-4 text-sm font-bold placeholder-black" placeholder="017XXXXXXX" />
+        <input className="w-full rounded-2xl border border-gray-100 bg-gray-50 px-6 py-4 text-sm font-bold " placeholder="017XXXXXXX" />
       </div>
 
       <div className="mt-6 flex flex-col gap-2">
         <label className="text-xs font-bold text-gray-400 uppercase">PAYMENT INSTRUCTIONS</label>
         <textarea
           rows={3}
-          className="w-full rounded-2xl border border-gray-100 bg-gray-50 px-6 py-4 text-sm font-bold placeholder-black"
+          className="w-full rounded-2xl border border-gray-100 bg-gray-50 px-6 py-4 text-sm font-bold "
           placeholder="Please make manual payment and provide transaction ID."
         />
       </div>
