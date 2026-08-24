@@ -16,7 +16,7 @@ const AddCategoryForm = () => {
       <div className="space-y-4">
         <div>
           <label className="block text-sm text-gray-500 mb-1">CATEGORY NAME</label>
-          <input className="w-full p-3 rounded-xl bg-gray-50 border border-gray-200 outline-none" placeholder="e.g. Mobile Phones" />
+          <input className="w-full rounded-2xl border border-gray-100 bg-gray-50 px-6 py-4 text-sm font-bold text-[#1E293B] outline-none transition-all placeholder:text-gray-400 focus:border-primary focus:ring-4 focus:ring-primary/10" />
         </div>
         
         <div>
@@ -41,7 +41,7 @@ const AddCategoryForm = () => {
           </div>
         </div>
 
-        <button className=" flex items-center justify-center gap-3 w-full bg-black text-white py-3 rounded-xl font-medium mt-4">
+        <button className="mt-4 flex w-full items-center justify-center gap-3 rounded-2xl bg-primary py-4 text-sm font-black uppercase tracking-widest text-white shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 active:scale-95">
           <ArrowRight/>
           PUBLISH CATEGORY
         </button>

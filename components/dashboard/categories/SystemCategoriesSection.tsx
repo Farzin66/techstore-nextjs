@@ -20,7 +20,7 @@ const SystemCategoriesSection = () => {
         {categories.map((item) => (
           <div key={item.name} className="flex items-center justify-between p-4 bg-gray-50 rounded-2xl">
             <div className="flex items-center gap-4">
-              <div className="p-3 bg-primary text-white rounded-xl">
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
                 <item.icon size={20} />
               </div>
               <div>
