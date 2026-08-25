@@ -30,61 +30,60 @@ const DashboardSidebar = () => {
 
         <div className="space-y-1">
           <Link
-            className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-gray-600 hover:bg-gray-50 font-medium text-base transition-colors" 
-            href="/dashboarddd">
+            className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-gray-600 hover:bg-gray-50 font-medium text-base transition-colors"
+            href="/dashboarddd"
+          >
             <LayoutDashboard size={20} />
             Overview
           </Link>
 
           <Link
-            className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-gray-600 hover:bg-gray-50 font-medium text-base transition-colors" 
-            href="/dashboarddd/orders">
+            className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-gray-600 hover:bg-gray-50 font-medium text-base transition-colors"
+            href="/dashboarddd/orders"
+          >
             <ShoppingBag size={20} />
             Orders
           </Link>
 
-           <Link
-            className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-gray-600 hover:bg-gray-50 font-medium text-base transition-colors" 
-            href="/dashboarddd/payments">
+          <Link
+            className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-gray-600 hover:bg-gray-50 font-medium text-base transition-colors"
+            href="/dashboarddd/payments"
+          >
             <CreditCard size={20} />
             Payments
           </Link>
 
           <Link
-            className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-gray-600 hover:bg-gray-50 font-medium text-base transition-colors" 
-            href="/dashboarddd/products">
+            className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-gray-600 hover:bg-gray-50 font-medium text-base transition-colors"
+            href="/dashboarddd/products"
+          >
             <Package size={20} />
             Products
           </Link>
 
           <Link
-            className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-gray-600 hover:bg-gray-50 font-medium text-base transition-colors" 
-            href="/dashboarddd/categories">
+            className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-gray-600 hover:bg-gray-50 font-medium text-base transition-colors"
+            href="/dashboarddd/categories"
+          >
             <Tags size={20} />
             Categories
           </Link>
 
-          
-         
-
           <Link
-            className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-gray-600 hover:bg-gray-50 font-medium text-base transition-colors" 
-            href="/dashboarddd/users">
+            className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-gray-600 hover:bg-gray-50 font-medium text-base transition-colors"
+            href="/dashboarddd/users"
+          >
             <Users size={20} />
             Users
           </Link>
 
-          
           <Link
-            className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-gray-600 hover:bg-gray-50 font-medium text-base transition-colors" 
-            href="/dashboarddd/settings">
+            className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-gray-600 hover:bg-gray-50 font-medium text-base transition-colors"
+            href="/dashboarddd/settings"
+          >
             <Settings size={20} />
             Settings
           </Link>
-
-
-          
-
         </div>
       </nav>
 
