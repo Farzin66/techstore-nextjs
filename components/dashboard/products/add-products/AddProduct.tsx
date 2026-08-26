@@ -3,31 +3,27 @@ import MediaAssets from "./MediaAssets";
 import Organization from "./Organization";
 import ProductInfo from "./ProductInfo";
 import Stock from "./Stock";
-
+import Specifications from "./Specifications";
 
 const AddProduct = () => {
   return (
     <div className="mb-10 space-y-6">
       <AddProductBanner />
 
-      <div className="grid grid-cols-1 items-stretch gap-6 lg:grid-cols-3">
-        <div className="lg:col-span-2">
+   
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 items-start">
+        
+        <div className="space-y-6 lg:col-span-2">
           <ProductInfo />
-        </div>
-
-        <div className="lg:col-span-1">
-          <Organization />
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 items-stretch gap-6 lg:grid-cols-3">
-        <div className="lg:col-span-2">
           <MediaAssets />
+          <Specifications />
         </div>
 
-        <div className="lg:col-span-1">
+        <div className="space-y-6 lg:col-span-1">
+          <Organization />
           <Stock />
         </div>
+
       </div>
     </div>
   );

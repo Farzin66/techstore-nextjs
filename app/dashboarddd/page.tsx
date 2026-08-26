@@ -4,6 +4,7 @@ import DashboardOverview from "@/components/dashboard/overview/DashboardOverview
 import DashboardPayments from "@/components/dashboard/payments/DashboardPayments";
 import AddProduct from "@/components/dashboard/products/add-products/AddProduct";
 import DashboardProducts from "@/components/dashboard/products/DashboardProducts";
+import EditProduct from "@/components/dashboard/products/edit-product/EditProduct";
 import DashboardSettings from "@/components/dashboard/settings/DashboardSettings";
 import DashboardUsers from "@/components/dashboard/users/DashboardUsers";
 
@@ -18,7 +19,8 @@ export default function DashboardPage() {
       {/* <DashboardCategories/> */}
       {/* <DashboardUsers/> */}
       {/* <DashboardProducts/> */}
-      <AddProduct/>
+      {/* <AddProduct/> */}
+      <EditProduct/>
     </div>
   );
 }
