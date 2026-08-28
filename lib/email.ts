@@ -79,7 +79,8 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export const sendVerificationEmail = async (email: string, otp: string) => {
   const { data, error } = await resend.emails.send({
     from: process.env.EMAIL_FROM!,
-    to: email,
+    // to: email,
+    to: "delivered@resend.dev",
     subject: "Your Verification Code - Tech Store",
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px; border: 1px solid #eee; border-radius: 20px;">
