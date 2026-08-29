@@ -1,15 +1,17 @@
 import { DollarSign, Package, ShoppingBag, Users } from "lucide-react";
 import { getOrders } from "@/app/services/orderService";
-import OverviewRevenueStream from "./OverviewRevenueStream";
 import { Order } from "@/types/order";
-import OverviewStockProtocol from "./OverviewStockProtocol";
 import { formatPrice } from "@/lib/formatPrice";
-import OverviewStreamProtocol from "./OverviewStreamProtocol";
-import OverviewScalingProtocol from "./OverviewScalingBanner";
-import OverviewCard from "./OverviewCard";
-import OverviewHeader from "./OverviewHeader";
+import OverviewHeader from "@/components/dashboard/overview/OverviewHeader";
+import OverviewCard from "@/components/dashboard/overview/OverviewCard";
+import OverviewRevenueStream from "@/components/dashboard/overview/OverviewRevenueStream";
+import OverviewStockProtocol from "@/components/dashboard/overview/OverviewStockProtocol";
+import OverviewStreamProtocol from "@/components/dashboard/overview/OverviewStreamProtocol";
+import OverviewScalingProtocol from "@/components/dashboard/overview/OverviewScalingBanner";
 
-const DashboardOverview = async () => {
+
+
+const DashboardOverviewPage = async () => {
   const orders = await getOrders();
   const totalRevenue = orders.reduce(
    (total: number , order: Order) => total + order.totalPrice,
@@ -56,4 +58,4 @@ const DashboardOverview = async () => {
   );
 };
 
-export default DashboardOverview;
+export default DashboardOverviewPage;

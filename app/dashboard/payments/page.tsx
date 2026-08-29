@@ -1,9 +1,10 @@
+import PaymentsAdvanceConfigBanner from "@/components/dashboard/payments/PaymentsAdvanceConfigBanner"
+import PaymentsCard from "@/components/dashboard/payments/PaymentsCard"
+import PaymentsHeader from "@/components/dashboard/payments/PaymentsHeader"
 import { CreditCard, ShieldCheck, Truck } from "lucide-react"
-import PaymentsHeader from "./PaymentsHeader"
-import PaymentsAdvanceConfigBanner from "./PaymentsAdvanceConfigBanner"
-import PaymentsCard from "./PaymentsCard"
 
-const DashboardPayments = () => {
+
+const DashboardPaymentsPage = () => {
   return (
     <div className="mb-10">
         <PaymentsHeader/>
@@ -33,4 +34,4 @@ const DashboardPayments = () => {
   )
 }
 
-export default DashboardPayments
+export default DashboardPaymentsPage;
