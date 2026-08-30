@@ -1,26 +1,5 @@
-import DashboardCategories from "@/components/dashboard/categories/DashboardCategories";
-import DashboardOrders from "@/components/dashboard/orders/DashboardOrders";
-import DashboardOverview from "@/components/dashboard/overview/DashboardOverview";
-import DashboardPayments from "@/components/dashboard/payments/DashboardPayments";
-import AddProduct from "@/components/dashboard/products/add-products/AddProduct";
-import DashboardProducts from "@/components/dashboard/products/DashboardProducts";
-import EditProduct from "@/components/dashboard/products/edit-product/EditProduct";
-import DashboardSettings from "@/components/dashboard/settings/DashboardSettings";
-import DashboardUsers from "@/components/dashboard/users/DashboardUsers";
-
+import { redirect } from "next/navigation";
 
 export default function DashboardPage() {
-  return (
-    <div>
-      {/* <DashboardOverview/> */}
-      {/* <DashboardPayments/> */}
-      {/* <DashboardOrders/> */}
-      {/* <DashboardSettings/> */}
-      {/* <DashboardCategories/> */}
-      {/* <DashboardUsers/> */}
-      {/* <DashboardProducts/> */}
-      {/* <AddProduct/> */}
-      <EditProduct/>
-    </div>
-  );
+  redirect("/dashboard/overview");
 }

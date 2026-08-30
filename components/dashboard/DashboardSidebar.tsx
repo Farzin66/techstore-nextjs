@@ -1,11 +1,12 @@
 "use client";
+
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import {
   LayoutDashboard,
   ShoppingBag,
   Package,
   Users,
-  UserCircle,
   LogOut,
   CreditCard,
   Tags,
@@ -14,6 +15,10 @@ import {
 import Logo from "../layout/Logo";
 
 const DashboardSidebar = () => {
+  const { data: session } = useSession();
+
+  const role = session?.user?.role;
+
   return (
     <aside className="w-72 rounded-2xl bg-white mb-10 border border-gray-100 flex flex-col">
       {/* Brand */}
@@ -31,7 +36,7 @@ const DashboardSidebar = () => {
         <div className="space-y-1">
           <Link
             className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-gray-600 hover:bg-gray-50 font-medium text-base transition-colors"
-            href="/dashboarddd"
+            href="/dashboard"
           >
             <LayoutDashboard size={20} />
             Overview
@@ -39,7 +44,7 @@ const DashboardSidebar = () => {
 
           <Link
             className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-gray-600 hover:bg-gray-50 font-medium text-base transition-colors"
-            href="/dashboarddd/orders"
+            href="/dashboard/orders"
           >
             <ShoppingBag size={20} />
             Orders
@@ -47,39 +52,43 @@ const DashboardSidebar = () => {
 
           <Link
             className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-gray-600 hover:bg-gray-50 font-medium text-base transition-colors"
-            href="/dashboarddd/payments"
+            href="/dashboard/payments"
           >
             <CreditCard size={20} />
             Payments
           </Link>
 
-          <Link
-            className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-gray-600 hover:bg-gray-50 font-medium text-base transition-colors"
-            href="/dashboarddd/products"
-          >
-            <Package size={20} />
-            Products
-          </Link>
+          {role === "admin" && (
+            <>
+              <Link
+                className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-gray-600 hover:bg-gray-50 font-medium text-base transition-colors"
+                href="/dashboard/products"
+              >
+                <Package size={20} />
+                Products
+              </Link>
+
+              <Link
+                className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-gray-600 hover:bg-gray-50 font-medium text-base transition-colors"
+                href="/dashboard/categories"
+              >
+                <Tags size={20} />
+                Categories
+              </Link>
+
+              <Link
+                className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-gray-600 hover:bg-gray-50 font-medium text-base transition-colors"
+                href="/dashboard/users"
+              >
+                <Users size={20} />
+                Users
+              </Link>
+            </>
+          )}
 
           <Link
             className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-gray-600 hover:bg-gray-50 font-medium text-base transition-colors"
-            href="/dashboarddd/categories"
-          >
-            <Tags size={20} />
-            Categories
-          </Link>
-
-          <Link
-            className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-gray-600 hover:bg-gray-50 font-medium text-base transition-colors"
-            href="/dashboarddd/users"
-          >
-            <Users size={20} />
-            Users
-          </Link>
-
-          <Link
-            className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-gray-600 hover:bg-gray-50 font-medium text-base transition-colors"
-            href="/dashboarddd/settings"
+            href="/dashboard/settings"
           >
             <Settings size={20} />
             Settings
@@ -89,11 +98,6 @@ const DashboardSidebar = () => {
 
       {/* Bottom Navigation */}
       <div className="p-5 border-t border-gray-100 space-y-1">
-        <button className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-gray-600 hover:bg-gray-50 font-medium text-base transition-colors">
-          <UserCircle size={20} />
-          Profile
-        </button>
-
         <button className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-red-500 hover:bg-red-50 font-medium text-base transition-colors">
           <LogOut size={20} />
           Logout
