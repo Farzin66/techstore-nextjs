@@ -91,7 +91,7 @@ export async function GET() {
 
         brand: "Apple",
 
-        stock: 10,
+        stock: 3,
         code: "B6F8DE",
 
         keyFeatures: [

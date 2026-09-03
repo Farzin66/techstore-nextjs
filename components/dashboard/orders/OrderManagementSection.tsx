@@ -6,7 +6,6 @@ import {
   Circle,
   Copy,
   Calendar,
-  Eye,
   ChevronsDown,
   Package,
   Search,
@@ -117,14 +116,6 @@ const OrderRow = ({ order }: { order: Order }) => {
 
           {order.status}
         </span>
-
-        <button
-          type="button"
-          aria-label="View order"
-          className="text-gray-400 transition-colors hover:text-primary"
-        >
-          <Eye size={16} strokeWidth={1.5} />
-        </button>
       </div>
     </div>
   );
