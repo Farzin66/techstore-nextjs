@@ -56,12 +56,12 @@ console.log(
         />
       </div>
       <div className="grid grid-cols-1 gap-6 xl:grid-cols-[2fr_1fr] mt-8">
-        <OverviewRevenueStream />
+        <OverviewRevenueStream orders={orders} />
         <OverviewStockProtocol products={products.products} />
       </div>
       <div className="grid grid-cols-1 gap-6 xl:grid-cols-[1fr_2fr] mt-8">
-        <OverviewStreamProtocol />
-        <OverviewScalingProtocol />
+        <OverviewStreamProtocol orders={orders} />
+        <OverviewScalingProtocol totalProducts={products.totalProducts} />
       </div>
     </div>
   );
