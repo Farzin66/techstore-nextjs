@@ -5,12 +5,14 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Product } from "@/types/products/products";
 import { formatPrice } from "@/lib/formatPrice";
+import { useRouter } from "next/navigation";
 
 const ProductsManagementPanel = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [totalProducts, setTotalProducts] = useState(0);
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
+  const router = useRouter();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -26,9 +28,7 @@ const ProductsManagementPanel = () => {
 
       params.set("limit", "100");
 
-      const response = await fetch(
-        `/api/products?${params.toString()}`,
-      );
+      const response = await fetch(`/api/products?${params.toString()}`);
 
       if (!response.ok) {
         throw new Error("Failed to fetch products");
@@ -45,12 +45,35 @@ const ProductsManagementPanel = () => {
 
   const categories = Array.from(
     new Map(
-      products.map((product) => [
-        product.category._id,
-        product.category,
-      ]),
+      products.map((product) => [product.category._id, product.category]),
     ).values(),
   );
+
+  const handleDelete = async (id: string) => {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this product?",
+    );
+
+    if (!confirmed) return;
+
+    try {
+      const response = await fetch(`/api/products/${id}`, {
+        method: "DELETE",
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to delete product");
+      }
+
+      setProducts((prev) => prev.filter((product) => product._id !== id));
+      setTotalProducts((prev) => prev - 1);
+    } catch (error) {
+      console.error("Delete product error:", error);
+      alert("Failed to delete product.");
+    }
+  };
 
   return (
     <div className="min-h-[500px] overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-sm">
@@ -165,9 +188,7 @@ const ProductsManagementPanel = () => {
                   <td className="px-5 py-5 sm:px-6">
                     <div className="w-20">
                       <div className="mb-1 flex justify-between text-[10px] font-bold">
-                        <span className="text-gray-500">
-                          {product.stock}
-                        </span>
+                        <span className="text-gray-500">{product.stock}</span>
                       </div>
 
                       <div className="h-1.5 w-full rounded-full bg-gray-100">
@@ -187,11 +208,19 @@ const ProductsManagementPanel = () => {
                         <Eye className="h-4 w-4" />
                       </button>
 
-                      <button className="hover:text-primary">
+                      <button
+                        onClick={() =>
+                          router.push(`/dashboard/products/edit/${product._id}`)
+                        }
+                        className="hover:text-primary"
+                      >
                         <Edit2 className="h-4 w-4" />
                       </button>
 
-                      <button className="hover:text-red-500">
+                      <button
+                        onClick={() => handleDelete(product._id)}
+                        className="hover:text-red-500"
+                      >
                         <Trash2 className="h-4 w-4" />
                       </button>
                     </div>
