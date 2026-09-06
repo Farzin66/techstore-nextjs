@@ -16,7 +16,7 @@ const AddProductBanner = () => {
       </div>
 
       <button className="w-full sm:w-auto px-8 py-4 bg-primary text-white rounded-2xl font-black text-sm hover:bg-primary/90 transition-all shadow-xl shadow-primary/25 hover:shadow-2xl hover:-translate-y-0.5 active:translate-y-0">
-        + PUBLISH PRODUCT
+        PUBLISH PRODUCT
       </button>
     </div>
   );

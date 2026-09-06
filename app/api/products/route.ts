@@ -87,14 +87,25 @@ export async function POST(req: Request) {
     }
 
     const data = await req.json();
-    await connectDB();
 
-    const newProduct = await Product.create(data);
+const slug = data.name
+  .toLowerCase()
+  .trim()
+  .replace(/[^\w\s-]/g, "")
+  .replace(/\s+/g, "-");
+
+data.slug = slug;
+
+await connectDB();
+
+const newProduct = await Product.create(data);
     return NextResponse.json(newProduct, { status: 201 });
   } catch (error) {
-    return NextResponse.json(
-      { error: "Internal Server Error" },
-      { status: 500 },
-    );
-  }
+  console.error("CREATE PRODUCT ERROR:", error);
+
+  return NextResponse.json(
+    { error: "Internal Server Error" },
+    { status: 500 },
+  );
+}
 }

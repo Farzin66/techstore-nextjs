@@ -1,19 +1,13 @@
 import React from "react";
 import { Info } from "lucide-react";
+import { ProductFormData } from "@/types/dashboard/productForm";
+
 
 interface ProductInfoProps {
   name: string;
   brand: string;
   description: string;
-onChange: React.Dispatch<
-  React.SetStateAction<{
-    name: string;
-    brand: string;
-    description: string;
-    mainImage: string;
-    images: string[];
-  }>
->;
+  onChange: React.Dispatch<React.SetStateAction<ProductFormData>>;
 }
 
 const ProductInfo: React.FC<ProductInfoProps> = ({
