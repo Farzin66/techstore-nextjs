@@ -116,19 +116,7 @@ const Organization: React.FC<OrganizationProps> = ({
           </select>
 
           <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4 text-gray-400">
-            <svg
-              className="h-4 w-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M8 9l4-4 4 4m0 6l-4 4-4-4"
-              />
-            </svg>
+            <Tag className="h-4 w-4"/>
           </div>
         </div>
       </div>

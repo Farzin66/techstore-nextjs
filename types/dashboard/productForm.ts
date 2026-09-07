@@ -1,4 +1,4 @@
-```ts
+
 export interface ProductFormData {
   name: string;
   brand: string;
@@ -19,4 +19,4 @@ export interface ProductFormData {
     value: string;
   }[];
 }
-```
+
