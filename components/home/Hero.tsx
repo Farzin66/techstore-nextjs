@@ -43,7 +43,7 @@ const Hero = () => {
               <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-slate-900 mb-4 lg:mb-6 leading-[1.1]">
                 {currentHero.primaryTitle}
                 <br className="hidden sm:block" />
-                <span className="text-transparent bg-clip-text bg-linear-to-r from-green-600 to-emerald-500">
+                <span className="text-green-600">
                   {currentHero.secondaryTitle}
                 </span>
               </h1>

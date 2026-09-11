@@ -1,6 +1,6 @@
 "use client";
 
-import { useSession } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
 import {
   LayoutDashboard,
@@ -98,7 +98,10 @@ const DashboardSidebar = () => {
 
       {/* Bottom Navigation */}
       <div className="p-5 border-t border-gray-100 space-y-1">
-        <button className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-red-500 hover:bg-red-50 font-medium text-base transition-colors">
+        <button
+          onClick={() => signOut()}
+          className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-red-500 hover:bg-red-50 font-medium text-base transition-colors"
+        >
           <LogOut size={20} />
           Logout
         </button>

@@ -1,4 +1,4 @@
-
+import Link from "next/link";
 
 const ProductsBanner = () => {
   return (
@@ -10,12 +10,15 @@ const ProductsBanner = () => {
 
         <p className="mt-2 max-w-xl text-xs font-medium leading-relaxed text-gray-400 sm:text-sm">
           Manage your catalog, stock levels, and product visibility.
-        </p> 
+        </p>
       </div>
 
-      <button className="w-full sm:w-auto px-8 py-4 bg-primary text-white rounded-2xl font-black text-sm hover:bg-primary/90 transition-all shadow-xl shadow-primary/25 hover:shadow-2xl hover:-translate-y-0.5 active:translate-y-0">
+      <Link
+        href="/dashboard/products/add"
+        className="w-full rounded-2xl bg-primary px-8 py-4 text-center text-sm font-black text-white shadow-xl shadow-primary/25 transition-all hover:-translate-y-0.5 hover:bg-primary/90 hover:shadow-2xl active:translate-y-0 sm:w-auto"
+      >
         + ADD NEW PRODUCT
-      </button>
+      </Link>
     </div>
   );
 };

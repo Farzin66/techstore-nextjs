@@ -9,9 +9,12 @@ import ProductInfo from "@/components/dashboard/products/add-products/ProductInf
 import { getCategories, CategoryResponse } from "@/app/services/categoryService";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { ProductFormData } from "@/types/dashboard/productForm";
 
 const AddProductPage = () => {
+  const router = useRouter();
+
   const [categories, setCategories] = useState<CategoryResponse[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -64,22 +67,7 @@ const AddProductPage = () => {
 
       console.log("Product created:", data);
 
-      alert("Product published successfully!");
-
-      setFormData({
-        name: "",
-        brand: "",
-        description: "",
-        mainImage: "",
-        images: [],
-        price: "",
-        regularPrice: "",
-        category: "",
-        stock: "",
-        code: "",
-        keyFeatures: [],
-        technicalSpecifications: [],
-      });
+      router.push("/dashboard/products");
     } catch (error) {
       console.error("Publish product error:", error);
       alert("Failed to publish product.");
@@ -140,4 +128,3 @@ const AddProductPage = () => {
 };
 
 export default AddProductPage;
-

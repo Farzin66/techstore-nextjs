@@ -10,7 +10,7 @@ import InfoSection from "@/components/home/InfoSection";
 
 
 const Home = () => {
-  return <div>
+  return <div className="p-5">
     <Hero/>
     <BrandSection/>
     <div className="container-custom py-12 lg:py-16 relative z-20 flex flex-col gap-12 lg:gap-16">
