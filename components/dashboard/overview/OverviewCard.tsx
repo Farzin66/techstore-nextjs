@@ -1,12 +1,17 @@
 import { LucideIcon } from "lucide-react";
-interface OverviewCardProps{
+interface OverviewCardProps {
   icon: LucideIcon;
   badgeValue: string;
   label: string;
   value: string;
 }
 
-const OverviewCard = ({icon, badgeValue, label, value}: OverviewCardProps) => {
+const OverviewCard = ({
+  icon,
+  badgeValue,
+  label,
+  value,
+}: OverviewCardProps) => {
   const Icon = icon;
 
   return (

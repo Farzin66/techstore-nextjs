@@ -10,7 +10,7 @@ const OverviewStockProtocol = ({
 }: OverviewStockProtocolProps) => {
 
   const productList = Array.isArray(products) ? products : [];
-  const lowStockProducts = [...productList]
+  const lowestStockProducts = [...productList]
     .sort((a, b) => a.stock - b.stock)
     .slice(0, 2);
 
@@ -27,7 +27,7 @@ const OverviewStockProtocol = ({
       </div>
 
       <div className="space-y-6">
-        {lowStockProducts.map((product) => {
+        {lowestStockProducts.map((product) => {
           const isLowStock = product.stock <= 5;
 
           return (

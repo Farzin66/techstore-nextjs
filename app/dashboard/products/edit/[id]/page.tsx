@@ -92,8 +92,6 @@ const EditProductPage = () => {
 
       setProduct(data);
 
-      alert("Product updated successfully!");
-
       router.push("/dashboard/products");
     } catch (error) {
       console.error("Update product error:", error);

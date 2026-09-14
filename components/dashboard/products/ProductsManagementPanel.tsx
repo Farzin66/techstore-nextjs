@@ -1,6 +1,6 @@
 "use client";
 
-import { Search, Eye, Edit2, Trash2, Filter, ChevronDown } from "lucide-react";
+import { Search, Eye, Edit2, Trash2 , ChevronDown } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Product } from "@/types/products/products";
@@ -204,9 +204,6 @@ const ProductsManagementPanel = () => {
 
                   <td className="px-5 py-5 text-right sm:px-6">
                     <div className="flex items-center justify-end gap-3 text-gray-400">
-                      <button className="hover:text-primary">
-                        <Eye className="h-4 w-4" />
-                      </button>
 
                       <button
                         onClick={() =>

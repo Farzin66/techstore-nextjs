@@ -1,5 +1,3 @@
-"use client";
-
 import { TrendingUp } from "lucide-react";
 import { Order } from "@/app/services/orderService";
 import { formatPrice } from "@/lib/formatPrice";
@@ -8,9 +6,7 @@ interface OverviewRevenueStreamProps {
   orders: Order[];
 }
 
-const OverviewRevenueStream = ({
-  orders,
-}: OverviewRevenueStreamProps) => {
+const OverviewRevenueStream = ({ orders }: OverviewRevenueStreamProps) => {
   const today = new Date();
 
   const dailyRevenue = Array.from({ length: 7 }, (_, index) => {
@@ -35,10 +31,7 @@ const OverviewRevenueStream = ({
     };
   });
 
-  const maxRevenue = Math.max(
-    ...dailyRevenue.map((item) => item.revenue),
-    1,
-  );
+  const maxRevenue = Math.max(...dailyRevenue.map((item) => item.revenue), 1);
 
   return (
     <div className="rounded-3xl border border-gray-100 bg-white p-6 shadow-sm sm:p-8">

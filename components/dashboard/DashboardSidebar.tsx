@@ -20,7 +20,7 @@ const DashboardSidebar = () => {
   const role = session?.user?.role;
 
   return (
-    <aside className="w-72 rounded-2xl bg-white mb-10 border border-gray-100 flex flex-col">
+    <aside className="w-full lg:w-72 rounded-2xl bg-white mb-10 border border-gray-100 flex flex-col">
       {/* Brand */}
       <div className="h-24 px-6 flex flex-col justify-center border-b border-gray-100">
         <Logo />
@@ -36,7 +36,7 @@ const DashboardSidebar = () => {
         <div className="space-y-1">
           <Link
             className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-gray-600 hover:bg-gray-50 font-medium text-base transition-colors"
-            href="/dashboard"
+            href="/dashboard/overview"
           >
             <LayoutDashboard size={20} />
             Overview

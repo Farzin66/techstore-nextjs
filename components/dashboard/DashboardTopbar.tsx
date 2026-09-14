@@ -1,4 +1,5 @@
-import { Store } from "lucide-react";
+import { ArrowLeft, Store } from "lucide-react";
+import Link from "next/link";
 
 const DashboardTopbar = () => {
   return (
@@ -12,11 +13,12 @@ const DashboardTopbar = () => {
         </p>
       </div>
 
-      <div className="flex items-center gap-2 rounded-xl border border-gray-100 px-3 py-2">
-        <Store className="h-4 w-4 text-primary" />
-        <span className="text-xs font-bold text-gray-500">
-          Store Admin
-        </span>
+      <div className="flex items-center gap-4 rounded-xl border border-gray-100 px-3 py-2">
+        <Store className="h-5 w-5" />
+        <Link className="flex items-center gap-2 text-sm text-primary" href="/products">
+          <ArrowLeft />
+          Back to Store
+        </Link>
       </div>
     </div>
   );
