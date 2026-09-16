@@ -1,30 +1,39 @@
+
+import { cookies } from "next/headers";
+
 export interface OrderItem {
-product: string;
-name: string;
-quantity: number;
-price: number;
+  product: string;
+  name: string;
+  quantity: number;
+  price: number;
 }
 
 export interface Order {
-_id: string;
-items: OrderItem[];
-totalPrice: number;
-paymentMethod: string;
-paymentStatus: string;
-status: string;
-createdAt: string;
+  _id: string;
+  items: OrderItem[];
+  totalPrice: number;
+  paymentMethod: string;
+  paymentStatus: string;
+  status: string;
+  createdAt: string;
 }
 
 export async function getOrders(): Promise<Order[]> {
-const response = await fetch("http://localhost:3000/api/orders", {
-cache: "no-store",
-});
+  const cookieStore = await cookies();
 
-if (!response.ok) {
-throw new Error(
-`Error fetching orders: ${response.status} ${response.statusText}`
-);
+  const response = await fetch("http://localhost:3000/api/orders", {
+    cache: "no-store",
+    headers: {
+      Cookie: cookieStore.toString(),
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error(
+      `Error fetching orders: ${response.status} ${response.statusText}`,
+    );
+  }
+
+  return response.json();
 }
 
-return response.json();
-}

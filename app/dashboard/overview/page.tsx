@@ -13,15 +13,15 @@ import { getProducts } from "@/app/services/productService";
 const DashboardOverviewPage = async () => {
   const orders = await getOrders();
   const users = await getUsers();
-  const products = await getProducts(undefined, undefined, undefined, undefined, undefined, 1, 100);
-  console.log("TOTAL:", products.totalProducts);
-console.log("PRODUCTS:", products.products.length);
-console.log(
-  products.products.map((product) => ({
-    name: product.name,
-    stock: product.stock,
-  }))
-);
+  const products = await getProducts(
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    1,
+    100,
+  );
   const totalRevenue = orders.reduce(
     (total, order) => total + order.totalPrice,
     0,

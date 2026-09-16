@@ -90,6 +90,8 @@ const Navbar = () => {
     }
   };
 
+  const userRole = session?.user?.role || "user";
+
   return (
     <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-xl transition-all duration-300">
       {/* Main container */}
@@ -201,7 +203,7 @@ const Navbar = () => {
                     </p>
 
                     <p className="text-[9px] font-bold uppercase tracking-widest text-primary">
-                      User
+                      {userRole}
                     </p>
                   </div>
                 </button>
@@ -227,9 +229,9 @@ const Navbar = () => {
                         </div>
                       </div>
 
-                      <span className="mt-4 inline-flex items-center gap-1.5 rounded-lg bg-primary/10 px-3 py-1.5 text-[9px] font-black uppercase tracking-widest text-primary">
+                      <span className="mt-4 inline-flex items-center gap-1.5 rounded-lg bg-primary/10 px-3 py-1.5 text-[9px] font-black tracking-widest text-primary uppercase">
                         <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                        User
+                        {userRole}
                       </span>
                     </div>
 

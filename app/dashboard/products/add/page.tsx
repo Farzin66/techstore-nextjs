@@ -65,7 +65,7 @@ const AddProductPage = () => {
         throw new Error(data.error || "Failed to create product");
       }
 
-      console.log("Product created:", data);
+
 
       router.push("/dashboard/products");
     } catch (error) {

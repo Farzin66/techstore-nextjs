@@ -8,7 +8,6 @@ const DashboardOrdersPage = async () => {
 
   return (
     <div className="mx-auto mb-10 w-full max-w-7xl space-y-6 px-6">
-      {" "}
       <OrdersBanner />
       <OrderManagementSection orders={orders} />
     </div>

@@ -7,10 +7,27 @@ import { authOptions } from "@/lib/auth";
 export async function POST(req: Request) {
   try {
     await connectDB();
+
     const session = await getServerSession(authOptions);
     const body = await req.json();
-    const { items, totalPrice, shippingInfo, paymentMethod, paymentStatus } = body;
-    const { name, phone, city, area, address, landmark, addressType } = shippingInfo;
+
+    const {
+      items,
+      totalPrice,
+      shippingInfo,
+      paymentMethod,
+      paymentStatus,
+    } = body;
+
+    const {
+      name,
+      phone,
+      city,
+      area,
+      address,
+      landmark,
+      addressType,
+    } = shippingInfo;
 
     const order = await Order.create({
       items,
@@ -26,51 +43,54 @@ export async function POST(req: Request) {
       },
       paymentMethod: paymentMethod || "cod",
       paymentStatus: paymentStatus || "Pending",
-      status: (paymentMethod === "cod" || !paymentMethod) ? "Pending" : "Awaiting Payment",
-      user: session?.user?.id || null, // Optional for guest
+      status:
+        paymentMethod === "cod" || !paymentMethod
+          ? "Pending"
+          : "Awaiting Payment",
+      user: session?.user?.id || null,
     });
 
     return NextResponse.json(order, { status: 201 });
   } catch (error) {
-    return NextResponse.json({ message: "Error creating order" }, { status: 500 });
+    return NextResponse.json(
+      { message: "Error creating order" },
+      { status: 500 },
+    );
   }
 }
-
-// export async function GET(req: Request) {
-//   try {
-//     await connectDB();
-//     const session = await getServerSession(authOptions);
-    
-//     if (!session) {
-//       return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
-//     }
-
-//     const isAdmin = ["super-admin", "admin", "manager"].includes(session.user.role as string);
-
-//     if (isAdmin) {
-//       const orders = await Order.find().sort({ createdAt: -1 });
-//       return NextResponse.json(orders);
-//     }
-
-//     // Regular users only see their own orders
-//     const orders = await Order.find({ user: session.user.id }).sort({ createdAt: -1 });
-//     return NextResponse.json(orders);
-//   } catch (error) {
-//     return NextResponse.json({ message: "Error fetching orders" }, { status: 500 });
-//   }
-// }
 
 export async function GET(req: Request) {
   try {
     await connectDB();
 
-    const orders = await Order.find().sort({ createdAt: -1 });
+    const session = await getServerSession(authOptions);
+
+    if (!session) {
+      return NextResponse.json(
+        { message: "Unauthorized" },
+        { status: 401 },
+      );
+    }
+
+    const adminRoles = ["super-admin", "admin", "manager"];
+    const isAdmin = adminRoles.includes(session.user.role as string);
+
+    if (isAdmin) {
+      const orders = await Order.find().sort({ createdAt: -1 });
+
+      return NextResponse.json(orders);
+    }
+
+    const orders = await Order.find({
+      user: session.user.id,
+    }).sort({ createdAt: -1 });
 
     return NextResponse.json(orders);
   } catch (error) {
     return NextResponse.json(
       { message: "Error fetching orders" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
+

@@ -12,8 +12,6 @@ import {
 } from "lucide-react";
 import { useMemo, useState } from "react";
 
-
-
 interface OrderManagementSectionProps {
   orders: Order[];
 }
@@ -224,16 +222,18 @@ const OrderManagementSection = ({ orders }: OrderManagementSectionProps) => {
           {filteredOrders.length === 1 ? "RESULT" : "RESULTS"} FOUND
         </div>
         {/* Orders */}
-        <div className="mt-4 space-y-2">
-          {filteredOrders.length === 0 ? (
-            <div className="py-12 text-center text-sm font-medium text-gray-400">
-              No orders found.
-            </div>
-          ) : (
-            filteredOrders.map((order) => (
-              <OrderRow key={order._id} order={order} />
-            ))
-          )}
+        <div className="mt-4 overflow-x-auto">
+          <div className="min-w-[900px] space-y-2">
+            {filteredOrders.length === 0 ? (
+              <div className="py-12 text-center text-sm font-medium text-gray-400">
+                No orders found.
+              </div>
+            ) : (
+              filteredOrders.map((order) => (
+                <OrderRow key={order._id} order={order} />
+              ))
+            )}
+          </div>
         </div>
       </div>
     </div>
