@@ -17,12 +17,14 @@ export async function GET(req: Request) {
     const sort = searchParams.get("sort") || "newest";
     const minPrice = searchParams.get("minPrice");
     const maxPrice = searchParams.get("maxPrice");
-
     const query: any = {};
-    const categoryDoc = await Category.findOne({ slug: category });
 
-    if (categoryDoc) {
-      query.category = categoryDoc._id;
+    if (category) {
+      const categoryDoc = await Category.findOne({ slug: category });
+
+      if (categoryDoc) {
+        query.category = categoryDoc._id;
+      }
     }
     if (search) {
       query.name = { $regex: search, $options: "i" };
@@ -35,13 +37,13 @@ export async function GET(req: Request) {
     }
     let sortOption: any = { createdAt: -1, _id: -1 };
 
-if (sort === "price-asc") {
-  sortOption = { price: 1, _id: 1 };
-} else if (sort === "price-desc") {
-  sortOption = { price: -1, _id: -1 };
-} else if (sort === "newest") {
-  sortOption = { createdAt: -1, _id: -1 };
-}
+    if (sort === "price-asc") {
+      sortOption = { price: 1, _id: 1 };
+    } else if (sort === "price-desc") {
+      sortOption = { price: -1, _id: -1 };
+    } else if (sort === "newest") {
+      sortOption = { createdAt: -1, _id: -1 };
+    }
 
     const totalProducts = await Product.countDocuments(query);
     const products = await Product.find(query)
@@ -49,7 +51,6 @@ if (sort === "price-asc") {
       .sort(sortOption)
       .skip(skip)
       .limit(limit);
-
 
     // Make sure all products have a consistent image format, even for older items
     const migratedProducts = products.map((p) => {
@@ -87,24 +88,24 @@ export async function POST(req: Request) {
 
     const data = await req.json();
 
-const slug = data.name
-  .toLowerCase()
-  .trim()
-  .replace(/[^\w\s-]/g, "")
-  .replace(/\s+/g, "-");
+    const slug = data.name
+      .toLowerCase()
+      .trim()
+      .replace(/[^\w\s-]/g, "")
+      .replace(/\s+/g, "-");
 
-data.slug = slug;
+    data.slug = slug;
 
-await connectDB();
+    await connectDB();
 
-const newProduct = await Product.create(data);
+    const newProduct = await Product.create(data);
     return NextResponse.json(newProduct, { status: 201 });
   } catch (error) {
-  console.error("CREATE PRODUCT ERROR:", error);
+    console.error("CREATE PRODUCT ERROR:", error);
 
-  return NextResponse.json(
-    { error: "Internal Server Error" },
-    { status: 500 },
-  );
-}
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 },
+    );
+  }
 }

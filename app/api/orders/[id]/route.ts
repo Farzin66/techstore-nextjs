@@ -14,10 +14,7 @@ export async function GET(
     const session = await getServerSession(authOptions);
 
     if (!session) {
-      return NextResponse.json(
-        { message: "Unauthorized" },
-        { status: 401 },
-      );
+      return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
     }
 
     const { id } = await params;
@@ -25,10 +22,7 @@ export async function GET(
     const order = await Order.findById(id).populate("user", "name email");
 
     if (!order) {
-      return NextResponse.json(
-        { message: "Order not found" },
-        { status: 404 },
-      );
+      return NextResponse.json({ message: "Order not found" }, { status: 404 });
     }
 
     const adminRoles = ["super-admin", "admin", "manager"];
@@ -36,10 +30,7 @@ export async function GET(
     const isOwner = order.user?.toString() === session.user.id;
 
     if (!isAdmin && !isOwner) {
-      return NextResponse.json(
-        { message: "Forbidden" },
-        { status: 403 },
-      );
+      return NextResponse.json({ message: "Forbidden" }, { status: 403 });
     }
 
     return NextResponse.json(order);
@@ -65,30 +56,21 @@ export async function PATCH(
     const session = await getServerSession(authOptions);
 
     if (!session) {
-      return NextResponse.json(
-        { message: "Unauthorized" },
-        { status: 401 },
-      );
+      return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
     }
 
     const order = await Order.findById(id);
 
     if (!order) {
-      return NextResponse.json(
-        { message: "Order not found" },
-        { status: 404 },
-      );
+      return NextResponse.json({ message: "Order not found" }, { status: 404 });
     }
 
     const adminRoles = ["super-admin", "admin", "manager"];
     const isAdmin = adminRoles.includes(session.user.role as string);
-   const isOwner = order.user?.toString() === session.user.id;
+    const isOwner = order.user?.toString() === session.user.id;
 
     if (!isAdmin && !isOwner) {
-      return NextResponse.json(
-        { message: "Forbidden" },
-        { status: 403 },
-      );
+      return NextResponse.json({ message: "Forbidden" }, { status: 403 });
     }
 
     const updateData: any = {};
@@ -106,14 +88,10 @@ export async function PATCH(
         updateData.paymentStatus = paymentStatus;
       }
     }
-const updatedOrder = await Order.findByIdAndUpdate(
-  id,
-  updateData,
-  {
-    new: true,
-    runValidators: true,
-  },
-);
+    const updatedOrder = await Order.findByIdAndUpdate(id, updateData, {
+      new: true,
+      runValidators: true,
+    });
 
     return NextResponse.json(updatedOrder);
   } catch (error) {
@@ -123,4 +101,3 @@ const updatedOrder = await Order.findByIdAndUpdate(
     );
   }
 }
-

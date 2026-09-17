@@ -2,7 +2,7 @@ import { BookOpenText } from "lucide-react"
 
 const SettingsDescription = () => {
   return (
-    <div className="relative mb-6 items-center justify-between overflow-hidden rounded-3xl border border-gray-100 bg-white px-6 py-8 shadow-sm sm:px-8 sm:py-10">
+    <div className="relative mb-6 overflow-hidden rounded-3xl border border-gray-100 bg-white px-6 py-8 shadow-sm sm:px-8 sm:py-10">
       <div className="flex items-center gap-2 mb-10 text-primary">
         <div>
           <BookOpenText/>
