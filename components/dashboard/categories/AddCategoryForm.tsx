@@ -32,7 +32,13 @@ interface Category {
   productCount: number;
 }
 
-const AddCategoryForm = () => {
+interface AddCategoryFormProps {
+  onCategoryCreated: () => void;
+}
+
+const AddCategoryForm = ({
+  onCategoryCreated,
+}: AddCategoryFormProps) => {
   const [name, setName] = useState("");
   const [parent, setParent] = useState("");
   const [selectedIcon, setSelectedIcon] = useState("LayoutGrid");
@@ -112,7 +118,7 @@ const AddCategoryForm = () => {
       setParent("");
       setSelectedIcon("LayoutGrid");
 
-      window.location.reload();
+      onCategoryCreated();
     } catch (error) {
       console.error("Create category error:", error);
       alert(
@@ -208,3 +214,4 @@ const AddCategoryForm = () => {
 };
 
 export default AddCategoryForm;
+

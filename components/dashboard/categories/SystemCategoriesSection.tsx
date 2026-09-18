@@ -1,6 +1,12 @@
 "use client";
 
-import { Camera, LayoutGrid, Pencil, Smartphone, Trash2 } from "lucide-react";
+import {
+  Camera,
+  LayoutGrid,
+  Pencil,
+  Smartphone,
+  Trash2,
+} from "lucide-react";
 import { useEffect, useState } from "react";
 
 interface Category {
@@ -12,13 +18,19 @@ interface Category {
   productCount: number;
 }
 
+interface SystemCategoriesSectionProps {
+  refreshKey: number;
+}
+
 const iconMap: Record<string, React.ElementType> = {
   Camera,
   Smartphone,
   LayoutGrid,
 };
 
-const SystemCategoriesSection = () => {
+const SystemCategoriesSection = ({
+  refreshKey,
+}: SystemCategoriesSectionProps) => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -41,7 +53,7 @@ const SystemCategoriesSection = () => {
 
   useEffect(() => {
     fetchCategories();
-  }, []);
+  }, [refreshKey]);
 
   const handleDelete = async (id: string) => {
     const confirmed = window.confirm(
@@ -155,3 +167,4 @@ const SystemCategoriesSection = () => {
 };
 
 export default SystemCategoriesSection;
+

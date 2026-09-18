@@ -9,14 +9,24 @@ export async function GET(req: Request) {
   try {
     await connectDB();
     const { searchParams } = new URL(req.url);
+
     const category = searchParams.get("category");
     const search = searchParams.get("search");
-    const page = parseInt(searchParams.get("page") || "1");
-    const limit = parseInt(searchParams.get("limit") || "8");
+
+    const parsedPage = parseInt(searchParams.get("page") || "1", 10);
+    const page = Number.isNaN(parsedPage) ? 1 : Math.max(1, parsedPage);
+
+    const parsedLimit = parseInt(searchParams.get("limit") || "8", 10);
+    const limit = Number.isNaN(parsedLimit)
+      ? 8
+      : Math.min(100, Math.max(1, parsedLimit));
+
     const skip = (page - 1) * limit;
+
     const sort = searchParams.get("sort") || "newest";
     const minPrice = searchParams.get("minPrice");
     const maxPrice = searchParams.get("maxPrice");
+
     const query: any = {};
 
     if (category) {

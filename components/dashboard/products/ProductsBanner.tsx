@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const ProductsBanner = () => {
   return (
-    <div className="relative mb-6 flex items-center justify-between overflow-hidden px-6 py-8 sm:px-8 sm:py-10">
+    <div className="relative mb-6 flex flex-col items-start justify-between gap-4 overflow-hidden px-6 py-8 sm:flex-row sm:items-center sm:px-8 sm:py-10">
       <div className="relative z-10">
         <h1 className="text-2xl font-black tracking-tight text-[#1E293B] sm:text-3xl">
           Product Inventory
@@ -24,3 +24,4 @@ const ProductsBanner = () => {
 };
 
 export default ProductsBanner;
+
