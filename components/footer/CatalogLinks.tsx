@@ -4,7 +4,7 @@ import  Link  from "next/link";
 const CatalogLinks = () => {
   return (
     <div>
-        <h3 className="text-white font-black text-sm uppercase tracking-widest mb-8">Support</h3>
+        <h3 className="text-white font-black text-sm uppercase tracking-widest mb-8">CATALOG</h3>
         <ul className='space-y-4 text-sm font-medium'>
           {
             catalogLinks.map(({id, label, href})=>(
