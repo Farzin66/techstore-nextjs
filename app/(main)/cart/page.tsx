@@ -1,6 +1,5 @@
 import CartItems from "@/components/cart/CartItems";
 import CartSummary from "@/components/cart/CartSummary";
-import EmptyCart from "@/components/cart/EmptyCart";
 import { Zap } from "lucide-react";
 
 const page = () => {

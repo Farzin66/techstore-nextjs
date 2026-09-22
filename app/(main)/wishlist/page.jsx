@@ -7,8 +7,9 @@ import WishlistItems from "@/components/wishlist/WishlistItems";
 import useWishlistStore from "@/app/stores/wishlist-store";
 
 const page = () => {
-  const isEmpty = false;
+  const wishlist = useWishlistStore((state) => state.wishlist);
   const clearWishlist = useWishlistStore((state)=> state.clearWishlist);
+  const isEmpty = wishlist.length === 0;
 
   return (
     <main className="bg-[#F8FAFC] min-h-screen py-16">
@@ -32,6 +33,7 @@ const page = () => {
             !isEmpty && (
               <button 
                 onClick={()=>{clearWishlist()}}
+                type="button"
                 className="flex justify-between gap-2 border p-3 bg-gray-100 border-danger text-danger rounded-lg transition-transform duration-300 ease-in-out hover:scale-105">
                 <Trash2/>
                 Clear Favorites

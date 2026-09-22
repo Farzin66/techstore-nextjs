@@ -13,7 +13,7 @@ const page = () => {
         <h2 className="text-3xl font-black text-slate-900 mb-4 uppercase tracking-tight">
           Forgot Password ?
         </h2>
-        <p className="textext-slate-500 font-medium mb-10 leading-relaxed italic">
+        <p className="text-slate-500 font-medium mb-10 leading-relaxed italic">
           No worries. Enter your email and we'll send you a 6-digit code to
           reset your password.
         </p>
@@ -24,7 +24,7 @@ const page = () => {
             </label>
             <div className="relative group">
                 <Mail className="w-5 h-5 absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors"/>
-                <input required className="w-full pl-14 pr-6 py-4 bg-slate-50 rounded-2xl border-2 border-transparent focus:bg-white focus:border-primary/20 focus:ring-4 focus:ring-primary/5 transition-all font-bold text-slate-900 placeholder:text-slate-300 placeholder:font-medium" placeholder="you@example.com" type="email" value=""></input>
+                <input required className="w-full pl-14 pr-6 py-4 bg-slate-50 rounded-2xl border-2 border-transparent focus:bg-white focus:border-primary/20 focus:ring-4 focus:ring-primary/5 transition-all font-bold text-slate-900 placeholder:text-slate-300 placeholder:font-medium" placeholder="you@example.com" type="email"></input>
             </div>
           </div>
           <button

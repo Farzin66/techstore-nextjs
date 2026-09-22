@@ -9,7 +9,10 @@ interface FAQItemProps {
 const FAQItem = ({ faq, isOpen }: FAQItemProps) => {
   return (
     <div className="border-b border-gray-50 last:border-0 pb-4">
-      <button className="w-full flex items-center justify-between py-4 text-left group">
+      <button
+        type="button"
+        className="w-full flex items-center justify-between py-4 text-left group"
+      >
         <span className="font-bold transition-colors text-gray-600 group-hover:text-primary">
           {faq.question}
         </span>

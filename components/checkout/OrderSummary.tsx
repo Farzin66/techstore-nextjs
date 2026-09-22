@@ -50,7 +50,7 @@ const OrderSummary = () => {
             </div>
 
             <span className="text-sm font-bold text-slate-900">
-              ৳{formatPrice(item.product.price)}
+              ৳{formatPrice(item.product.price * item.quantity)}
             </span>
           </div>
         ))}
@@ -89,7 +89,7 @@ const OrderSummary = () => {
       </div>
 
       <div className="h-px bg-gray-100 my-6" />
-      
+
       {/* Trust Information */}
       <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-gray-400">
         <div className="flex items-center gap-1.5">

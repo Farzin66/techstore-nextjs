@@ -27,6 +27,7 @@ const page = () => {
         <div className="flex flex-col gap-3">
           <button
             onClick={() => router.push('/track-order')}
+            type="button"
             className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3.5 rounded-xl transition-all"
           >
             Track My Order
@@ -34,6 +35,7 @@ const page = () => {
           
           <button
             onClick={() => router.push('/products')}
+            type="button"
             className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-3.5 rounded-xl transition-all"
           >
             Continue Shopping

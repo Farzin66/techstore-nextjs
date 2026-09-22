@@ -20,6 +20,7 @@ const page = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -105,7 +106,7 @@ const page = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     className="w-full pl-14 pr-14 py-4 bg-slate-50 rounded-2xl border-2 border-transparent focus:bg-white focus:border-primary/20 focus:ring-4 focus:ring-primary/5 transition-all font-bold text-slate-900 placeholder:text-slate-300"
                     placeholder="••••••••"
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                   ></input>
                   {error && (
                     <p className="text-sm text-red-500 font-bold">
@@ -114,6 +115,7 @@ const page = () => {
                   )}
                   <button
                     type="button"
+                    onClick={() => setShowPassword((prev) => !prev)}
                     className="absolute right-5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-primary transition-colors cursor-pointer"
                   >
                     <Eye className="w-[20px] h-[20px]" />
@@ -170,7 +172,7 @@ const page = () => {
                         src="/login-quote.webp"
                         alt="Sarah J."
                         fill
-                        sizes="100vw"
+                        sizes="48px"
                         className="object-cover"
                       />
                     </div>

@@ -65,6 +65,7 @@ const PageSectionNavigation = ({
         return (
           <button
             key={section.id}
+            type="button"
             onClick={() => handleClick(section.sectionId)}
             className={`w-full flex items-center justify-between px-4 py-3 rounded-2xl transition-all duration-300 group
               ${

@@ -35,36 +35,35 @@ const VerifyOtpPage = () => {
 
       console.log("Verification successful:", data);
       router.push("/login");
-      
     } catch (error) {
       console.error("Verification error:", error);
     }
   };
 
   const handleResendOtp = async () => {
-  try {
-    const response = await fetch("/api/auth/resend-otp", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-      }),
-    });
+    try {
+      const response = await fetch("/api/auth/resend-otp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+        }),
+      });
 
-    const data = await response.json();
+      const data = await response.json();
 
-    if (!response.ok) {
-      console.log("Resend failed:", data.message);
-      return;
+      if (!response.ok) {
+        console.log("Resend failed:", data.message);
+        return;
+      }
+
+      console.log("Resend successful:", data.message);
+    } catch (error) {
+      console.error("Resend error:", error);
     }
-
-    console.log("Resend successful:", data.message);
-  } catch (error) {
-    console.error("Resend error:", error);
-  }
-};
+  };
 
   return (
     <div className="min-h-[90vh] w-full flex items-center justify-center bg-[#fafafa] py-12 px-4 sm:px-6 relative overflow-hidden font-sans">
@@ -86,10 +85,12 @@ const VerifyOtpPage = () => {
           <div className="flex justify-between gap-2 sm:gap-3">
             <input
               type="text"
-              placeholder=" Enter your 6-digit code "
+              inputMode="numeric"
+              pattern="[0-9]*"
+              placeholder="Enter your 6-digit code"
               required
               maxLength={6}
-              onChange={(e) => setOtp(e.target.value)}
+              onChange={(e) => setOtp(e.target.value.replace(/\D/g, ""))}
               value={otp}
               className="w-[80%] max-w-md mx-auto h-14 sm:h-16 text-center text-2xl font-black bg-slate-50 border-2 border-transparent rounded-2xl focus:bg-white focus:border-primary/20 focus:ring-4 focus:ring-primary/5 transition-all text-slate-900"
             />
@@ -108,8 +109,9 @@ const VerifyOtpPage = () => {
           </p>
           <button
             type="button"
-            onClick={handleResendOtp} 
-            className="flex items-center justify-center gap-2 mx-auto font-bold text-primary disabled:text-slate-300 transition-colors group">
+            onClick={handleResendOtp}
+            className="flex items-center justify-center gap-2 mx-auto font-bold text-primary disabled:text-slate-300 transition-colors group"
+          >
             <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" />
             Resend New Code
           </button>

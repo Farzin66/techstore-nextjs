@@ -1,6 +1,5 @@
 import {
   ArrowRight,
-  ChevronRight,
   CircleCheck,
   Mail,
   Shield,

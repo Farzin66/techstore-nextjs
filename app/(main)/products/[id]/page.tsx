@@ -24,7 +24,7 @@ const page = async ({params}:ParamsID) => {
         <div className="flex items-center gap-2 text-[10px] sm:text-xs text-gray-500 mb-6 sm:mb-8 overflow-x-auto whitespace-nowrap py-3 no-scrollbar border-b border-gray-100 sm:border-0 px-2 sm:px-0">
           <Link href="/" className="hover:text-primary transition-colors flex-shrink-0">Home</Link>
           <ChevronRight className="w-[10px] h-[10px] flex-shrink-0"/>
-          <Link href="/" className="hover:text-primary transition-colors flex-shrink-0">Products</Link>
+          <Link href="/products" className="hover:text-primary transition-colors flex-shrink-0">Products</Link>
           <ChevronRight className="w-[10px] h-[10px] flex-shrink-0"/>
           <span className="text-gray-400 flex-shrink-0">{goalProduct.category.name}</span>
           <ChevronRight className="w-[10px] h-[10px] flex-shrink-0"/>

@@ -11,23 +11,15 @@ export async function POST(req: Request) {
     const session = await getServerSession(authOptions);
     const body = await req.json();
 
-    const {
-      items,
-      totalPrice,
-      shippingInfo,
-      paymentMethod,
-      paymentStatus,
-    } = body;
+    const { items, totalPrice, shippingInfo, paymentMethod, paymentStatus } =
+      body;
 
-    const {
-      name,
-      phone,
-      city,
-      area,
-      address,
-      landmark,
-      addressType,
-    } = shippingInfo;
+    if (!Array.isArray(items) || items.length === 0) {
+      return NextResponse.json({ message: "Cart is empty" }, { status: 400 });
+    }
+
+    const { name, phone, city, area, address, landmark, addressType } =
+      shippingInfo;
 
     const order = await Order.create({
       items,
@@ -66,10 +58,7 @@ export async function GET(req: Request) {
     const session = await getServerSession(authOptions);
 
     if (!session) {
-      return NextResponse.json(
-        { message: "Unauthorized" },
-        { status: 401 },
-      );
+      return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
     }
 
     const adminRoles = ["super-admin", "admin", "manager"];
@@ -93,4 +82,3 @@ export async function GET(req: Request) {
     );
   }
 }
-

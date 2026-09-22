@@ -1,4 +1,5 @@
 "use client";
+
 import useCartStore from "@/app/stores/cart-store";
 import useWishlistStore from "@/app/stores/wishlist-store";
 import { formatPrice } from "@/lib/formatPrice";
@@ -16,28 +17,28 @@ const ProductCard = ({ product, view }: ProductCardProps) => {
   const isGrid = view === "grid";
 
   const cardClass = isGrid
-    ? "group relative bg-white rounded-lg border border-gray-50 overflow-hidden transition-all duration-300 flex flex-col h-full hover:shadow-lg"
-    : "group relative bg-white rounded-lg border border-gray-50 overflow-hidden transition-all duration-300 flex flex-row hover:shadow-lg";
+    ? "group relative flex h-full flex-col overflow-hidden rounded-lg border border-gray-50 bg-white transition-all duration-300 hover:shadow-lg"
+    : "group relative flex flex-row overflow-hidden rounded-lg border border-gray-50 bg-white transition-all duration-300 hover:shadow-lg";
 
   const imageWrapperClass = isGrid
-    ? "relative aspect-[5/4] overflow-hidden bg-white border-b border-gray-50 flex items-center justify-center"
-    : "relative w-64 min-w-64 aspect-[5/4] overflow-hidden bg-white border-r border-gray-50 flex items-center justify-center";
+    ? "relative flex aspect-[5/4] items-center justify-center overflow-hidden border-b border-gray-50 bg-white"
+    : "relative flex aspect-[5/4] w-64 min-w-64 items-center justify-center overflow-hidden border-r border-gray-50 bg-white";
 
   const contentClass = isGrid
-    ? "p-3 flex flex-col flex-grow"
-    : "flex-1 p-6 flex flex-col justify-between";
+    ? "flex flex-grow flex-col p-3"
+    : "flex flex-1 flex-col justify-between p-6";
 
   const titleClass = isGrid
-    ? "text-[13px] font-bold text-slate-800 mb-2 group-hover:text-primary transition-colors line-clamp-2 leading-tight h-8"
-    : "text-xl font-bold text-slate-800 mb-3 group-hover:text-primary transition-colors";
+    ? "mb-2 h-8 line-clamp-2 text-[13px] font-bold leading-tight text-slate-800 transition-colors group-hover:text-primary"
+    : "mb-3 text-xl font-bold text-slate-800 transition-colors group-hover:text-primary";
 
   const priceSectionClass = isGrid
-    ? "mt-auto pt-2 flex items-center justify-between"
+    ? "mt-auto flex items-center justify-between pt-2"
     : "mt-6 flex items-center justify-between";
 
   const buttonClass = isGrid
-    ? "p-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-primary hover:text-white transition-all"
-    : "p-3 bg-gray-100 text-gray-600 rounded-xl hover:bg-primary hover:text-white transition-all";
+    ? "rounded-lg bg-gray-100 p-2 text-gray-600 transition-all hover:bg-primary hover:text-white"
+    : "rounded-xl bg-gray-100 p-3 text-gray-600 transition-all hover:bg-primary hover:text-white";
 
   const wishlist = useWishlistStore((state) => state.wishlist);
   const toggleWishlist = useWishlistStore((state) => state.toggleWishlist);
@@ -47,63 +48,72 @@ const ProductCard = ({ product, view }: ProductCardProps) => {
 
   return (
     <div className={cardClass}>
-      <div className="absolute top-2 left-2 z-20 pointer-events-none">
-        <div className="bg-discount text-white px-3 py-1 rounded-full text-[10px] font-bold shadow-sm">
+      <div className="pointer-events-none absolute left-2 top-2 z-20">
+        <div className="rounded-full bg-discount px-3 py-1 text-[10px] font-bold text-white shadow-sm">
           Save: ৳{formatPrice(product.regularPrice - product.price)}
         </div>
       </div>
-      <div className="absolute top-2 right-2 z-20">
+
+      <div className="absolute right-2 top-2 z-20">
         <button
+          type="button"
           onClick={() => toggleWishlist(product)}
-          className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white/90 backdrop-blur-sm border border-gray-100 shadow-sm text-gray-300 hover:text-red-500"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-100 bg-white/90 text-gray-300 shadow-sm backdrop-blur-sm transition-all hover:text-red-500"
         >
           <Heart
-            className={`w-[18px] h-[18px] ${isInWishlist ? "text-red-500 fill-red-500" : "text-gray-300"}`}
+            className={`h-[18px] w-[18px] ${
+              isInWishlist ? "fill-red-500 text-red-500" : "text-gray-300"
+            }`}
           />
         </button>
       </div>
+
       <Link href={`/products/${product._id}`} className={imageWrapperClass}>
         <Image
           src={product.mainImage}
           alt={product.name}
-          priority={true}
           sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 20vw"
           fill
-          className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+          className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
         />
       </Link>
+
       <div className={contentClass}>
-        <div className="flex items-center justify-between mb-1.5">
-          <span className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">
+        <div className="mb-1.5 flex items-center justify-between">
+          <span className="text-[9px] font-bold uppercase tracking-wider text-gray-400">
             {product.name}
           </span>
+
           <div className="flex items-center gap-1">
-            <Star className="w-[9px] h-[9px] fill-yellow-400 text-yellow-400" />
-            <span className="text-[10px] text-gray-600 font-bold">
+            <Star className="h-[9px] w-[9px] fill-yellow-400 text-yellow-400" />
+
+            <span className="text-[10px] font-bold text-gray-600">
               {product.avgRating}
             </span>
           </div>
         </div>
+
         <Link href={`/products/${product._id}`} className={titleClass}>
           {product.name}
         </Link>
+
         <div className={priceSectionClass}>
           <div className="flex flex-col">
             <span className="text-base font-bold text-danger">
               ৳{formatPrice(product.price)}
             </span>
+
             <span className="text-[10px] text-gray-400 line-through">
               ৳{formatPrice(product.regularPrice)}
             </span>
           </div>
+
           <button
+            type="button"
+            onClick={() => addToCart(product)}
             className={buttonClass}
-            // onClick={() => addToCart(product)}
-            onClick={() => {
-              addToCart(product);
-            }}
           >
-            <ShoppingCart className="w-4 h-4" />
+            <ShoppingCart className="h-4 w-4" />
           </button>
         </div>
       </div>

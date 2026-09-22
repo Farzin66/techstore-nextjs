@@ -1,7 +1,5 @@
 import {
-ArrowUpDown,
 LayoutGrid,
-ChevronDown
 } from "lucide-react";
 import ProductCard from "../ui/ProductCard";
 import { getProducts } from "@/app/services/productService";

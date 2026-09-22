@@ -25,6 +25,7 @@ const WishlistItemCard = ({product}: WishlistItemCardProps) => {
         </div>
         <button 
           onClick={()=>{removeFromWishlist(product._id)}}
+          type="button"
           className="w-10 h-10 rounded-full flex items-center justify-center transition-all bg-white/90 backdrop-blur-sm border border-gray-100 shadow-sm text-gray-300 hover:text-red-500">
           <Heart 
             className="w-4 h-4 text-red-500 fill-red-500"/>
@@ -37,7 +38,6 @@ const WishlistItemCard = ({product}: WishlistItemCardProps) => {
         <Image
           src={product.mainImage}
           alt={product.name}
-          priority={true}
           sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 20vw"
           fill
           className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"

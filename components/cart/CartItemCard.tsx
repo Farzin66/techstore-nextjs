@@ -37,7 +37,6 @@ const increaseQuantity = () => {
         <Image
           src={product.mainImage!}
           alt={product.name!}
-          priority={true}
           sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 20vw"
           width={120}
           height={120}
@@ -55,6 +54,7 @@ const increaseQuantity = () => {
           <div className="flex items-center border border-gray-200 rounded-lg overflow-hidden h-12 sm:h-14 w-44 shadow-sm bg-white">
             <button
               disabled={quantity <= 1}
+              type="button"
               onClick={decreaseQuantity}
               className="w-12 sm:w-16 h-full border-r border-gray-100 flex items-center justify-center text-lg sm:text-xl font-bold transition-all duration-200 hover:bg-gray-50 active:scale-95 disabled:bg-gray-50 disabled:text-gray-300 disabled:cursor-not-allowed disabled:hover:bg-gray-50 disabled:active:scale-100"
             >
@@ -65,6 +65,7 @@ const increaseQuantity = () => {
             </span>
             <button
               disabled={quantity >= product.stock!}
+              type="button"
               onClick={increaseQuantity}
               className="w-12 sm:w-16 h-full border-l border-gray-100 flex items-center justify-center text-lg sm:text-xl font-bold transition-all duration-200 hover:bg-gray-50 active:scale-95 disabled:bg-gray-50 disabled:text-gray-300 disabled:cursor-not-allowed disabled:hover:bg-gray-50 disabled:active:scale-100"
             >

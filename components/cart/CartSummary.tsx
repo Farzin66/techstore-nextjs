@@ -54,6 +54,7 @@ const CartSummary = () => {
 
       <button
         onClick={()=>{router.push(`/checkout`)}} 
+        type="button"
         className="w-full mt-8 py-4 rounded-2xl bg-primary hover:bg-primary-dark transition-colors text-white font-black uppercase tracking-[2px] shadow-xl shadow-primary/20">
         Checkout Now
       </button>

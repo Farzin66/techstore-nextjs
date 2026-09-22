@@ -13,7 +13,9 @@ const LiveChatCard = () => {
         Our expert engineers are online right now to solve your hardware
         queries.
       </p>
-      <button className="w-full py-4 bg-white text-primary rounded-2xl text-[10px] font-black uppercase tracking-widest shadow-xl hover:-translate-y-1 active:scale-95 transition-all">
+      <button 
+        type="button"
+        className="w-full py-4 bg-white text-primary rounded-2xl text-[10px] font-black uppercase tracking-widest shadow-xl hover:-translate-y-1 active:scale-95 transition-all">
         Start Live Chat
       </button>
     </div>
